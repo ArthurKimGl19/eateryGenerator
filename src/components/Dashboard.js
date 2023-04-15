@@ -5,7 +5,13 @@ import data from '../data/data-eatery.json'
 export default function Dashboard() {
     const [initialData, setInitialData] = React.useState(() => data);
     const [eateries, setEateries] = React.useState({});
-    const [randomEatery, setRandomEatery] = React.useState(null);
+    const [randomEatery, setRandomEatery] = React.useState({
+        name: null,
+        type: null,
+        rating: null,
+        dollar_sign: null,
+        zip_code: null
+    });
 
     React.useEffect(() => {
         cleanUpData(initialData);
@@ -22,17 +28,19 @@ export default function Dashboard() {
         min = Math.ceil(min);
         max = Math.floor(max);
         const randomNumber = Math.floor(Math.random() * (max - min) + min);
-        setRandomEatery(JSON.stringify(eateries[randomNumber]));
+        setRandomEatery(eateries[randomNumber]);
     }
 
-    console.log("eateries", eateries)
     const eateryCount = Object.keys(eateries).length;
+    const { name, type, rating, dollar_sign, address, zip_code } = randomEatery;
+    console.log('random', randomEatery);
+    console.log('name, type, rating, dollar_sign, address, zip_code', name, type, rating, dollar_sign, address, zip_code)
     return (
         <div>
             <h1>Dashboard title</h1>
             <div>Dashboard</div>
             <Randomizer randomizeEatery={() => eateryRandomizer(0, eateryCount)}/>
-            <Result randomEatery={randomEatery}/>
+            <Result name={name} type={type} rating={rating} dollar_sign={dollar_sign} address={address} zip_code={zip_code}/>
             {JSON.stringify(eateries, 2, null)}
         </div>
     );
