@@ -1,15 +1,15 @@
+import React from 'react'
 import './App.css';
-import Randomizer from "./components/Randomizer";
-import Result from "./components/Result"
+import Dashboard from './components/Dashboard';
+
 
 function App() {
-  return (
-    <div className="App">
-      App
-        <Randomizer />
-        <Result />
-    </div>
-  );
+    return (
+        <div className="App">
+            App
+            <Dashboard />
+        </div>
+    );
 }
 
 export default App;
