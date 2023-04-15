@@ -1,352 +1,402 @@
 [
   {
-    "Name": "lacha somutm",
-    "Type": "thai",
-    "Rating": 4.6,
-    "Dollar Sign": 1,
-    "Zip Code": 90027
+    "name": "lacha somutm",
+    "type": "thai",
+    "rating": 4.6,
+    "dollar_sign": 1,
+    "address": "5171 hollywood blvd",
+    "zip_code": 90027
   },
   {
-    "Name": "taron bakery",
-    "Type": "armenian",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 90027
+    "name": "taron bakery",
+    "type": "armenian",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "4950 hollywood blvd",
+    "zip_code": 90027
   },
   {
-    "Name": "chuan chim thai cafe",
-    "Type": "thai",
-    "Rating": 4.6,
-    "Dollar Sign": 1,
-    "Zip Code": 90028
+    "name": "chuan chim thai cafe",
+    "type": "thai",
+    "rating": 4.6,
+    "dollar_sign": 1,
+    "address": "5644 hollywood blvd",
+    "zip_code": 90028
   },
   {
-    "Name": "natalie peruvian seafood restaurant",
-    "Type": "seafood",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 90028
+    "name": "natalie peruvian seafood restaurant",
+    "type": "seafood",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "5759 hollywood blvd",
+    "zip_code": 90028
   },
   {
-    "Name": "siam sunset",
-    "Type": "thai",
-    "Rating": 4.6,
-    "Dollar Sign": 1,
-    "Zip Code": 90027
+    "name": "siam sunset",
+    "type": "thai",
+    "rating": 4.6,
+    "dollar_sign": 1,
+    "address": "5265 sunset blvd",
+    "zip_code": 90027
   },
   {
-    "Name": "all time ",
-    "Type": "breakfast",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 90027
+    "name": "all time",
+    "type": "breakfast",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "2040 hillhurst ave",
+    "zip_code": 90027
   },
   {
-    "Name": "la rose cafe",
-    "Type": "filipino",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 90029
+    "name": "la rose cafe",
+    "type": "filipino",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "4749 fountain ave",
+    "zip_code": 90029
   },
   {
-    "Name": "tlayuda la restaurant",
-    "Type": "mexican",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 90029
+    "name": "tlayuda la restaurant",
+    "type": "mexican",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "5450 santa monica blvd",
+    "zip_code": 90029
   },
   {
-    "Name": "dear bella creamery",
-    "Type": "ice cream",
-    "Rating": 4.6,
-    "Dollar Sign": 1,
-    "Zip Code": 90038
+    "name": "dear bella creamery",
+    "type": "ice cream",
+    "rating": 4.6,
+    "dollar_sign": 1,
+    "address": "1253 vine st #12",
+    "zip_code": 90038
   },
   {
-    "Name": "musso & frank grill",
-    "Type": "american",
-    "Rating": 4.6,
-    "Dollar Sign": 3,
-    "Zip Code": 90028
+    "name": "musso & frank grill",
+    "type": "american",
+    "rating": 4.6,
+    "dollar_sign": 3,
+    "address": "6667 hollywood blvd",
+    "zip_code": 90028
   },
   {
-    "Name": "el churrasco chapin",
-    "Type": "guatemalan",
-    "Rating": 4.4,
-    "Dollar Sign": 1,
-    "Zip Code": 90029
+    "name": "el churrasco chapin",
+    "type": "guatemalan",
+    "rating": 4.4,
+    "dollar_sign": 1,
+    "address": "820 n western ave",
+    "zip_code": 90029
   },
   {
-    "Name": "le coupe",
-    "Type": "chicken",
-    "Rating": 4.7,
-    "Dollar Sign": 1,
-    "Zip Code": 90029
+    "name": "le coupe",
+    "type": "chicken",
+    "rating": 4.7,
+    "dollar_sign": 1,
+    "address": "709 n western ave",
+    "zip_code": 90029
   },
   {
-    "Name": "luv2eat thai bistro",
-    "Type": "thai",
-    "Rating": 4.5,
-    "Dollar Sign": 2,
-    "Zip Code": 90028
+    "name": "luv2eat thai bistro",
+    "type": "thai",
+    "rating": 4.5,
+    "dollar_sign": 2,
+    "address": "6660 sunset blvd",
+    "zip_code": 90028
   },
   {
-    "Name": "ramen tatsunoya",
-    "Type": "ramen",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 90026
+    "name": "ramen tatsunoya",
+    "type": "ramen",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "3440 sunset blvd",
+    "zip_code": 90026
   },
   {
-    "Name": "wow choripan",
-    "Type": "argentinian",
-    "Rating": 4.6,
-    "Dollar Sign": 1,
-    "Zip Code": 90004
+    "name": "wow choripan",
+    "type": "argentinian",
+    "rating": 4.6,
+    "dollar_sign": 1,
+    "address": "375 n western ave",
+    "zip_code": 90004
   },
   {
-    "Name": "all day baby",
-    "Type": "breakfast",
-    "Rating": 4.2,
-    "Dollar Sign": 1,
-    "Zip Code": 90026
+    "name": "all day baby",
+    "type": "breakfast",
+    "rating": 4.2,
+    "dollar_sign": 1,
+    "address": "3200 susnset blvd",
+    "zip_code": 90026
   },
   {
-    "Name": "saikai ramen bar",
-    "Type": "ramen",
-    "Rating": 4.8,
-    "Dollar Sign": 2,
-    "Zip Code": 90004
+    "name": "saikai ramen bar",
+    "type": "ramen",
+    "rating": 4.8,
+    "dollar_sign": 2,
+    "address": "209 n western ave #b",
+    "zip_code": 90004
   },
   {
-    "Name": "astro family restaurant",
-    "Type": "diner",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 90039
+    "name": "astro family restaurant",
+    "type": "diner",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "2300 fletcher dr",
+    "zip_code": 90039
   },
   {
-    "Name": "daybird",
-    "Type": "chicken",
-    "Rating": 4.8,
-    "Dollar Sign": 1,
-    "Zip Code": 90004
+    "name": "daybird",
+    "type": "chicken",
+    "rating": 4.8,
+    "dollar_sign": 1,
+    "address": "240 n virgil ave suite 5",
+    "zip_code": 90004
   },
   {
-    "Name": "bodega park",
-    "Type": "sandwich",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 90026
+    "name": "bodega park",
+    "type": "sandwich",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "2852 sunset blvd",
+    "zip_code": 90026
   },
   {
-    "Name": "farina pizza",
-    "Type": "pizza",
-    "Rating": 4.8,
-    "Dollar Sign": 1,
-    "Zip Code": 90004
+    "name": "farina pizza",
+    "type": "pizza",
+    "rating": 4.8,
+    "dollar_sign": 1,
+    "address": "119 s western ave",
+    "zip_code": 90004
   },
   {
-    "Name": "oui melrose",
-    "Type": "restaurant",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 90038
+    "name": "oui melrose",
+    "type": "restaurant",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "6909 melrose ave",
+    "zip_code": 90038
   },
   {
-    "Name": "barn cafe and restaurant",
-    "Type": "restaurant",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 90004
+    "name": "barn cafe and restaurant",
+    "type": "restaurant",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "228 s oxford ave",
+    "zip_code": 90004
   },
   {
-    "Name": "all angolo pizza and pasta",
-    "Type": "pizza",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 90020
+    "name": "all angolo pizza and pasta",
+    "type": "pizza",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "4050 w 3rd st",
+    "zip_code": 90020
   },
   {
-    "Name": "mini kabob",
-    "Type": "armenian",
-    "Rating": 4.8,
-    "Dollar Sign": 2,
-    "Zip Code": 91204
+    "name": "mini kabob",
+    "type": "armenian",
+    "rating": 4.8,
+    "dollar_sign": 2,
+    "address": "313 1/2 vine st",
+    "zip_code": 91204
   },
   {
-    "Name": "dollar hits",
-    "Type": "filipino",
-    "Rating": 4.4,
-    "Dollar Sign": 1,
-    "Zip Code": 90026
+    "name": "dollar hits",
+    "type": "filipino",
+    "rating": 4.4,
+    "dollar_sign": 1,
+    "address": "2432 w temple st",
+    "zip_code": 90026
   },
   {
-    "Name": "mensch bakery",
-    "Type": "bakery",
-    "Rating": 4.6,
-    "Dollar Sign": 2,
-    "Zip Code": 90036
+    "name": "mensch bakery",
+    "type": "bakery",
+    "rating": 4.6,
+    "dollar_sign": 2,
+    "address": "7122 beverly blvd",
+    "zip_code": 90036
   },
   {
-    "Name": "foxy's restaurant",
-    "Type": "american",
-    "Rating": 4.5,
-    "Dollar Sign": 1,
-    "Zip Code": 91204
+    "name": "foxy's restaurant",
+    "type": "american",
+    "rating": 4.5,
+    "dollar_sign": 1,
+    "address": "206 w colorado st",
+    "zip_code": 91204
   },
   {
-    "Name": "kubo restaurant",
-    "Type": "filipino",
-    "Rating": 4.1,
-    "Dollar Sign": 1,
-    "Zip Code": 90026
+    "name": "kubo restaurant",
+    "type": "filipino",
+    "rating": 4.1,
+    "dollar_sign": 1,
+    "address": "2330 w temple st",
+    "zip_code": 90026
   },
   {
-    "Name": "yakis the original teriyaki",
-    "Type": "restaurant",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 91506
+    "name": "yakis the original teriyaki",
+    "type": "restaurant",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "904 w alameda ave",
+    "zip_code": 91506
   },
   {
-    "Name": "maxs restaurant",
-    "Type": "filipino",
-    "Rating": 4.2,
-    "Dollar Sign": 2,
-    "Zip Code": 91204
+    "name": "maxs restaurant",
+    "type": "filipino",
+    "rating": 4.2,
+    "dollar_sign": 2,
+    "address": "313 w broadway",
+    "zip_code": 91204
   },
   {
-    "Name": "bea beas",
-    "Type": "breakfast",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 91203
+    "name": "bea beas",
+    "type": "breakfast",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "301 n central ave",
+    "zip_code": 91203
   },
   {
-    "Name": "monta factory",
-    "Type": "restaurant",
-    "Rating": 4.7,
-    "Dollar Sign": 1,
-    "Zip Code": 91201
+    "name": "monta factory",
+    "type": "restaurant",
+    "rating": 4.7,
+    "dollar_sign": 1,
+    "address": "1208 w glenoaks blvd",
+    "zip_code": 91201
   },
   {
-    "Name": "sasoun bakery",
-    "Type": "bakery",
-    "Rating": 4.7,
-    "Dollar Sign": 1,
-    "Zip Code": 91205
+    "name": "sasoun bakery",
+    "type": "bakery",
+    "rating": 4.7,
+    "dollar_sign": 1,
+    "address": "625 e colorado st",
+    "zip_code": 91205
   },
   {
-    "Name": "nerssess vanak restaurant",
-    "Type": "persian",
-    "Rating": 4.5,
-    "Dollar Sign": 2,
-    "Zip Code": 91201
+    "name": "nerssess vanak restaurant",
+    "type": "persian",
+    "rating": 4.5,
+    "dollar_sign": 2,
+    "address": "6524 san fernando rd",
+    "zip_code": 91201
   },
   {
-    "Name": "cofax",
-    "Type": "cafe",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 90036
+    "name": "cofax",
+    "type": "cafe",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "440 n fairfax ave",
+    "zip_code": 90036
   },
   {
-    "Name": "little ongpin",
-    "Type": "filipino",
-    "Rating": 3.9,
-    "Dollar Sign": 1,
-    "Zip Code": 90026
+    "name": "little ongpin",
+    "type": "filipino",
+    "rating": 3.9,
+    "dollar_sign": 1,
+    "address": "1700 beverly blvd",
+    "zip_code": 90026
   },
   {
-    "Name": "button mash",
-    "Type": "tacos",
-    "Rating": 4.5,
-    "Dollar Sign": 2,
-    "Zip Code": 90026
+    "name": "button mash",
+    "type": "tacos",
+    "rating": 4.5,
+    "dollar_sign": 2,
+    "address": "1391 sunset blvd",
+    "zip_code": 90026
   },
   {
-    "Name": "corner cottage",
-    "Type": "breakfast",
-    "Rating": 4.6,
-    "Dollar Sign": 1,
-    "Zip Code": 91502
+    "name": "corner cottage",
+    "type": "breakfast",
+    "rating": 4.6,
+    "dollar_sign": 1,
+    "address": "310 s vicotry blvd",
+    "zip_code": 91502
   },
   {
-    "Name": "guelaguetza restaurant",
-    "Type": "mexican",
-    "Rating": 4.3,
-    "Dollar Sign": 2,
-    "Zip Code": 90006
+    "name": "guelaguetza restaurant",
+    "type": "mexican",
+    "rating": 4.3,
+    "dollar_sign": 2,
+    "address": "3014 w olympic blvd",
+    "zip_code": 90006
   },
   {
-    "Name": "carribean soul kitchen la",
-    "Type": "caribbean",
-    "Rating": 4.7,
-    "Dollar Sign": 2,
-    "Zip Code": 90036
+    "name": "carribean soul kitchen la",
+    "type": "caribbean",
+    "rating": 4.7,
+    "dollar_sign": 2,
+    "address": "5354 wilshire blvd",
+    "zip_code": 90036
   },
   {
-    "Name": "langers deli",
-    "Type": "deli",
-    "Rating": 4.6,
-    "Dollar Sign": 2,
-    "Zip Code": 90057
+    "name": "langers deli",
+    "type": "deli",
+    "rating": 4.6,
+    "dollar_sign": 2,
+    "address": "704 s alvarado",
+    "zip_code": 90057
   },
   {
-    "Name": "met her at a bar",
-    "Type": "cafe",
-    "Rating": 4.6,
-    "Dollar Sign": 1,
-    "Zip Code": 90036
+    "name": "met her at a bar",
+    "type": "cafe",
+    "rating": 4.6,
+    "dollar_sign": 1,
+    "address": "759 s la brea",
+    "zip_code": 90036
   },
   {
-    "Name": "the parks finest",
-    "Type": "filipino",
-    "Rating": 4.5,
-    "Dollar Sign": 2,
-    "Zip Code": 90026
+    "name": "the parks finest",
+    "type": "filipino",
+    "rating": 4.5,
+    "dollar_sign": 2,
+    "address": "1267 w temple st",
+    "zip_code": 90026
   },
   {
-    "Name": "valerie confections",
-    "Type": "chocolate cafe",
-    "Rating": 4.3,
-    "Dollar Sign": 3,
-    "Zip Code": 91201
+    "name": "valerie confections",
+    "type": "chocolate cafe",
+    "rating": 4.3,
+    "dollar_sign": 3,
+    "address": "1936 w glenoaks blvd",
+    "zip_code": 91201
   },
   {
-    "Name": "luton bahay restaurant",
-    "Type": "filipino",
-    "Rating": 4.2,
-    "Dollar Sign": 1,
-    "Zip Code": 90065
+    "name": "lutong bahay restaurant",
+    "type": "filipino",
+    "rating": 4.2,
+    "dollar_sign": 1,
+    "address": "3756 w ave 40",
+    "zip_code": 90065
   },
   {
-    "Name": "auntie dees pan de manila",
-    "Type": "bakery",
-    "Rating": 4.3,
-    "Dollar Sign": 1,
-    "Zip Code": 90065
+    "name": "auntie dees pan de manila",
+    "type": "bakery",
+    "rating": 4.3,
+    "dollar_sign": 1,
+    "address": "3756 w ave 40 #1g",
+    "zip_code": 90065
   },
   {
-    "Name": "irvs burgers",
-    "Type": "hamburger",
-    "Rating": 4.4,
-    "Dollar Sign": 1,
-    "Zip Code": 90019
+    "name": "irvs burgers",
+    "type": "hamburger",
+    "rating": 4.4,
+    "dollar_sign": 1,
+    "address": "1000 s la brea ave",
+    "zip_code": 90019
   },
   {
-    "Name": "kusina filipina los angeles",
-    "Type": "filipino",
-    "Rating": 4.2,
-    "Dollar Sign": 2,
-    "Zip Code": 90065
+    "name": "kusina filipina los angeles",
+    "type": "filipino",
+    "rating": 4.2,
+    "dollar_sign": 2,
+    "address": "4157 eagle rock blvd",
+    "zip_code": 90065
   },
   {
-    "Name": "la cevicheria",
-    "Type": "seafood",
-    "Rating": 4.4,
-    "Dollar Sign": 2,
-    "Zip Code": 90019
+    "name": "la cevicheria",
+    "type": "seafood",
+    "rating": 4.4,
+    "dollar_sign": 2,
+    "address": "3809 w pico blvd",
+    "zip_code": 90019
   }
 ]
