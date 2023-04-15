@@ -9,8 +9,9 @@ export default function Dashboard() {
 
     React.useEffect(() => {
         cleanUpData(initialData);
-    }, [])
+    }, [initialData])
     function cleanUpData (data){
+        //format data from array of objects into an object with keys as stringified indexes and values as objects
         const output = {};
         data.forEach((eatery, index) => {
             output[index] = eatery;
@@ -25,11 +26,12 @@ export default function Dashboard() {
     }
 
     console.log("eateries", eateries)
+    const eateryCount = Object.keys(eateries).length;
     return (
         <div>
             <h1>Dashboard title</h1>
             <div>Dashboard</div>
-            <Randomizer />
+            <Randomizer randomizeEatery={() => eateryRandomizer(0, eateryCount)}/>
             <Result randomEatery={randomEatery}/>
             {JSON.stringify(eateries, 2, null)}
         </div>
