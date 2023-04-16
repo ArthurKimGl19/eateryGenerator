@@ -1,6 +1,8 @@
 import React from 'react';
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
+import History from '../History/History';
+
 import data from '../../data/data-eatery.json';
 export default function Dashboard() {
     const [initialData, setInitialData] = React.useState(() => data); // eslint-disable-line
@@ -12,6 +14,7 @@ export default function Dashboard() {
         dollarSign: '',
         zipCode: ''
     });
+    const [history, setHistory] = React.useState([]);
 
     const cleanUpData = function (data) {
         //format data from array of objects into an object with keys as stringified indexes and values as objects
@@ -26,6 +29,7 @@ export default function Dashboard() {
         max = Math.floor(max);
         const randomNumber = Math.floor(Math.random() * (max - min) + min);
         setRandomEatery(eateries[randomNumber]);
+        setHistory([...history, eateries[randomNumber]]);
     };
 
     React.useEffect(() => {
@@ -47,7 +51,8 @@ export default function Dashboard() {
                 address={address}
                 zipCode={zipCode}
             />
-            {JSON.stringify(eateries, 2, null)}
+            <History history={history} />
+            {JSON.stringify(history, 2, null)}
         </>
     );
 }
