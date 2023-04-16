@@ -1,7 +1,7 @@
 import React from 'react';
 import Randomizer from '../Randomizer/Randomizer';
-import Result from '../Result/Result'
-import data from '../../data/data-eatery.json'
+import Result from '../Result/Result';
+import data from '../../data/data-eatery.json';
 export default function Dashboard() {
     const [initialData, setInitialData] = React.useState(() => data);
     const [eateries, setEateries] = React.useState({});
@@ -15,8 +15,8 @@ export default function Dashboard() {
 
     React.useEffect(() => {
         cleanUpData(initialData);
-    }, [initialData])
-    function cleanUpData (data){
+    }, [initialData]);
+    function cleanUpData(data) {
         //format data from array of objects into an object with keys as stringified indexes and values as objects
         const output = {};
         data.forEach((eatery, index) => {
@@ -24,7 +24,7 @@ export default function Dashboard() {
         });
         setEateries(output);
     }
-    function eateryRandomizer(min, max){
+    function eateryRandomizer(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         const randomNumber = Math.floor(Math.random() * (max - min) + min);
@@ -33,14 +33,19 @@ export default function Dashboard() {
 
     const eateryCount = Object.keys(eateries).length;
     const { name, type, rating, dollar_sign, address, zip_code } = randomEatery;
-    console.log('random', randomEatery);
-    console.log('name, type, rating, dollar_sign, address, zip_code', name, type, rating, dollar_sign, address, zip_code)
     return (
         <div>
             <h1>Dashboard title</h1>
             <div>Dashboard</div>
-            <Randomizer randomizeEatery={() => eateryRandomizer(0, eateryCount)}/>
-            <Result name={name} type={type} rating={rating} dollar_sign={dollar_sign} address={address} zip_code={zip_code}/>
+            <Randomizer randomizeEatery={() => eateryRandomizer(0, eateryCount)} />
+            <Result
+                name={name}
+                type={type}
+                rating={rating}
+                dollar_sign={dollar_sign}
+                address={address}
+                zip_code={zip_code}
+            />
             {JSON.stringify(eateries, 2, null)}
         </div>
     );
