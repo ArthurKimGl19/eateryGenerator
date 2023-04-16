@@ -4,15 +4,30 @@ import Result from '../Result/Result';
 import History from '../History/History';
 
 import data from '../../data/data-eatery.json';
+
+const decodeLocalStorageKey = function (key) {
+    try {
+        return JSON.parse(localStorage.getItem(key));
+    } catch (e) {
+        return localStorage.getItem(key);
+    }
+};
+const useLocalStorage = function (key, value) {
+    const [state, setState] = React.useState(() =>
+        localStorage.getItem(key) ? decodeLocalStorageKey(key) : value
+    );
+    React.useEffect(() => {
+        if (typeof state === 'object') {
+            localStorage.setItem(key, JSON.stringify(state));
+        } else {
+            localStorage.setItem(key, state);
+        }
+    }, [state]);
+    return [state, setState];
+};
 export default function Dashboard() {
-    {/* prettier-ignore */}
-    const [initialData, setInitialData] = React.useState(() => // eslint-disable-line
-        localStorage.getItem('initialData') ? JSON.parse(localStorage.getItem('initialData')) : data
-    );
-    {/* prettier-ignore */}
-    const [eateries, setEateries] = React.useState(() =>
-        localStorage.getItem('eateries') ? JSON.parse(localStorage.getItem('eateries')) : {}
-    );
+    const [initialData, setInitialData] = useLocalStorage('initialData', data); // eslint-disable-line
+    const [eateries, setEateries] = useLocalStorage('eateries', {});
     const [randomEatery, setRandomEatery] = React.useState({
         name: '',
         type: '',
@@ -20,9 +35,7 @@ export default function Dashboard() {
         dollarSign: 0,
         zipCode: 0
     });
-    const [history, setHistory] = React.useState(() =>
-        localStorage.getItem('history') ? JSON.parse(localStorage.getItem('history')) : []
-    );
+    const [history, setHistory] = useLocalStorage('history', []);
 
     //format data from array of objects into an object with keys as stringified indexes and values as objects
     const cleanUpData = function (data) {
@@ -43,21 +56,11 @@ export default function Dashboard() {
 
     const clearHistory = function () {
         setHistory([]);
-        localStorage.setItem('history', JSON.stringify([]));
     };
 
     React.useEffect(() => {
-        localStorage.setItem('initialData', JSON.stringify(initialData));
         cleanUpData(initialData);
-    }, [initialData]);
-
-    React.useEffect(() => {
-        localStorage.setItem('history', JSON.stringify(history));
-    }, [history]);
-
-    React.useEffect(() => {
-        localStorage.setItem('eateries', JSON.stringify(eateries));
-    }, [eateries]);
+    }, []);
 
     const eateryCount = Object.keys(eateries).length;
     const { name, type, rating, dollarSign, address, zipCode } = randomEatery;
