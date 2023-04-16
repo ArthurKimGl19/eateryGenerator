@@ -5,9 +5,11 @@ import History from '../History/History';
 
 import data from '../../data/data-eatery.json';
 export default function Dashboard() {
+    {/* prettier-ignore */}
     const [initialData, setInitialData] = React.useState(() => // eslint-disable-line
         localStorage.getItem('initialData') ? JSON.parse(localStorage.getItem('initialData')) : data
     );
+    {/* prettier-ignore */}
     const [eateries, setEateries] = React.useState(() =>
         localStorage.getItem('eateries') ? JSON.parse(localStorage.getItem('eateries')) : {}
     );
@@ -39,6 +41,11 @@ export default function Dashboard() {
         setHistory([...history, eateries[randomNumber]]);
     };
 
+    const clearHistory = function () {
+        setHistory([]);
+        localStorage.setItem('history', JSON.stringify([]));
+    };
+
     React.useEffect(() => {
         localStorage.setItem('initialData', JSON.stringify(initialData));
         cleanUpData(initialData);
@@ -67,7 +74,7 @@ export default function Dashboard() {
                 address={address}
                 zipCode={zipCode}
             />
-            <History history={history} />
+            <History history={history} clearHistory={clearHistory} />
             {JSON.stringify(history, 2, null)}
         </>
     );
