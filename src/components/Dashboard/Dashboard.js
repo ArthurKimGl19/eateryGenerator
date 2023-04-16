@@ -10,20 +10,23 @@ export default function Dashboard() {
     const [randomEatery, setRandomEatery] = React.useState({
         name: '',
         type: '',
-        rating: '',
-        dollarSign: '',
-        zipCode: ''
+        rating: 0,
+        dollarSign: 0,
+        zipCode: 0
     });
-    const [history, setHistory] = React.useState([]);
+    const [history, setHistory] = React.useState(() =>
+        localStorage.getItem('history') ? JSON.parse(localStorage.getItem('history')) : []
+    );
 
+    //format data from array of objects into an object with keys as stringified indexes and values as objects
     const cleanUpData = function (data) {
-        //format data from array of objects into an object with keys as stringified indexes and values as objects
         const output = {};
         data.forEach((eatery, index) => {
             output[index] = eatery;
         });
         setEateries(output);
     };
+    //randomize eatery selection from eateries
     const eateryRandomizer = function (min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -35,6 +38,10 @@ export default function Dashboard() {
     React.useEffect(() => {
         cleanUpData(initialData);
     }, [initialData]);
+
+    React.useEffect(() => {
+        localStorage.setItem('history', JSON.stringify(history));
+    }, [history]);
 
     const eateryCount = Object.keys(eateries).length;
     const { name, type, rating, dollarSign, address, zipCode } = randomEatery;

@@ -18,7 +18,7 @@ export default function Result({ name, type, rating, dollarSign, zipCode }) {
 Result.propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    dollarSign: PropTypes.string.isRequired,
-    zipCode: PropTypes.string.isRequired
+    rating: PropTypes.number.isRequired,
+    dollarSign: PropTypes.number.isRequired,
+    zipCode: PropTypes.number.isRequired
 };
