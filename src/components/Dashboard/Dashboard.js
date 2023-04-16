@@ -5,8 +5,12 @@ import History from '../History/History';
 
 import data from '../../data/data-eatery.json';
 export default function Dashboard() {
-    const [initialData, setInitialData] = React.useState(() => data); // eslint-disable-line
-    const [eateries, setEateries] = React.useState({});
+    const [initialData, setInitialData] = React.useState(() => // eslint-disable-line
+        localStorage.getItem('initialData') ? JSON.parse(localStorage.getItem('initialData')) : data
+    );
+    const [eateries, setEateries] = React.useState(() =>
+        localStorage.getItem('eateries') ? JSON.parse(localStorage.getItem('eateries')) : {}
+    );
     const [randomEatery, setRandomEatery] = React.useState({
         name: '',
         type: '',
@@ -36,12 +40,17 @@ export default function Dashboard() {
     };
 
     React.useEffect(() => {
+        localStorage.setItem('initialData', JSON.stringify(initialData));
         cleanUpData(initialData);
     }, [initialData]);
 
     React.useEffect(() => {
         localStorage.setItem('history', JSON.stringify(history));
     }, [history]);
+
+    React.useEffect(() => {
+        localStorage.setItem('eateries', JSON.stringify(eateries));
+    }, [eateries]);
 
     const eateryCount = Object.keys(eateries).length;
     const { name, type, rating, dollarSign, address, zipCode } = randomEatery;
