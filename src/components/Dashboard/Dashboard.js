@@ -1,7 +1,7 @@
 import React from 'react';
-import Randomizer from './Randomizer';
-import Result from './Result'
-import data from '../data/data-eatery.json'
+import Randomizer from '../Randomizer/Randomizer';
+import Result from '../Result/Result'
+import data from '../../data/data-eatery.json'
 export default function Dashboard() {
     const [initialData, setInitialData] = React.useState(() => data);
     const [eateries, setEateries] = React.useState({});
