@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
 
 export default function Randomizer({ randomizeEatery }) {
-    return (
-        <>
-            <h1>Randomizer title</h1>
-            <div>Randomizer</div>
-            <button onClick={randomizeEatery}>Randomize</button>
-        </>
-    );
+    return <Button onClick={randomizeEatery}>Randomize</Button>;
 }
 
 Randomizer.propTypes = {

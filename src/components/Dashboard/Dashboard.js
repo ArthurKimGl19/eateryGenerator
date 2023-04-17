@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-
+import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
 import History from '../History/History';
@@ -46,8 +47,23 @@ export default function Dashboard() {
     const { name, type, rating, dollarSign, address, zipCode } = randomEatery;
     return (
         <Container>
-            <h1>Dashboard title</h1>
-            <div>Dashboard</div>
+            <h1>Eatery Generator</h1>
+            <Card>
+                <Card.Body>
+                    Generate a random eatery from data set to eat at! Generated eatery will show
+                    name, type of food, rating, expensiveness, and address.
+                </Card.Body>
+                <Accordion>
+                    <Accordion.Header>How it works</Accordion.Header>
+                    <Accordion.Body>
+                        Please click the &quot;Randomize&quot; button below to generate a random
+                        eatery. Each randomly generated eatery will be stored and shown in the
+                        History section below. You can press &quot;Clear History&quot; to remove all
+                        previously generated eateries. You are also able to revisit this page in the
+                        future and see your previously generated eateries list.
+                    </Accordion.Body>
+                </Accordion>
+            </Card>
             <Randomizer randomizeEatery={eateryRandomizer} />
             <Result
                 name={name}
@@ -64,7 +80,6 @@ export default function Dashboard() {
                     dispatch(clearRandomEatery());
                 }}
             />
-            {JSON.stringify(history, 2, null)}
         </Container>
     );
 }
