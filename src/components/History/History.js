@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+
 import './History.css';
 
 export default function History({ history, clearHistory }) {
@@ -15,8 +17,8 @@ export default function History({ history, clearHistory }) {
         return result;
     };
     return (
-        <>
-            <h2>Randomizer History</h2>
+        <Container className="history-container">
+            <h4>History</h4>
             <Button className="history-button" onClick={clearHistory}>
                 Clear History
             </Button>
@@ -45,7 +47,7 @@ export default function History({ history, clearHistory }) {
                     })}
                 </tbody>
             </BTable>
-        </>
+        </Container>
     );
 }
 

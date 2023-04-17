@@ -1,5 +1,13 @@
+.history-container {
+    margin: 25px auto;
+}
+
 .history-button {
     cursor: pointer;
+}
+
+.history-table {
+    margin: 25px auto;
 }
 
 .history-table-header td {

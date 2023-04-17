@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
+
 import './Result.css';
 export default function Result({ name, type, rating, dollarSign, address, zipCode }) {
     const calculateDollarSign = (number) => {
