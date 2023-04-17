@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Result({ name, type, rating, dollarSign, zipCode }) {
-    return (
-        <>
-            <h1>Result Card title</h1>
-            <h2>Name: {name}</h2>
-            <div>Type: {type}</div>
-            <div>Rating: {rating}</div>
-            <div>Dollar Sign: {dollarSign}</div>
-            <div>Zip Code: {zipCode}</div>
-            {/*<div>random eatery: {randomEatery}</div>*/}
-        </>
-    );
+    if (name) {
+        return (
+            <>
+                <h1>Result Card title</h1>
+                <h2>Name: {name}</h2>
+                <div>Type: {type}</div>
+                <div>Rating: {rating}</div>
+                <div>Dollar Sign: {dollarSign}</div>
+                <div>Zip Code: {zipCode}</div>
+            </>
+        );
+    }
+    return null;
 }
 
 Result.propTypes = {

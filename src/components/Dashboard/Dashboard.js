@@ -31,10 +31,9 @@ import {
 //     return [state, setState];
 // };
 export default function Dashboard() {
-    const eateries = useSelector((state) => state.eateries);
+    // const eateries = useSelector((state) => state.eateries);
     const randomEatery = useSelector((state) => state.randomEatery);
     const history = useSelector((state) => state.history);
-    console.log('dashboard eateries', eateries);
     const dispatch = useDispatch();
     const eateryRandomizer = function () {
         dispatch(createRandomEatery());
@@ -46,7 +45,7 @@ export default function Dashboard() {
         <>
             <h1>Dashboard title</h1>
             <div>Dashboard</div>
-            <Randomizer randomizeEatery={() => dispatch(eateryRandomizer())} />
+            <Randomizer randomizeEatery={eateryRandomizer} />
             <Result
                 name={name}
                 type={type}

@@ -50,11 +50,7 @@ const eateriesSlice = createSlice({
     }
 });
 
-export const {
-    createRandomEatery,
-    updateHistory,
-    clearHistory,
-    clearRandomEatery,
-} = eateriesSlice.actions;
+export const { createRandomEatery, updateHistory, clearHistory, clearRandomEatery } =
+    eateriesSlice.actions;
 export default eateriesSlice.reducer;
 /* eslint-disable prettier/prettier */
