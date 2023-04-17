@@ -1,7 +1,10 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
 import History from '../History/History';
+
 import { useSelector, useDispatch } from 'react-redux';
 import {
     createRandomEatery,
@@ -42,7 +45,7 @@ export default function Dashboard() {
 
     const { name, type, rating, dollarSign, address, zipCode } = randomEatery;
     return (
-        <>
+        <Container>
             <h1>Dashboard title</h1>
             <div>Dashboard</div>
             <Randomizer randomizeEatery={eateryRandomizer} />
@@ -62,6 +65,6 @@ export default function Dashboard() {
                 }}
             />
             {JSON.stringify(history, 2, null)}
-        </>
+        </Container>
     );
 }
