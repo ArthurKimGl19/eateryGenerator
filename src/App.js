@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
 
-function App() {
+export default function App() {
     return (
         <div className="App">
             App
@@ -10,5 +10,3 @@ function App() {
         </div>
     );
 }
-
-export default App;
