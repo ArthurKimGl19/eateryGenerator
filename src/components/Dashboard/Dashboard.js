@@ -8,7 +8,7 @@ import {
     updateHistory,
     clearHistory,
     clearRandomEatery
-} from '../../redux/eateriesSlice';
+} from '../../redux/features/eateries/eateriesSlice';
 
 // const decodeLocalStorageKey = function (key) {
 //     try {

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import data from '../data/data-eatery.json';
+import data from '../../../data/data-eatery.json';
 
 /* eslint-disable prettier/prettier */
 

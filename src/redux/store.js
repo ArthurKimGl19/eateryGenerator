@@ -1,14 +1,19 @@
 /* eslint-disable prettier/prettier */
 
 import { configureStore } from '@reduxjs/toolkit';
-import eateriesReducer from './eateriesSlice';
+import eateriesReducer from './features/eateries/eateriesSlice';
+import { loadState, saveState } from '../localStorage/localStorageMethods';
 
 const store = configureStore({
-    reducer: eateriesReducer
+    reducer: eateriesReducer,
+    preloadedState: loadState()
 });
 
 // Can still subscribe to the store
-store.subscribe(() => console.log('redux store data', store.getState()));
+store.subscribe(() => {
+    console.log('redux store data', store.getState());
+    saveState(store.getState());
+});
 
 export default store;
 /* eslint-disable prettier/prettier */
