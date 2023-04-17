@@ -1,17 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Card from 'react-bootstrap/Card';
+import './Result.css';
 export default function Result({ name, type, rating, dollarSign, zipCode }) {
+    const calculateDollarSign = (number) => {
+        let result = '';
+        for (let i = 0; i < number; i++) {
+            result += '$';
+        }
+        return result;
+    };
     if (name) {
         return (
-            <>
-                <h1>Result Card title</h1>
-                <h2>Name: {name}</h2>
-                <div>Type: {type}</div>
-                <div>Rating: {rating}</div>
-                <div>Dollar Sign: {dollarSign}</div>
-                <div>Zip Code: {zipCode}</div>
-            </>
+            <Card border="secondary" className="result-card">
+                <Card.Header className="result-card-header">{name}</Card.Header>
+                <Card.Text className="result-card-text">
+                    <ul>Type: {type}</ul>
+                    <ul>Rating: {rating}</ul>
+                    <ul>Dollar Sign: {calculateDollarSign(dollarSign)}</ul>
+                    <ul>Zip Code: {zipCode}</ul>
+                </Card.Text>
+            </Card>
         );
     }
     return null;

@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BTable from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import PropTypes from 'prop-types';
 import './History.css';
 
 export default function History({ history, clearHistory }) {
@@ -17,7 +17,9 @@ export default function History({ history, clearHistory }) {
     return (
         <>
             <h2>Randomizer History</h2>
-            <Button onClick={clearHistory}>Clear History</Button>
+            <Button className="history-button" onClick={clearHistory}>
+                Clear History
+            </Button>
             <BTable striped bordered hover size="sm" className="history-table">
                 <thead>
                     <tr className="history-table-header">

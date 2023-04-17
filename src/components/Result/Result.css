@@ -1,0 +1,13 @@
+.result-card {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.result-card .result-card-header {
+    text-transform: capitalize;
+}
+
+.result-card .result-card-text {
+    text-transform: capitalize;
+}

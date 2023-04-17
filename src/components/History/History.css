@@ -1,3 +1,7 @@
+.history-button {
+    cursor: pointer;
+}
+
 .history-table-header td {
     text-transform: capitalize;
 }
