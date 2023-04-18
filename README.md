@@ -9,6 +9,7 @@ When a user clicks on the randomize button, an eatery is selected from the hasht
 Clicking the clear history button, will clear all previous choices.
 Data used within this app is stored in redux and persisted using localStorage.
 
+Next steps would be to not allow for duplicate restaurant choices as well as adding in unit and integration testing.
 
 ## Available Scripts
 
