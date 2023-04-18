@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Overview
+
+The application uses the data-eatery.json file to create a hashtable of possible eatery choices.
+When a user clicks on the randomize button, an eatery is selected from the hashtable and it is displayed as a card as well as added to the history table.
+Clicking the clear history button, will clear all previous choices.
+Data used within this app is stored in redux and persisted using localStorage.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -38,6 +46,16 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+### `npm run lint`
+### `npm run lint:fix`
+
+Run these two commands to run eslint on files. They will attempt to fix all problems in the code.
+
+### `npm run format`
+
+Run this to format relevant files with prettier.
+
 
 ## Learn More
 
