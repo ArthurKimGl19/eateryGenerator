@@ -16,7 +16,9 @@ const initialRandomEatery = {
     type: '',
     rating: 0,
     dollarSign: 0,
-    zipCode: 0
+    zipCode: 0,
+    address: '',
+    index: null
 };
 
 const initialState = {
@@ -35,6 +37,7 @@ const eateriesSlice = createSlice({
             const max = Object.keys(state.eateries).length;
             const randomNumber = Math.floor(Math.random() * (max - min) + min);
             const randomEatery = state.eateries[randomNumber];
+            randomEatery.index = randomNumber;
             state.randomEatery = randomEatery;
         },
         updateHistory: (state) => {
@@ -46,6 +49,10 @@ const eateriesSlice = createSlice({
         },
         clearRandomEatery: (state) => {
             state.randomEatery = initialRandomEatery;
+        },
+        removeFromEateries: (state, action) => {
+            const index = action.payload;
+            delete state.eateries[index];
         }
     }
 });
