@@ -24,6 +24,7 @@ Next steps:
 3. Create a script to automatically convert the csv to json
 4. Add in distance data to (could be tiers) from current location
 5. Create another button that will find eateries based on choice of distance
+6. Host via s3 bucket to use the application in real time
 
 ## Available Scripts
 
