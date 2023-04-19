@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Overview
 
+With over 300+ places I wanted to try, I decided to create this web app to be able to quickly come up with a location to try out.
+
 The application uses the data-eatery.json file to create a hashtable of possible eatery choices.
 When a user clicks on the randomize button, an eatery is selected from the hashtable and it is displayed as a card as well as added to the history table.
 Clicking the clear history button, will clear all previous choices.
