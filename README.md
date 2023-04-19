@@ -17,6 +17,8 @@ The application uses the data-eatery.json file to create a hashtable of possible
 When a user clicks on the randomize button, an eatery is selected from the hashtable and it is displayed as a card as well as added to the history table.
 Clicking the clear history button, will clear all previous choices.
 Data used within this app is stored in redux and persisted using localStorage.
+The main purpose of using redux was to showcase that I was able to use it.
+I initially created a customHook for usingLocalStorage within the Dashboard component and it would have sufficed for the purposes of this app to persist the data.
 
 Next steps:
 1. Create functionality to not allow for duplicate restaurant choices
