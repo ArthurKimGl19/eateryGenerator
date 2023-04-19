@@ -4,14 +4,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Overview
 
-With over 300+ places I wanted to try, I decided to create this web app to be able to quickly come up with a location to try out.
+With over 300+ eateries I wanted to try, I decided to create this web app to be able to quickly come up with a location to try out from this list.
+
+Currently, there isn't a great way to get the needed info out of Google Maps. 
+I can only export out data from the starred places list in Google Maps and not from other lists. 
+Also, the only relevant data present is Location Data, which has business name and address with no way to determine what type of business it is, etc.
+
+I found a potential solution: [Link](https://medium.com/codex/how-i-web-scraped-my-custom-google-maps-list-into-a-csv-file-eb1172a85bf4), which uses Selenium and Beautiful Soup, but it looked to be more time intensive than manually inputting data into a Google Sheet file and converting it into a json file.
+Considering how the list of places I want to try is not updated frequently, I decided to manually input the relevant data and convert it into a json file.
 
 The application uses the data-eatery.json file to create a hashtable of possible eatery choices.
 When a user clicks on the randomize button, an eatery is selected from the hashtable and it is displayed as a card as well as added to the history table.
 Clicking the clear history button, will clear all previous choices.
 Data used within this app is stored in redux and persisted using localStorage.
 
-Next steps would be to not allow for duplicate restaurant choices as well as adding in unit and integration testing.
+Next steps:
+1. Create functionality to not allow for duplicate restaurant choices
+2. Add in unit and integration testing
+3. Create a script to automatically convert the csv to json
+4. Add in distance data to (could be tiers) from current location
+5. Create another button that will find eateries based on choice of distance
 
 ## Available Scripts
 
