@@ -24,9 +24,25 @@ Next steps:
 1. Create functionality to not allow for duplicate restaurant choices
 2. Add in unit and integration testing
 3. Create a script to automatically convert the csv to json
+    a. Use Google sheets api to convert google sheet to csv
+    b. Create file to convert csv to json
+    c. Create package.json script
 4. Add in distance data to (could be tiers) from current location
-5. Create another button that will find eateries based on choice of distance
-6. Host via s3 bucket to use the application in real time
+5. Create another button that will find eateries based on choice of distance 
+6. Look to incorporate Github actions into repo
+7. Host via s3 bucket to use the application in real time
+
+
+### Extra
+Repo #2:
+1. Create separate repo and refactor app to use Typescript
+2. Update tests to support Typescript
+Repo #3:
+1. Create a separate repo and refactor to use Next.js
+2. Host using netlify
+Repo #4:
+1. Look into creating a Dockerized app and figure out how to host containers
+2. Look into using Kubernetes
 
 ## Available Scripts
 
