@@ -21,16 +21,15 @@ The main purpose of using redux was to showcase that I was able to use it.
 I initially created a customHook for usingLocalStorage within the Dashboard component and it would have sufficed for the purposes of this app to persist the data.
 
 Next steps:
-1. Create functionality to not allow for duplicate restaurant choices
-2. Add in unit and integration testing
-3. Create a script to automatically convert the csv to json
+1. Add in unit and integration testing
+2. Create a script to automatically convert the csv to json
     a. Use Google sheets api to convert google sheet to csv
     b. Create file to convert csv to json
     c. Create package.json script
-4. Add in distance data to (could be tiers) from current location
-5. Create another button that will find eateries based on choice of distance 
-6. Look to incorporate Github actions into repo
-7. Host via s3 bucket to use the application in real time
+3. Add in distance data to (could be tiers) from current location
+4. Create another button that will find eateries based on choice of distance 
+5. Look to incorporate Github actions into repo
+6. Host via s3 bucket to use the application in real time
 
 
 ### Extra
