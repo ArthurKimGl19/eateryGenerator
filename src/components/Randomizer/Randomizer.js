@@ -4,8 +4,15 @@ import Button from 'react-bootstrap/Button';
 
 import './Randomizer.css';
 
+import { useSelector } from 'react-redux';
 export default function Randomizer({ randomizeEatery }) {
-    return <Button onClick={randomizeEatery}>Randomize</Button>;
+    const noMoreEateries = useSelector((state) => state.noMoreEateries);
+
+    return (
+        <Button onClick={randomizeEatery} disabled={noMoreEateries}>
+            Randomize
+        </Button>
+    );
 }
 
 Randomizer.propTypes = {
