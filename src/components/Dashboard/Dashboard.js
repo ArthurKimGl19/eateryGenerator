@@ -13,6 +13,7 @@ import {
     createRandomEatery,
     updateHistory,
     clearHistory,
+    checkIfEateriesAvailable,
     clearRandomEatery
 } from '../../redux/features/eateries/eateriesSlice';
 
@@ -42,6 +43,7 @@ export default function Dashboard() {
     const history = useSelector((state) => state.history);
     const dispatch = useDispatch();
     const eateryRandomizer = function () {
+        dispatch(checkIfEateriesAvailable());
         dispatch(createRandomEatery());
         dispatch(updateHistory());
     };
