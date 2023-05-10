@@ -34,13 +34,12 @@ Next steps:
 
 
 ### Extra
-Repo #2:
 1. Create separate repo and refactor app to use Typescript
 2. Update tests to support Typescript
-Repo #3:
+
 1. Create a separate repo and refactor to use Next.js
 2. Host using netlify
-Repo #4:
+
 1. Look into creating a Dockerized app and figure out how to host containers
 2. Look into using Kubernetes
 
