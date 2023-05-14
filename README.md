@@ -20,7 +20,7 @@ Data used within this app is stored in redux and persisted using localStorage.
 The main purpose of using redux was to showcase that I was able to use it.
 I initially created a customHook for usingLocalStorage within the Dashboard component and it would have sufficed for the purposes of this app to persist the data.
 
-Next steps:
+### Next steps:
 1. Add in unit and integration testing
 2. Create a script to automatically convert the csv to json
     a. Use Google sheets api to convert google sheet to csv
@@ -35,12 +35,10 @@ Next steps:
 ### Extra
 1. Create separate repo and refactor app to use Typescript
 2. Update tests to support Typescript
-
-1. Create a separate repo and refactor to use Next.js
-2. Host using netlify
-
-1. Look into creating a Dockerized app and figure out how to host containers
-2. Look into using Kubernetes
+3. Create a separate repo and refactor to use Next.js
+4. Host using netlify
+5. Look into creating a Dockerized app and figure out how to host containers
+6. Look into using Kubernetes
 
 ## Available Scripts
 
