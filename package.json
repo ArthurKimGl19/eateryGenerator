@@ -9,7 +9,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md}' --config ./.prettierrc",
+    "convert": "node ./src/data/convertCsvToJson.js"
   },
   "eslintConfig": {
     "extends": [
@@ -43,9 +44,12 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "csv-parser": "^3.0.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "prettier": "^2.8.7",
     "prop-types": "^15.8.1"
   }
