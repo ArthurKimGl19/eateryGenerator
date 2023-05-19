@@ -48,7 +48,7 @@ export default function Dashboard() {
         dispatch(updateHistory());
     };
 
-    const { name, type, rating, dollarSign, address, zipCode } = randomEatery;
+    const { name, type, rating, dollarSign, address, zipCode, note } = randomEatery;
     return (
         <Container>
             <h1>Eatery Generator</h1>
@@ -78,6 +78,7 @@ export default function Dashboard() {
                 dollarSign={dollarSign}
                 address={address}
                 zipCode={zipCode}
+                note={note}
             />
             <History
                 history={history}
