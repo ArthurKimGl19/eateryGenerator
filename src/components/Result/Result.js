@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
-import Accordion from 'react-bootstrap/Accordion';
 
 import './Result.css';
 export default function Result({ name, type, rating, dollarSign, address, zipCode, note }) {
@@ -22,15 +21,8 @@ export default function Result({ name, type, rating, dollarSign, address, zipCod
                     <ul>Dollar Sign: {calculateDollarSign(dollarSign)}</ul>
                     <ul>Address: {address}</ul>
                     <ul>Zip Code: {zipCode}</ul>
+                    {note && <ul>Notes: {note}</ul>}
                 </Card.Body>
-                {note && (
-                    <Accordion defaultActiveKey="0">
-                        <Accordion.Item eventKey="0">
-                            <Accordion.Header>Notes</Accordion.Header>
-                            <Accordion.Body>{note}</Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
-                )}
             </Card>
         );
     }
