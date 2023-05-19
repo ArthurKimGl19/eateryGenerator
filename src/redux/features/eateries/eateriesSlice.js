@@ -17,6 +17,9 @@ const initialRandomEatery = {
     dollarSign: 0,
     zipCode: 0,
     address: '',
+    latitude: 0,
+    longitude: 0,
+    note: '',
     index: null
 };
 
