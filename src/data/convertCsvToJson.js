@@ -2,7 +2,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const path = require('path');
 
-const csvFilePath = path.join(__dirname, 'output.csv');
+const csvFilePath = path.join(__dirname, 'data-eatery.csv');
 const jsonData = [];
 
 fs.createReadStream(csvFilePath)
@@ -15,9 +15,9 @@ fs.createReadStream(csvFilePath)
             name: row.name,
             type: row.type,
             rating: parseInt(row.rating),
-            dollarSign: row.dollarSign,
+            dollarSign: Number(row.dollarSign),
             address: row.address,
-            zipCode: row.zipCode,
+            zipCode: Number(row.zipCode),
             note: row.note,
             latitude,
             longitude
@@ -25,7 +25,7 @@ fs.createReadStream(csvFilePath)
         jsonData.push(jsonRow);
     })
     .on('end', () => {
-        const jsonFilePath = './src/data/output.json'; // Replace with the desired path for the output JSON file
+        const jsonFilePath = './src/data/data-eatery.json'; // Replace with the desired path for the output JSON file
         fs.writeFileSync(jsonFilePath, JSON.stringify(jsonData, null, 2));
         console.log('CSV to JSON conversion completed successfully!');
     });
