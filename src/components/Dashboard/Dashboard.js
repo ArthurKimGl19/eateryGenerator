@@ -17,26 +17,6 @@ import {
     clearRandomEatery
 } from '../../redux/features/eateries/eateriesSlice';
 
-// const decodeLocalStorageKey = function (key) {
-//     try {
-//         return JSON.parse(localStorage.getItem(key));
-//     } catch (e) {
-//         return localStorage.getItem(key);
-//     }
-// };
-// const useLocalStorage = function (key, value) {
-//     const [state, setState] = React.useState(() =>
-//         localStorage.getItem(key) ? decodeLocalStorageKey(key) : value
-//     );
-//     React.useEffect(() => {
-//         if (typeof state === 'object') {
-//             localStorage.setItem(key, JSON.stringify(state));
-//         } else {
-//             localStorage.setItem(key, state);
-//         }
-//     }, [state]);
-//     return [state, setState];
-// };
 export default function Dashboard() {
     // const eateries = useSelector((state) => state.eateries);
     const randomEatery = useSelector((state) => state.randomEatery);
@@ -70,7 +50,7 @@ export default function Dashboard() {
                     </Accordion.Body>
                 </Accordion>
             </Card>
-            <Randomizer randomizeEatery={eateryRandomizer} />
+            <Randomizer randomizeEatery={eateryRandomizer0} />
             <Result
                 name={name}
                 type={type}
