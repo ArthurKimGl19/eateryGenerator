@@ -6,7 +6,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
 import History from '../History/History';
-import './Dashboard.css';
+import './Home.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -17,7 +17,7 @@ import {
     clearRandomEatery
 } from '../../redux/features/eateries/eateriesSlice';
 
-export default function Dashboard() {
+export default function Home() {
     // const eateries = useSelector((state) => state.eateries);
     const randomEatery = useSelector((state) => state.randomEatery);
     const history = useSelector((state) => state.history);
@@ -50,7 +50,7 @@ export default function Dashboard() {
                     </Accordion.Body>
                 </Accordion>
             </Card>
-            <Randomizer randomizeEatery={eateryRandomizer0} />
+            <Randomizer randomizeEatery={eateryRandomizer} />
             <Result
                 name={name}
                 type={type}
