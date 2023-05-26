@@ -5,22 +5,17 @@ import Accordion from 'react-bootstrap/Accordion';
 
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
-import History from '../History/History';
 import './Home.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {
     createRandomEatery,
     updateHistory,
-    clearHistory,
-    checkIfEateriesAvailable,
-    clearRandomEatery
+    checkIfEateriesAvailable
 } from '../../redux/features/eateries/eateriesSlice';
 
 export default function Home() {
-    // const eateries = useSelector((state) => state.eateries);
     const randomEatery = useSelector((state) => state.randomEatery);
-    const history = useSelector((state) => state.history);
     const dispatch = useDispatch();
     const eateryRandomizer = function () {
         dispatch(checkIfEateriesAvailable());
@@ -59,13 +54,6 @@ export default function Home() {
                 address={address}
                 zipCode={zipCode}
                 note={note}
-            />
-            <History
-                history={history}
-                clearHistory={() => {
-                    dispatch(clearHistory());
-                    dispatch(clearRandomEatery());
-                }}
             />
         </Container>
     );
