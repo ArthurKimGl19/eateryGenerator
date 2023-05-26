@@ -9,7 +9,7 @@ export default function Randomizer({ randomizeEatery }) {
     const noMoreEateries = useSelector((state) => state.noMoreEateries);
 
     return (
-        <Button onClick={randomizeEatery} disabled={noMoreEateries}>
+        <Button onClick={randomizeEatery} disabled={noMoreEateries} className="randomizer-button">
             Randomize
         </Button>
     );
