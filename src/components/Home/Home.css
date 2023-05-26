@@ -1,4 +1,27 @@
-.dashboard-card {
-    width: 50%;
+.hero-component {
+    width: 75%;
     margin: 25px auto;
+    height: 550px;
+}
+
+.hero-component .hero-text-container {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+    margin-top: 10%;
+}
+
+.hero-component .hero-title h1 {
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+.hero-component .hero-text {
+    max-width: 500px;
+    margin: auto;
 }

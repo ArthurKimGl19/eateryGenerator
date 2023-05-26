@@ -1,7 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import Accordion from 'react-bootstrap/Accordion';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
@@ -25,36 +23,39 @@ export default function Home() {
 
     const { name, type, rating, dollarSign, address, zipCode, note } = randomEatery;
     return (
-        <Container>
-            <h1>Eatery Generator</h1>
-            <Card className="dashboard-card">
-                <Card.Body className="dashboard-card-body">
-                    Generate a random eatery from data set to eat at! Generated eatery will show
-                    name, type of food, rating, expensiveness, and address.
-                </Card.Body>
-                <Accordion className="dashboard-card-accordion">
-                    <Accordion.Header className="dashboard-card-accordion-header">
-                        How it works
-                    </Accordion.Header>
-                    <Accordion.Body className="dashboard-card-accordion-body">
-                        Please click the &quot;Randomize&quot; button below to generate a random
-                        eatery. Each randomly generated eatery will be stored and shown in the
-                        History section below. You can press &quot;Clear History&quot; to remove all
-                        previously generated eateries. You are also able to revisit this page in the
-                        future and see your previously generated eateries list.
-                    </Accordion.Body>
-                </Accordion>
-            </Card>
-            <Randomizer randomizeEatery={eateryRandomizer} />
-            <Result
-                name={name}
-                type={type}
-                rating={rating}
-                dollarSign={dollarSign}
-                address={address}
-                zipCode={zipCode}
-                note={note}
-            />
-        </Container>
+        <React.Fragment>
+            <Container>
+                <Container className="hero-component">
+                    <Container className="hero-text-container">
+                        <Row className="hero-title">
+                            <Col>
+                                <h1>Generate a random eatery to eat at!</h1>
+                            </Col>
+                        </Row>
+                        <Row className="hero-text">
+                            <Col>
+                                By clicking the &apos;Randomize&apos; button, you can generate a
+                                random eatery, which will be stored and displayed in the History
+                                section
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <Randomizer randomizeEatery={eateryRandomizer} />
+                            </Col>
+                        </Row>
+                    </Container>
+                </Container>
+                <Result
+                    name={name}
+                    type={type}
+                    rating={rating}
+                    dollarSign={dollarSign}
+                    address={address}
+                    zipCode={zipCode}
+                    note={note}
+                />
+            </Container>
+        </React.Fragment>
     );
 }
