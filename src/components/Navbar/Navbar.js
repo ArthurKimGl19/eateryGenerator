@@ -10,9 +10,9 @@ import './Navbar.css';
 export default function NavbarComponent() {
     return (
         <React.Fragment>
-            <Navbar bg="dark" variant="dark" sticky="top">
+            <Navbar bg="dark" variant="dark" sticky="top" className="nav-component">
                 <Container>
-                    <Navbar.Brand>
+                    <Navbar.Brand className="nav-brand">
                         <img
                             src={logo}
                             width="30"
@@ -20,6 +20,7 @@ export default function NavbarComponent() {
                             className="d-inline-block align-top"
                             alt="Eatery Generator logo"
                         />
+                        Eatery Generator
                     </Navbar.Brand>
                     <Nav className="me-auto nav-options">
                         <Link to="/" className="nav-link">

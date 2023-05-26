@@ -1,4 +1,8 @@
-.nav-options .nav-link {
+.nav-component .nav-brand img {
+    margin-right: 5px;
+}
+
+.nav-component .nav-options .nav-link {
     text-decoration: none;
     font-weight: 600;
     color: white;
