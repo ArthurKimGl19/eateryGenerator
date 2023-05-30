@@ -39,7 +39,7 @@ const shuffleEateries = (array) => {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
-}
+};
 
 const eateriesSlice = createSlice({
     name: 'eateries',
@@ -47,10 +47,10 @@ const eateriesSlice = createSlice({
     reducers: {
         createRandomEatery: (state) => {
             let shuffledIndexes = state.shuffledIndexes;
-            if (!shuffledIndexes){
-                shuffledIndexes = shuffleEateries(Object.keys(state.eateries))
+            if (!shuffledIndexes) {
+                shuffledIndexes = shuffleEateries(Object.keys(state.eateries));
             }
-            if (shuffledIndexes.length > 0){
+            if (shuffledIndexes.length > 0) {
                 const randomIndex = shuffledIndexes.pop();
                 const randomEatery = state.eateries[randomIndex];
                 randomEatery.index = randomIndex;
@@ -61,7 +61,7 @@ const eateriesSlice = createSlice({
             }
         },
         updateHistory: (state) => {
-            if (state.randomEatery.name.length > 0){
+            if (state.randomEatery.name.length > 0) {
                 const randomEatery = state.randomEatery;
                 state.history.push(randomEatery);
             }
@@ -69,7 +69,7 @@ const eateriesSlice = createSlice({
         clearHistory: (state) => {
             state.history = [];
             state.shuffledIndexes = null;
-            state.noMoreEateries = false
+            state.noMoreEateries = false;
         },
         checkIfEateriesAvailable: (state) => {
             const shuffledIndexes = state.shuffledIndexes;
@@ -88,7 +88,12 @@ const eateriesSlice = createSlice({
     }
 });
 
-export const { createRandomEatery, updateHistory, clearHistory, checkIfEateriesAvailable, clearRandomEatery } =
-    eateriesSlice.actions;
+export const {
+    createRandomEatery,
+    updateHistory,
+    clearHistory,
+    checkIfEateriesAvailable,
+    clearRandomEatery
+} = eateriesSlice.actions;
 export default eateriesSlice.reducer;
 /* eslint-disable prettier/prettier */

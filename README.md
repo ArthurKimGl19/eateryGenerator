@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 With over 300+ eateries I wanted to try, I decided to create this web app to be able to quickly come up with a location to try out from this list.
 
-Currently, there isn't a great way to get the needed info out of Google Maps. 
-I can only export out data from the starred places list in Google Maps and not from other lists. 
+Currently, there isn't a great way to get the needed info out of Google Maps.
+I can only export out data from the starred places list in Google Maps and not from other lists.
 Also, the only relevant data present is Location Data, which has business name and address with no way to determine what type of business it is, etc.
 
 I found a potential solution: [Link](https://medium.com/codex/how-i-web-scraped-my-custom-google-maps-list-into-a-csv-file-eb1172a85bf4), which uses Selenium and Beautiful Soup, but it looked to be more time intensive than manually inputting data into a Google Sheet file and converting it into a json file.
@@ -21,18 +21,19 @@ The main purpose of using redux was to showcase that I was able to use it.
 I initially created a customHook for usingLocalStorage within the Dashboard component and it would have sufficed for the purposes of this app to persist the data.
 
 ### Next steps:
+
 1. Add in unit and integration testing
 2. Create a script to automatically convert the csv to json
-    a. Use Google sheets api to convert google sheet to csv
-    b. Create file to convert csv to json
-    c. Create package.json script
+   a. Use Google sheets api to convert google sheet to csv
+   b. Create file to convert csv to json
+   c. Create package.json script
 3. Add in distance data to (could be tiers) from current location
-4. Create another button that will find eateries based on choice of distance 
+4. Create another button that will find eateries based on choice of distance
 5. Look to incorporate Github actions into repo
 6. Host via s3 bucket to use the application in real time
 
-
 ### Extra
+
 1. Create separate repo and refactor app to use Typescript
 2. Update tests to support Typescript
 3. Create a separate repo and refactor to use Next.js
@@ -78,6 +79,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
 ### `npm run lint`
+
 ### `npm run lint:fix`
 
 Run these two commands to run eslint on files. They will attempt to fix all problems in the code.
@@ -85,7 +87,6 @@ Run these two commands to run eslint on files. They will attempt to fix all prob
 ### `npm run format`
 
 Run this to format relevant files with prettier.
-
 
 ## Learn More
 

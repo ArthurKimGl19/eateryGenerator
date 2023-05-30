@@ -10,7 +10,13 @@ import './Navbar.css';
 export default function NavbarComponent() {
     return (
         <React.Fragment>
-            <Navbar bg="dark" variant="dark" sticky="top" className="nav-component">
+            <Navbar
+                collapseOnSelect
+                expand="sm"
+                bg="dark"
+                variant="dark"
+                sticky="top"
+                className="nav-component">
                 <Container>
                     <Navbar.Brand className="nav-brand">
                         <img
@@ -22,14 +28,17 @@ export default function NavbarComponent() {
                         />
                         Eatery Generator
                     </Navbar.Brand>
-                    <Nav className="me-auto nav-options">
-                        <Link to="/" className="nav-link">
-                            Home
-                        </Link>
-                        <Link to="/history" className="nav-link">
-                            History
-                        </Link>
-                    </Nav>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto nav-options">
+                            <Link to="/" className="nav-link">
+                                Home
+                            </Link>
+                            <Link to="/history" className="nav-link">
+                                History
+                            </Link>
+                        </Nav>
+                    </Navbar.Collapse>
                 </Container>
             </Navbar>
         </React.Fragment>
