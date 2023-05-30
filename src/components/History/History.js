@@ -31,7 +31,7 @@ export default function History({ history, clearHistory }) {
             <Button className="history-button" onClick={clearHistory}>
                 Clear History
             </Button>
-            <BTable striped bordered hover size="sm" className="history-table">
+            <BTable striped bordered hover responsive size="sm" className="history-table">
                 <thead>
                     <tr className="history-table-header">
                         {tableHeader.map((header, index) => {
