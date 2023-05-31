@@ -9,38 +9,37 @@ import './Navbar.css';
 
 export default function NavbarComponent() {
     return (
-        <React.Fragment>
-            <Navbar
-                collapseOnSelect
-                expand="sm"
-                bg="dark"
-                variant="dark"
-                sticky="top"
-                className="nav-component">
-                <Container>
-                    <Navbar.Brand className="nav-brand">
-                        <img
-                            src={logo}
-                            width="30"
-                            height="30"
-                            className="d-inline-block align-top"
-                            alt="Eatery Generator logo"
-                        />
-                        Eatery Generator
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto nav-options">
-                            <Link to="/" className="nav-link">
-                                Home
-                            </Link>
-                            <Link to="/history" className="nav-link">
-                                History
-                            </Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </React.Fragment>
+        <Navbar
+            collapseOnSelect
+            expand="sm"
+            bg="dark"
+            variant="dark"
+            sticky="top"
+            className="nav-component"
+        >
+            <Container>
+                <Navbar.Brand className="nav-brand">
+                    <img
+                        src={logo}
+                        width="30"
+                        height="30"
+                        className="d-inline-block align-top"
+                        alt="Eatery Generator logo"
+                    />
+                    Eatery Generator
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto nav-options">
+                        <Link to="/" className="nav-link">
+                            Home
+                        </Link>
+                        <Link to="/history" className="nav-link">
+                            History
+                        </Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 }
