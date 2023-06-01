@@ -37,11 +37,12 @@ export default function Home() {
                             By clicking the &apos;Randomize&apos; button, you can generate a random
                             eatery, which will be stored and displayed in the History section
                         </Col>
+                    </Row>
+                    <Row className="hero-text">
                         <Col>
                             <Location />
                         </Col>
                     </Row>
-
                     <Row>
                         <Col>
                             <Randomizer randomizeEatery={eateryRandomizer} />
