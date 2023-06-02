@@ -23,13 +23,23 @@ const initialRandomEatery = {
     index: null
 };
 
+const initialGeolocation = {
+    coordinates: {
+        latitude: 0,
+        longitude: 0
+    },
+    loading: true,
+    error: null
+}
+
 const initialState = {
     initialData: data,
     eateries: cleanupData(data),
     randomEatery: initialRandomEatery,
     history: [],
     shuffledIndexes: null,
-    noMoreEateries: false
+    noMoreEateries: false,
+    geolocation: initialGeolocation
 };
 
 const shuffleEateries = (array) => {
@@ -39,6 +49,26 @@ const shuffleEateries = (array) => {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+};
+
+const calculateDistanceInMiles = function (lat1, lon1, lat2, lon2) {
+    const earthRadiusInMiles = 3958.8; // Radius of the Earth in miles
+    const dLat = toRadians(lat2 - lat1);
+    const dLon = toRadians(lon2 - lon1);
+
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return earthRadiusInMiles * c;
+};
+
+const toRadians = function (degrees) {
+    return degrees * (Math.PI / 180);
 };
 
 const eateriesSlice = createSlice({
@@ -84,6 +114,18 @@ const eateriesSlice = createSlice({
         removeFromEateries: (state, action) => {
             const index = action.payload;
             delete state.eateries[index];
+        },
+        updateGeolocationCoordinates: (state, action) => {
+            state.geolocation.coordinates = action.payload;
+        },
+        updateGeolocationLoading: (state, action) => {
+            state.geolocation.loading = action.payload;
+        },
+        updateGeolocationError: (state, action) => {
+            state.geolocation.error = action.payload;
+        },
+        clearGeolocation: (state) => {
+            state.geolocation = initialGeolocation;
         }
     }
 });
@@ -93,7 +135,10 @@ export const {
     updateHistory,
     clearHistory,
     checkIfEateriesAvailable,
-    clearRandomEatery
+    clearRandomEatery,
+    updateGeolocationCoordinates,
+    updateGeolocationLoading,
+    updateGeolocationError
 } = eateriesSlice.actions;
 export default eateriesSlice.reducer;
 /* eslint-disable prettier/prettier */
