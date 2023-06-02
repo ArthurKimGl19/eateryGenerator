@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 
 import './Location.css';
 import Loading from '../Loading/Loading';
-import { useGeolocation } from '../../utils/distanceFunctions';
+import { useGeolocation } from '../../hooks/useGeolocation';
 
 export default function Location() {
     const { coordinates, loading, error } = useGeolocation();
