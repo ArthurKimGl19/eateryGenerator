@@ -138,7 +138,8 @@ export const {
     clearRandomEatery,
     updateGeolocationCoordinates,
     updateGeolocationLoading,
-    updateGeolocationError
+    updateGeolocationError,
+    clearGeolocation
 } = eateriesSlice.actions;
 export default eateriesSlice.reducer;
 /* eslint-disable prettier/prettier */

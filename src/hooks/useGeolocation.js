@@ -30,7 +30,7 @@ export const useGeolocation = function () {
             getUserLocation();
         }, 2000);
         return () => window.clearInterval(timer);
-    }, []);
+    }, [loading]);
 
     return { coordinates, loading, error };
 };
