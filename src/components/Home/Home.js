@@ -34,7 +34,19 @@ export default function Home() {
         }
     };
 
-    const { name, type, rating, dollarSign, address, zipCode, note, proximity } = randomEatery;
+    const {
+        name,
+        type,
+        rating,
+        dollarSign,
+        address,
+        zipCode,
+        note,
+        proximity,
+        latitude,
+        longitude
+    } = randomEatery;
+    const coordinates = { latitude, longitude };
     return (
         <Container>
             <Container className="hero-component">
@@ -71,6 +83,7 @@ export default function Home() {
                 zipCode={zipCode}
                 note={note}
                 proximity={proximity}
+                coordinates={coordinates}
             />
         </Container>
     );

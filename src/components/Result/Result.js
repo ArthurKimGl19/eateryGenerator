@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 import './Result.css';
 export default function Result({
@@ -11,7 +12,8 @@ export default function Result({
     address,
     zipCode,
     note,
-    proximity
+    proximity,
+    coordinates
 }) {
     const calculateDollarSign = (number) => {
         let result = '';
@@ -20,6 +22,10 @@ export default function Result({
         }
         return result;
     };
+    const showDirections = (lat, long) => {
+        window.open(`https://maps.google.com?q=${lat},${long}`);
+    };
+    const { latitude, longitude } = coordinates;
     if (name) {
         return (
             <Card border="secondary" className="result-card">
@@ -32,6 +38,7 @@ export default function Result({
                     <ul>Zip Code: {zipCode}</ul>
                     {proximity && <ul>Proximity: {proximity}</ul>}
                     {note && <ul>Notes: {note}</ul>}
+                    <Button onClick={() => showDirections(latitude, longitude)}>Directions</Button>
                 </Card.Body>
             </Card>
         );
@@ -47,5 +54,6 @@ Result.propTypes = {
     address: PropTypes.string.isRequired,
     zipCode: PropTypes.number.isRequired,
     proximity: PropTypes.string,
-    note: PropTypes.oneOfType([PropTypes.string, undefined])
+    coordinates: PropTypes.object.isRequired,
+    note: PropTypes.any.isRequired
 };
