@@ -9,8 +9,16 @@
 
 .result-card .result-card-text {
     text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
 }
 
+.directions-button {
+    margin: 0 5px;
+    padding: 10px 12px !important;
+}
 /* mobile css */
 @media only screen and (max-width: 480px) {
     .result-card {

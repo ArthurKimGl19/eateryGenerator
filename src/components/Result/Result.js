@@ -38,7 +38,11 @@ export default function Result({
                     <ul>Zip Code: {zipCode}</ul>
                     {proximity && <ul>Proximity: {proximity}</ul>}
                     {note && <ul>Notes: {note}</ul>}
-                    <Button onClick={() => showDirections(latitude, longitude)}>Directions</Button>
+                    <Button
+                        onClick={() => showDirections(latitude, longitude)}
+                        className="directions-button">
+                        Directions
+                    </Button>
                 </Card.Body>
             </Card>
         );

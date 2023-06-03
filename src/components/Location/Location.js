@@ -28,7 +28,9 @@ export default function Location() {
             <div>
                 Location: {latitude.toFixed(2)},{longitude.toFixed(2)}
             </div>
-            <Button onClick={handleClearGeolocation}>Calculate Location</Button>
+            <Button onClick={handleClearGeolocation} className="location-button">
+                Calculate Location
+            </Button>
         </React.Fragment>
     );
 }
