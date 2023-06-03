@@ -10,7 +10,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
     createRandomEatery,
     updateHistory,
-    checkIfEateriesAvailable
+    checkIfEateriesAvailable,
+    formatRandomEateryProximity
 } from '../../redux/features/eateries/eateriesSlice';
 
 export default function Home() {
@@ -19,10 +20,11 @@ export default function Home() {
     const eateryRandomizer = function () {
         dispatch(checkIfEateriesAvailable());
         dispatch(createRandomEatery());
+        dispatch(formatRandomEateryProximity());
         dispatch(updateHistory());
     };
 
-    const { name, type, rating, dollarSign, address, zipCode, note } = randomEatery;
+    const { name, type, rating, dollarSign, address, zipCode, note, proximity } = randomEatery;
     return (
         <Container>
             <Container className="hero-component">
@@ -58,6 +60,7 @@ export default function Home() {
                 address={address}
                 zipCode={zipCode}
                 note={note}
+                proximity={proximity}
             />
         </Container>
     );

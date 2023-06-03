@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
     updateGeolocationCoordinates,
     updateGeolocationLoading,
-    updateGeolocationError,
-    formatEateriesBasedOnGeolocation
+    updateGeolocationError
 } from '../redux/features/eateries/eateriesSlice';
 export const useGeolocation = function () {
     const dispatch = useDispatch();
@@ -19,7 +18,6 @@ export const useGeolocation = function () {
                 const longitude = position.coords.longitude;
                 dispatch(updateGeolocationCoordinates({ latitude, longitude }));
                 dispatch(updateGeolocationLoading(false));
-                // dispatch(formatEateriesBasedOnGeolocation());
             },
             () => {
                 dispatch(updateGeolocationError('Unable to retrieve your location'));

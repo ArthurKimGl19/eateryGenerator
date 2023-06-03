@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 
 import './Result.css';
-export default function Result({ name, type, rating, dollarSign, address, zipCode, note }) {
+export default function Result({
+    name,
+    type,
+    rating,
+    dollarSign,
+    address,
+    zipCode,
+    note,
+    proximity
+}) {
     const calculateDollarSign = (number) => {
         let result = '';
         for (let i = 0; i < number; i++) {
@@ -21,6 +30,7 @@ export default function Result({ name, type, rating, dollarSign, address, zipCod
                     <ul>Dollar Sign: {calculateDollarSign(dollarSign)}</ul>
                     <ul>Address: {address}</ul>
                     <ul>Zip Code: {zipCode}</ul>
+                    {proximity && <ul>Proximity: {proximity}</ul>}
                     {note && <ul>Notes: {note}</ul>}
                 </Card.Body>
             </Card>
@@ -36,5 +46,6 @@ Result.propTypes = {
     dollarSign: PropTypes.number.isRequired,
     address: PropTypes.string.isRequired,
     zipCode: PropTypes.number.isRequired,
+    proximity: PropTypes.string,
     note: PropTypes.oneOfType([PropTypes.string, undefined])
 };

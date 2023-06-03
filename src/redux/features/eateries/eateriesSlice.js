@@ -85,7 +85,6 @@ const calculateProximity = function(distance) {
     } else {
         return "very far";
     }
-
 }
 
 const eateriesSlice = createSlice({
@@ -144,6 +143,13 @@ const eateriesSlice = createSlice({
         clearGeolocation: (state) => {
             state.geolocation = initialGeolocation;
         },
+        formatRandomEateryProximity: (state) => {
+            const {  latitude, longitude } =  state.geolocation.coordinates;
+            const randomEatery = { ...state.randomEatery };
+            const distance = calculateDistanceInMiles(randomEatery.latitude, randomEatery.longitude, latitude, longitude);
+            randomEatery['proximity'] = calculateProximity(distance);
+            state.randomEatery = randomEatery;
+        },
         // formatEateriesBasedOnGeolocation: (state) => {
         //     const eateries = { ...state.eateries };
         //     const history = [...state.history];
@@ -182,7 +188,7 @@ export const {
     updateGeolocationLoading,
     updateGeolocationError,
     clearGeolocation,
-    // formatEateriesBasedOnGeolocation
+    formatRandomEateryProximity
 } = eateriesSlice.actions;
 export default eateriesSlice.reducer;
 /* eslint-disable prettier/prettier */
