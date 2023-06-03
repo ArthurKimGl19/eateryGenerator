@@ -40,7 +40,8 @@ const initialState = {
     history: [],
     shuffledIndexes: null,
     noMoreEateries: false,
-    geolocation: initialGeolocation
+    geolocation: initialGeolocation,
+    geolocationFormatted: false
 };
 
 const shuffleEateries = (array) => {
@@ -63,9 +64,6 @@ const calculateDistanceInMiles = function (lat1, lon1, lat2, lon2) {
       Math.cos(toRadians(lat2)) *
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
-
-    console.log("lat1, lon1, lat2, lon2", lat1, lon1, lat2, lon2 )
-    console.log("dlat dlon a", dLat, dLon, a)
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return earthRadiusInMiles * c;
@@ -150,31 +148,28 @@ const eateriesSlice = createSlice({
             randomEatery['proximity'] = calculateProximity(distance);
             state.randomEatery = randomEatery;
         },
-        // formatEateriesBasedOnGeolocation: (state) => {
-        //     const eateries = { ...state.eateries };
-        //     const history = [...state.history];
-        //     const randomEatery = { ...state.randomEatery};
-        //     const {  latitude, longitude, loading } =  state.geolocation;
-        //     if (loading){
-        //         Object.keys(eateries).forEach((index) => {
-        //             const eatery = eateries[index];
-        //             const distance = calculateDistanceInMiles(eatery.latitude, eatery.longitude, latitude, longitude);
-        //             eatery['proximity'] = calculateProximity(distance);
-        //         });
-        //         history.forEach((eatery) => {
-        //             const distance = calculateDistanceInMiles(eatery.latitude, eatery.longitude, latitude, longitude);
-        //             console.log('distance histoyr', distance)
-        //             console.log("proximity", calculateProximity(distance))
-        //             eatery['proximity'] = calculateProximity(distance);
-        //         });
-        //         const distance = calculateDistanceInMiles(randomEatery.latitude, randomEatery.longitude, latitude, longitude);
-        //         randomEatery['proximity'] = calculateProximity(distance);
-        //
-        //         state.eateries = eateries;
-        //         state.history = history;
-        //         state.randomEatery = randomEatery;
-        //     }
-        // }
+        formatEateriesProximity: (state) => {
+            const {  latitude, longitude } =  state.geolocation.coordinates;
+            const eateries = { ...state.eateries };
+            Object.keys(eateries).forEach((index) => {
+                const eatery = eateries[index];
+                const distance = calculateDistanceInMiles(eatery.latitude, eatery.longitude, latitude, longitude);
+                eatery['proximity'] = calculateProximity(distance);
+            });
+            state.eateries = eateries;
+        },
+        formatHistoryProximity: (state) => {
+            const {  latitude, longitude } =  state.geolocation.coordinates;
+            const history = [...state.history];
+            history.forEach((eatery) => {
+                const distance = calculateDistanceInMiles(eatery.latitude, eatery.longitude, latitude, longitude);
+                eatery['proximity'] = calculateProximity(distance);
+            });
+            state.history = history;
+        },
+        updateGeolocationFormatted: (state) => {
+            if (!state.geolocationFormatted) state.geolocationFormatted = true;
+        }
     }
 });
 
@@ -188,7 +183,10 @@ export const {
     updateGeolocationLoading,
     updateGeolocationError,
     clearGeolocation,
-    formatRandomEateryProximity
+    formatRandomEateryProximity,
+    formatEateriesProximity,
+    formatHistoryProximity,
+    updateGeolocationFormatted
 } = eateriesSlice.actions;
 export default eateriesSlice.reducer;
 /* eslint-disable prettier/prettier */

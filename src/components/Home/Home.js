@@ -11,17 +11,27 @@ import {
     createRandomEatery,
     updateHistory,
     checkIfEateriesAvailable,
-    formatRandomEateryProximity
+    formatRandomEateryProximity,
+    formatEateriesProximity,
+    formatHistoryProximity,
+    updateGeolocationFormatted
 } from '../../redux/features/eateries/eateriesSlice';
 
 export default function Home() {
     const randomEatery = useSelector((state) => state.randomEatery);
+    const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
     const dispatch = useDispatch();
     const eateryRandomizer = function () {
         dispatch(checkIfEateriesAvailable());
         dispatch(createRandomEatery());
-        dispatch(formatRandomEateryProximity());
         dispatch(updateHistory());
+
+        if (!geolocationFormatted) {
+            dispatch(formatRandomEateryProximity());
+            dispatch(formatEateriesProximity());
+            dispatch(formatHistoryProximity());
+            dispatch(updateGeolocationFormatted());
+        }
     };
 
     const { name, type, rating, dollarSign, address, zipCode, note, proximity } = randomEatery;
