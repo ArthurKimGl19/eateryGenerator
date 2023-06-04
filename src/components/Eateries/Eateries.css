@@ -13,3 +13,7 @@
 .eateries-table-result td {
     text-transform: capitalize;
 }
+
+.eateries-table-result td:last-child {
+    width: 30%;
+}
