@@ -54,7 +54,8 @@ const shuffleEateries = (array) => {
 };
 
 const calculateDistanceInMiles = function (lat1, lon1, lat2, lon2) {
-    const earthRadiusInMiles = 3958.8; // Radius of the Earth in miles
+    // Radius of the Earth in miles
+    const earthRadiusInMiles = 3958.8;
     const dLat = toRadians(lat2 - lat1);
     const dLon = toRadians(lon2 - lon1);
 
