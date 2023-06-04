@@ -64,7 +64,7 @@ export default function Result({
                                 placement="right"
                                 overlay={tooltip}
                                 defaultShow>
-                                <Button variant="link">
+                                <Button variant="link" className="tooltip-button">
                                     <FontAwesomeIcon icon={faCircleInfo} />
                                 </Button>
                             </OverlayTrigger>
