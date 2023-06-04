@@ -1,12 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 import './History.css';
 
-export default function History({ history, clearHistory }) {
+export default function History() {
+    const history = useSelector((state) => state.history);
+    const dispatch = useDispatch();
+    const clearHistoryFunctions = function () {
+        dispatch(clearHistory());
+        dispatch(clearRandomEatery());
+    };
     const tableHeader = [
         'number',
         'name',
@@ -28,7 +35,7 @@ export default function History({ history, clearHistory }) {
     return (
         <Container className="history-container">
             <h4>History</h4>
-            <Button className="history-button" onClick={clearHistory}>
+            <Button className="history-button" onClick={clearHistoryFunctions}>
                 Clear History
             </Button>
             <BTable striped bordered hover responsive size="sm" className="history-table">
@@ -60,8 +67,3 @@ export default function History({ history, clearHistory }) {
         </Container>
     );
 }
-
-History.propTypes = {
-    history: PropTypes.array.isRequired,
-    clearHistory: PropTypes.func.isRequired
-};

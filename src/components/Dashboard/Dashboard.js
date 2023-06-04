@@ -4,7 +4,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
 import Location from '../Location/Location';
-import './Home.css';
+
+import './Dashboard.css';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -17,7 +18,7 @@ import {
     updateGeolocationFormatted
 } from '../../redux/features/eateries/eateriesSlice';
 
-export default function Home() {
+export default function Dashboard() {
     const randomEatery = useSelector((state) => state.randomEatery);
     const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
     const dispatch = useDispatch();

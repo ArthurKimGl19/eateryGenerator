@@ -1,12 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-
-import './Location.css';
 import Loading from '../Loading/Loading';
 import { useGeolocation } from '../../hooks/useGeolocation';
-
 import { useDispatch } from 'react-redux';
 import { clearGeolocation } from '../../redux/features/eateries/eateriesSlice';
+
+import './Location.css';
 
 export default function Location() {
     const { coordinates, loading, error } = useGeolocation();

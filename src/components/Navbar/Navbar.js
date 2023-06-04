@@ -15,8 +15,7 @@ export default function NavbarComponent() {
             bg="dark"
             variant="dark"
             sticky="top"
-            className="nav-component"
-        >
+            className="nav-component">
             <Container>
                 <Navbar.Brand className="nav-brand">
                     <img
@@ -36,6 +35,12 @@ export default function NavbarComponent() {
                         </Link>
                         <Link to="/history" className="nav-link">
                             History
+                        </Link>
+                        <Link to="/eateries" className="nav-link">
+                            Eateries
+                        </Link>
+                        <Link to="/favorites" className="nav-link">
+                            Favorites
                         </Link>
                     </Nav>
                 </Navbar.Collapse>
