@@ -1,0 +1,15 @@
+.eateries-container {
+    margin: 25px auto;
+}
+
+.eateries-table {
+    margin: 25px auto;
+}
+
+.eateries-table-header td {
+    text-transform: capitalize;
+}
+
+.eateries-table-result td {
+    text-transform: capitalize;
+}

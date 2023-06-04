@@ -26,11 +26,11 @@ export default function Eateries() {
         return result;
     };
     return (
-        <Container className="history-container">
+        <Container className="eateries-container">
             <h4>Eateries</h4>
-            <BTable striped bordered hover responsive size="sm" className="">
+            <BTable striped bordered hover responsive size="sm" className="eateries-table">
                 <thead>
-                    <tr className="">
+                    <tr className="eateries-table-header">
                         {tableHeader.map((header, index) => {
                             return <td key={index}>{header}</td>;
                         })}
@@ -41,7 +41,7 @@ export default function Eateries() {
                         const { name, type, rating, dollarSign, address, zipCode, note } =
                             eateries[position];
                         return (
-                            <tr key={index} className="">
+                            <tr key={index} className="eateries-table-result">
                                 <td>{index + 1}</td>
                                 <td>{name}</td>
                                 <td>{type}</td>
