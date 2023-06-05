@@ -127,7 +127,7 @@
     "dollarSign": 1,
     "address": "709 n western ave",
     "zipCode": 90029,
-    "note": "chicken dredged in chile honey, corn ribs, blue cornbread, watermelon stalad",
+    "note": "chicken dredged in chile honey, corn ribs, blue cornbread, watermelon salad",
     "latitude": 34.083983489421705,
     "longitude": -118.30937890291439
   },
@@ -169,7 +169,7 @@
     "type": "breakfast",
     "rating": 4,
     "dollarSign": 1,
-    "address": "3200 susnset blvd",
+    "address": "3200 sunset blvd",
     "zipCode": 90026,
     "note": "breakfast burrito, biscuit sandwhich",
     "latitude": 34.08561991468537,
@@ -369,7 +369,7 @@
     "dollarSign": 2,
     "address": "6524 san fernando rd",
     "zipCode": 91201,
-    "note": "dial - iranian labm stew, abghost, lavash",
+    "note": "dial - iranian lamb stew, abghost, lavash",
     "latitude": 34.16847663491929,
     "longitude": -118.29067043174766
   },
@@ -474,7 +474,7 @@
   },
   {
     "name": "valerie confections",
-    "type": "chocolate cafe",
+    "type": "cafe",
     "rating": 4,
     "dollarSign": 3,
     "address": "1936 w glenoaks blvd",
@@ -622,18 +622,18 @@
     "dollarSign": 1,
     "address": "13645/49 s inglewood ave",
     "zipCode": 90250,
-    "note": "pakistani food",
+    "note": "",
     "latitude": 33.908129745024794,
     "longitude": -118.36164473360934
   },
   {
     "name": "nikis halal grill & karahi",
-    "type": "pakistani/indian",
+    "type": "pakistani",
     "rating": 4,
     "dollarSign": 1,
     "address": "2031 e 1st st a3",
     "zipCode": 92705,
-    "note": "karahi",
+    "note": "karahi, also has indian food",
     "latitude": 33.74657150462479,
     "longitude": -117.83784209103732
   },
@@ -680,5 +680,27 @@
     "note": "",
     "latitude": 34.039961648719284,
     "longitude": -118.28495753175216
+  },
+  {
+    "name": "sau can tho vietnamese kitchen",
+    "type": "vietnamese",
+    "rating": 4,
+    "dollarSign": 2,
+    "address": "8450 garvey ave #103",
+    "zipCode": 91770,
+    "note": "",
+    "latitude": 34.062570865134816,
+    "longitude": -118.08460243514422
+  },
+  {
+    "name": "nates korner",
+    "type": "deli",
+    "rating": 4,
+    "dollarSign": 1,
+    "address": "3960 s main st d",
+    "zipCode": 92707,
+    "note": "",
+    "latitude": 33.69478995405597,
+    "longitude": -117.86869064686891
   }
 ]
