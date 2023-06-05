@@ -1,0 +1,11 @@
+.filters-container {
+    display: flex;
+}
+
+.filters-container h6 {
+    margin: auto 0;
+}
+
+.filters-container .dropdown-button {
+    margin: 0 5px;
+}

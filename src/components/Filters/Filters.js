@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 import { useSelector } from 'react-redux';
 
 import { calculateDollarSign } from '../../helpers/priceFunctions';
@@ -31,31 +32,37 @@ export default function Filters() {
         createOptions('proximity', setProximity);
     }, [eateries]);
 
-    const typeOptions = types.map((type, index) => <Button key={index}>{type}</Button>);
+    const typeOptions = types.map((type, index) => (
+        <Dropdown.Item key={index} eventKey={type}>
+            {type}
+        </Dropdown.Item>
+    ));
     const priceOptions = prices.map((dollarSign, index) => {
         const formattedDollarSign = calculateDollarSign(dollarSign);
-        return <Button key={index}>{formattedDollarSign}</Button>;
+        return (
+            <Dropdown.Item key={index} eventKey={formattedDollarSign}>
+                {formattedDollarSign}
+            </Dropdown.Item>
+        );
     });
     const proximityOptions = proximity.map((proximity, index) => (
-        <Button key={index}>{proximity}</Button>
+        <Dropdown.Item key={index} eventKey={proximity}>
+            {proximity}
+        </Dropdown.Item>
     ));
 
     return (
-        <Container>
-            <div>Filters</div>
-            <div>Filters Options</div>
-            <Container>
-                <h6>Type:</h6>
+        <Container className="filters-container">
+            <h6>Filters</h6>
+            <DropdownButton title="Type" className="dropdown-button">
                 {typeOptions}
-            </Container>
-            <Container>
-                <h6>Price:</h6>
+            </DropdownButton>
+            <DropdownButton title="Price" className="dropdown-button">
                 {priceOptions}
-            </Container>
-            <Container>
-                <h6>Proximity:</h6>
+            </DropdownButton>
+            <DropdownButton title="Proximity" className="dropdown-button">
                 {proximityOptions}
-            </Container>
+            </DropdownButton>
         </Container>
     );
 }
