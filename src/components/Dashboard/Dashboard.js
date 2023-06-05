@@ -1,13 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
 import Location from '../Location/Location';
-
-import './Dashboard.css';
-
-import { useSelector, useDispatch } from 'react-redux';
 import {
     createRandomEatery,
     updateHistory,
@@ -17,6 +14,7 @@ import {
     formatHistoryProximity,
     updateGeolocationFormatted
 } from '../../redux/features/eateries/eateriesSlice';
+import './Dashboard.css';
 
 export default function Dashboard() {
     const randomEatery = useSelector((state) => state.randomEatery);

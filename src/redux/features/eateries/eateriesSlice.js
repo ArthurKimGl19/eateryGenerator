@@ -31,7 +31,7 @@ const initialGeolocation = {
     },
     loading: true,
     error: null
-}
+};
 
 const initialState = {
     initialData: data,
@@ -60,11 +60,11 @@ const calculateDistanceInMiles = function (lat1, lon1, lat2, lon2) {
     const dLon = toRadians(lon2 - lon1);
 
     const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRadians(lat1)) *
-      Math.cos(toRadians(lat2)) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRadians(lat1)) *
+            Math.cos(toRadians(lat2)) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return earthRadiusInMiles * c;
@@ -74,17 +74,17 @@ const toRadians = function (degrees) {
     return degrees * (Math.PI / 180);
 };
 
-const calculateProximity = function(distance) {
-    if (distance <= 5){
-        return "close";
-    } else if (distance <= 5 || distance >= 8){
-        return "moderately close";
-    } else if (distance > 8 || distance < 15){
-        return "far";
+const calculateProximity = function (distance) {
+    if (distance <= 5) {
+        return 'close';
+    } else if (distance <= 5 || distance >= 8) {
+        return 'moderately close';
+    } else if (distance > 8 || distance < 15) {
+        return 'far';
     } else {
-        return "very far";
+        return 'very far';
     }
-}
+};
 
 const eateriesSlice = createSlice({
     name: 'eateries',
@@ -143,27 +143,42 @@ const eateriesSlice = createSlice({
             state.geolocation = initialGeolocation;
         },
         formatRandomEateryProximity: (state) => {
-            const {  latitude, longitude } =  state.geolocation.coordinates;
+            const { latitude, longitude } = state.geolocation.coordinates;
             const randomEatery = { ...state.randomEatery };
-            const distance = calculateDistanceInMiles(randomEatery.latitude, randomEatery.longitude, latitude, longitude);
+            const distance = calculateDistanceInMiles(
+                randomEatery.latitude,
+                randomEatery.longitude,
+                latitude,
+                longitude
+            );
             randomEatery['proximity'] = calculateProximity(distance);
             state.randomEatery = randomEatery;
         },
         formatEateriesProximity: (state) => {
-            const {  latitude, longitude } =  state.geolocation.coordinates;
+            const { latitude, longitude } = state.geolocation.coordinates;
             const eateries = { ...state.eateries };
             Object.keys(eateries).forEach((index) => {
                 const eatery = eateries[index];
-                const distance = calculateDistanceInMiles(eatery.latitude, eatery.longitude, latitude, longitude);
+                const distance = calculateDistanceInMiles(
+                    eatery.latitude,
+                    eatery.longitude,
+                    latitude,
+                    longitude
+                );
                 eatery['proximity'] = calculateProximity(distance);
             });
             state.eateries = eateries;
         },
         formatHistoryProximity: (state) => {
-            const {  latitude, longitude } =  state.geolocation.coordinates;
+            const { latitude, longitude } = state.geolocation.coordinates;
             const history = [...state.history];
             history.forEach((eatery) => {
-                const distance = calculateDistanceInMiles(eatery.latitude, eatery.longitude, latitude, longitude);
+                const distance = calculateDistanceInMiles(
+                    eatery.latitude,
+                    eatery.longitude,
+                    latitude,
+                    longitude
+                );
                 eatery['proximity'] = calculateProximity(distance);
             });
             state.history = history;

@@ -1,9 +1,10 @@
 import React from 'react';
-
-import './Eateries.css';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
 import { useSelector } from 'react-redux';
+
+import Filters from '../Filters/Filters';
+import './Eateries.css';
 
 export default function Eateries() {
     const eateries = useSelector((state) => state.eateries);
@@ -27,6 +28,9 @@ export default function Eateries() {
     };
     return (
         <Container className="eateries-container">
+            <Container>
+                <Filters />
+            </Container>
             <h4>Eateries</h4>
             <BTable striped bordered hover responsive size="sm" className="eateries-table">
                 <thead>
