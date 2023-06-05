@@ -1,14 +1,18 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Filters from '../Filters/Filters';
 import { calculateDollarSign } from '../../helpers/priceFunctions';
 import './Eateries.css';
+import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
 
 export default function Eateries() {
     const eateries = useSelector((state) => state.eateries);
+    const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
+    const dispatch = useDispatch();
+
     const tableHeader = [
         'number',
         'name',
@@ -20,6 +24,10 @@ export default function Eateries() {
         'proximity',
         'notes'
     ];
+
+    React.useEffect(() => {
+        dispatch(formatEateriesProximity());
+    }, [geolocationFormatted]);
 
     return (
         <Container className="eateries-container">
