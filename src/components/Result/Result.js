@@ -65,7 +65,8 @@ export default function Result({
                                 trigger="click"
                                 placement="right"
                                 overlay={tooltip}
-                                defaultShow>
+                                defaultShow
+                            >
                                 {/* eslint-disable prettier/prettier */}
                                 <Button variant="link" className="tooltip-button">
                                     <FontAwesomeIcon icon={faCircleInfo} />
@@ -77,7 +78,8 @@ export default function Result({
                     {/* eslint-disable prettier/prettier */}
                     <Button
                         onClick={() => showDirections(latitude, longitude)}
-                        className="directions-button">
+                        className="directions-button"
+                    >
                         Directions
                     </Button>
                     {/* eslint-disable prettier/prettier */}
