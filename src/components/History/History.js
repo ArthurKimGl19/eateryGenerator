@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { calculateDollarSign } from '../../helpers/priceFunctions';
 import './History.css';
 
 export default function History() {
@@ -22,16 +23,10 @@ export default function History() {
         'dollar sign',
         'address',
         'zip code',
+        'proximity',
         'notes'
     ];
 
-    const calculateDollarSign = (number) => {
-        let result = '';
-        for (let i = 0; i < number; i++) {
-            result += '$';
-        }
-        return result;
-    };
     return (
         <Container className="history-container">
             <h4>History</h4>
@@ -48,7 +43,16 @@ export default function History() {
                 </thead>
                 <tbody>
                     {history.map((eatery, index) => {
-                        const { name, type, rating, dollarSign, address, zipCode, note } = eatery;
+                        const {
+                            name,
+                            type,
+                            rating,
+                            dollarSign,
+                            address,
+                            zipCode,
+                            proximity,
+                            note
+                        } = eatery;
                         return (
                             <tr key={index} className="history-table-result">
                                 <td>{index + 1}</td>
@@ -58,6 +62,7 @@ export default function History() {
                                 <td>{calculateDollarSign(dollarSign)}</td>
                                 <td>{address}</td>
                                 <td>{zipCode}</td>
+                                <td>{proximity}</td>
                                 <td>{note}</td>
                             </tr>
                         );

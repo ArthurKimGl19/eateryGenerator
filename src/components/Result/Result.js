@@ -60,11 +60,13 @@ export default function Result({
                     {proximity && (
                         <ul>
                             Proximity: {proximity}
+                            {/* eslint-disable prettier/prettier */}
                             <OverlayTrigger
                                 trigger="click"
                                 placement="right"
                                 overlay={tooltip}
                                 defaultShow>
+                                {/* eslint-disable prettier/prettier */}
                                 <Button variant="link" className="tooltip-button">
                                     <FontAwesomeIcon icon={faCircleInfo} />
                                 </Button>
@@ -72,11 +74,13 @@ export default function Result({
                         </ul>
                     )}
                     {note && <ul>Notes: {note}</ul>}
+                    {/* eslint-disable prettier/prettier */}
                     <Button
                         onClick={() => showDirections(latitude, longitude)}
                         className="directions-button">
                         Directions
                     </Button>
+                    {/* eslint-disable prettier/prettier */}
                 </Card.Body>
             </Card>
         );
