@@ -16,10 +16,21 @@
     text-transform: capitalize;
 }
 
+.filters-container .selected-options-container,
+.filters-container .selected-options-container,
+.filters-container .selected-options-container {
+    margin: 0;
+    padding: 3px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
 .filters-container .selected-options-container .selected-type-options,
 .filters-container .selected-options-container .selected-price-options,
 .filters-container .selected-options-container .selected-proximity-options {
     text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .filters-container .selected-options-container .selected-type-options .selected-option,

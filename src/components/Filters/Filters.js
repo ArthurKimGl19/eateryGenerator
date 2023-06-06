@@ -85,37 +85,46 @@ export default function Filters() {
         <Container className="filters-container">
             <Container className="filters-options-container">
                 <h6>Filters</h6>
+                {/* eslint-disable prettier/prettier */}
                 <DropdownButton
                     title="Type"
                     className="dropdown-button"
                     onSelect={(value) =>
                         updateSelectedOptions(value, setSelectedTypes, selectedTypes)
-                    }>
+                    }
+                >
+                    {' '}
+                    {/* eslint-disable prettier/prettier */}
                     {typeOptions}
                 </DropdownButton>
+                {/* eslint-disable prettier/prettier */}
                 <DropdownButton
                     title="Price"
                     className="dropdown-button"
                     onSelect={(value) =>
                         updateSelectedOptions(value, setSelectedPrices, selectedPrices)
-                    }>
+                    }
+                >
+                    {/* eslint-disable prettier/prettier */}
                     {priceOptions}
                 </DropdownButton>
+                {/* eslint-disable prettier/prettier */}
                 <DropdownButton
                     title="Proximity"
                     className="dropdown-button"
                     onSelect={(value) =>
                         updateSelectedOptions(value, setSelectedProximity, selectedProximity)
-                    }>
+                    }
+                >
+                    {' '}
+                    {/* eslint-disable prettier/prettier */}
                     {proximityOptions}
                 </DropdownButton>
             </Container>
             <Container className="selected-options-container">
-                <Container className="selected-type-options">{selectedTypeOptions}</Container>
-                <Container className="selected-price-options">{selectedPriceOptions}</Container>
-                <Container className="selected-proximity-options">
-                    {selectedProximityOptions}
-                </Container>
+                <div className="selected-type-options">{selectedTypeOptions}</div>
+                <div className="selected-price-options">{selectedPriceOptions}</div>
+                <div className="selected-proximity-options">{selectedProximityOptions}</div>
             </Container>
         </Container>
     );
