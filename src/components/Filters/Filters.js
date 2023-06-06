@@ -1,5 +1,6 @@
 import React from 'react';
 import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -81,6 +82,12 @@ export default function Filters() {
     const selectedPriceOptions = createSelectedOptions(selectedPrices);
     const selectedProximityOptions = createSelectedOptions(selectedProximity);
 
+    const clearSelectedOptions = () => {
+        setSelectedTypes([]);
+        setSelectedPrices([]);
+        setSelectedProximity([]);
+    };
+
     return (
         <Container className="filters-container">
             <Container className="filters-options-container">
@@ -120,6 +127,7 @@ export default function Filters() {
                     {/* eslint-disable prettier/prettier */}
                     {proximityOptions}
                 </DropdownButton>
+                <Button onClick={clearSelectedOptions}>Clear</Button>
             </Container>
             <Container className="selected-options-container">
                 <div className="selected-type-options">{selectedTypeOptions}</div>
