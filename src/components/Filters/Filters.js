@@ -33,20 +33,20 @@ export default function Filters() {
     }, [eateries]);
 
     const typeOptions = types.map((type, index) => (
-        <Dropdown.Item key={index} eventKey={type}>
+        <Dropdown.Item key={index} eventKey={type} className="type-options">
             {type}
         </Dropdown.Item>
     ));
     const priceOptions = prices.map((dollarSign, index) => {
         const formattedDollarSign = calculateDollarSign(dollarSign);
         return (
-            <Dropdown.Item key={index} eventKey={formattedDollarSign}>
+            <Dropdown.Item key={index} eventKey={formattedDollarSign} className="price-options">
                 {formattedDollarSign}
             </Dropdown.Item>
         );
     });
     const proximityOptions = proximity.map((proximity, index) => (
-        <Dropdown.Item key={index} eventKey={proximity}>
+        <Dropdown.Item key={index} eventKey={proximity} className="proximity-options">
             {proximity}
         </Dropdown.Item>
     ));

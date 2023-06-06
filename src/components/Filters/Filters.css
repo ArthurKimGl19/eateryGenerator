@@ -9,3 +9,9 @@
 .filters-container .dropdown-button {
     margin: 0 5px;
 }
+
+.filters-container .dropdown-button .type-options,
+.filters-container .dropdown-button .price-options,
+.filters-container .dropdown-button .proximity-options {
+    text-transform: capitalize;
+}
