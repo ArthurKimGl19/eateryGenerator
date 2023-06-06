@@ -1,4 +1,5 @@
 import React from 'react';
+import Badge from 'react-bootstrap/Badge';
 import { Container } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -18,19 +19,19 @@ export default function Filters() {
 
     const eateries = useSelector((state) => state.eateries);
 
-    const createOptions = function (name, updateState) {
-        const options = new Set();
-
-        Object.keys(eateries).forEach((id) => {
-            const type = eateries[id][name];
-            if (!options.has(type)) {
-                options.add(type);
-            }
-        });
-        updateState([...options]);
-    };
-
     React.useEffect(() => {
+        const createOptions = function (name, updateState) {
+            const options = new Set();
+
+            Object.keys(eateries).forEach((id) => {
+                const type = eateries[id][name];
+                if (!options.has(type)) {
+                    options.add(type);
+                }
+            });
+            updateState([...options]);
+        };
+
         createOptions('type', setTypes);
         createOptions('dollarSign', setPrices);
         createOptions('proximity', setProximity);
@@ -59,27 +60,63 @@ export default function Filters() {
     const priceOptions = createDropdownOptions(prices, 'price-options');
     const proximityOptions = createDropdownOptions(proximity, 'proximity-options');
 
+    const updateSelectedOptions = (value, updateState, currentState) => {
+        const isValuePresent = currentState.filter((item) => item === value).length > 0;
+        if (!isValuePresent) {
+            updateState([...currentState, value]);
+        }
+    };
+
+    const createSelectedOptions = (items) => {
+        return items.map((item, index) => {
+            return (
+                <Badge pill bg="success" key={index} className="selected-option">
+                    {item}
+                </Badge>
+            );
+        });
+    };
+
+    const selectedTypeOptions = createSelectedOptions(selectedTypes);
+    const selectedPriceOptions = createSelectedOptions(selectedPrices);
+    const selectedProximityOptions = createSelectedOptions(selectedProximity);
+
     return (
         <Container className="filters-container">
-            <h6>Filters</h6>
-            <DropdownButton
-                title="Type"
-                className="dropdown-button"
-                onSelect={(evt) => console.log('types ', evt)}>
-                {typeOptions}
-            </DropdownButton>
-            <DropdownButton
-                title="Price"
-                className="dropdown-button"
-                onSelect={(evt) => console.log('prices ', evt)}>
-                {priceOptions}
-            </DropdownButton>
-            <DropdownButton
-                title="Proximity"
-                className="dropdown-button"
-                onSelect={(evt) => console.log('proximity ', evt)}>
-                {proximityOptions}
-            </DropdownButton>
+            <Container className="filters-options-container">
+                <h6>Filters</h6>
+                <DropdownButton
+                    title="Type"
+                    className="dropdown-button"
+                    onSelect={(value) =>
+                        updateSelectedOptions(value, setSelectedTypes, selectedTypes)
+                    }>
+                    {typeOptions}
+                </DropdownButton>
+                <DropdownButton
+                    title="Price"
+                    className="dropdown-button"
+                    onSelect={(value) =>
+                        updateSelectedOptions(value, setSelectedPrices, selectedPrices)
+                    }>
+                    {priceOptions}
+                </DropdownButton>
+                <DropdownButton
+                    title="Proximity"
+                    className="dropdown-button"
+                    onSelect={(value) =>
+                        updateSelectedOptions(value, setSelectedProximity, selectedProximity)
+                    }>
+                    {proximityOptions}
+                </DropdownButton>
+            </Container>
+            <Container className="selected-options-container">
+                <Container className="selected-type-options">{selectedTypeOptions}</Container>
+                <Container className="selected-price-options">{selectedPriceOptions}</Container>
+                <Container className="selected-proximity-options">
+                    {selectedProximityOptions}
+                </Container>
+            </Container>
         </Container>
     );
 }

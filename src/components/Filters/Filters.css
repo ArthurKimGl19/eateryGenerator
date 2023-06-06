@@ -1,4 +1,4 @@
-.filters-container {
+.filters-options-container {
     display: flex;
 }
 
@@ -14,4 +14,16 @@
 .filters-container .dropdown-button .price-options,
 .filters-container .dropdown-button .proximity-options {
     text-transform: capitalize;
+}
+
+.filters-container .selected-options-container .selected-type-options,
+.filters-container .selected-options-container .selected-price-options,
+.filters-container .selected-options-container .selected-proximity-options {
+    text-transform: capitalize;
+}
+
+.filters-container .selected-options-container .selected-type-options .selected-option,
+.filters-container .selected-options-container .selected-price-options .selected-option,
+.filters-container .selected-options-container .selected-proximity-options .selected-option {
+    margin: 5px;
 }
