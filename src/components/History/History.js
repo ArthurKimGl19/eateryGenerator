@@ -4,8 +4,11 @@ import BTable from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
+import { showDirections } from '../../helpers/directionFunctions';
 import './History.css';
 
 export default function History() {
@@ -43,8 +46,18 @@ export default function History() {
                 </thead>
                 <tbody>
                     {history.map((eatery, index) => {
-                        const { name, type, rating, price, address, zipCode, proximity, note } =
-                            eatery;
+                        const {
+                            name,
+                            type,
+                            rating,
+                            price,
+                            address,
+                            zipCode,
+                            proximity,
+                            note,
+                            latitude,
+                            longitude
+                        } = eatery;
                         return (
                             <tr key={index} className="history-table-result">
                                 <td>{index + 1}</td>
@@ -52,7 +65,14 @@ export default function History() {
                                 <td>{type}</td>
                                 <td>{rating}</td>
                                 <td>{calculatePrice(price)}</td>
-                                <td>{address}</td>
+                                <td>
+                                    {address}{' '}
+                                    <FontAwesomeIcon
+                                        icon={faLocationDot}
+                                        onClick={() => showDirections(latitude, longitude)}
+                                        className="map-icon"
+                                    />
+                                </td>
                                 <td>{zipCode}</td>
                                 <td>{proximity}</td>
                                 <td>{note}</td>

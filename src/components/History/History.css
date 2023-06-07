@@ -17,3 +17,8 @@
 .history-table-result td {
     text-transform: capitalize;
 }
+
+.history-table-result .map-icon {
+    cursor: pointer;
+    margin-left: 3px;
+}
