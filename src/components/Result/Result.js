@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
+import { showDirections } from '../../helpers/directionFunctions';
 import './Result.css';
 
 export default function Result({
@@ -21,9 +22,6 @@ export default function Result({
     proximity,
     coordinates
 }) {
-    const showDirections = (lat, long) => {
-        window.open(`https://maps.google.com?q=${lat},${long}`);
-    };
     const { latitude, longitude } = coordinates;
     const tooltip = (
         <Tooltip id="tooltip-right">

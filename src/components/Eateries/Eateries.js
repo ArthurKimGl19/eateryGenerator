@@ -2,11 +2,14 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
 import { useSelector, useDispatch } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 import Filters from '../Filters/Filters';
 import { calculatePrice } from '../../helpers/priceFunctions';
-import './Eateries.css';
+import { showDirections } from '../../helpers/directionFunctions';
 import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
+import './Eateries.css';
 
 export default function Eateries() {
     const data = useSelector((state) => state.eateries);
@@ -45,15 +48,32 @@ export default function Eateries() {
                 </thead>
                 <tbody>
                     {Object.keys(eateries).map((position, index) => {
-                        const { name, type, rating, price, address, zipCode, proximity, note } =
-                            eateries[position];
+                        const {
+                            name,
+                            type,
+                            rating,
+                            price,
+                            address,
+                            zipCode,
+                            proximity,
+                            note,
+                            latitude,
+                            longitude
+                        } = eateries[position];
                         return (
                             <tr key={index} className="eateries-table-result">
                                 <td>{name}</td>
                                 <td>{type}</td>
                                 <td>{rating}</td>
                                 <td>{calculatePrice(price)}</td>
-                                <td>{address}</td>
+                                <td>
+                                    {address}
+                                    <FontAwesomeIcon
+                                        icon={faLocationDot}
+                                        onClick={() => showDirections(latitude, longitude)}
+                                        className="map-icon"
+                                    />
+                                </td>
                                 <td>{zipCode}</td>
                                 <td>{proximity}</td>
                                 <td>{note}</td>
