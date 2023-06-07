@@ -9,16 +9,16 @@ import './Eateries.css';
 import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
 
 export default function Eateries() {
-    const eateries = useSelector((state) => state.eateries);
+    const data = useSelector((state) => state.eateries);
+    const [eateries, setEateries] = React.useState({ ...data });
     const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
     const dispatch = useDispatch();
 
     const tableHeader = [
-        'number',
         'name',
         'type',
         'rating',
-        'dollar sign',
+        'price',
         'address',
         'zip code',
         'proximity',
@@ -32,7 +32,7 @@ export default function Eateries() {
     return (
         <Container className="eateries-container">
             <Container>
-                <Filters />
+                <Filters eateries={eateries} setEateries={setEateries} initialEateries={data} />
             </Container>
             <h4>Eateries</h4>
             <BTable striped bordered hover responsive size="sm" className="eateries-table">
@@ -49,7 +49,6 @@ export default function Eateries() {
                             eateries[position];
                         return (
                             <tr key={index} className="eateries-table-result">
-                                <td>{index + 1}</td>
                                 <td>{name}</td>
                                 <td>{type}</td>
                                 <td>{rating}</td>

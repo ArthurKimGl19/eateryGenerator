@@ -4,21 +4,18 @@ import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
 import './Filters.css';
 
-export default function Filters() {
+export default function Filters({ eateries, setEateries, initialEateries }) {
     const [types, setTypes] = React.useState([]);
     const [prices, setPrices] = React.useState([]);
     const [proximity, setProximity] = React.useState([]);
-
     const [selectedTypes, setSelectedTypes] = React.useState([]);
     const [selectedPrices, setSelectedPrices] = React.useState([]);
     const [selectedProximity, setSelectedProximity] = React.useState([]);
-
-    const eateries = useSelector((state) => state.eateries);
 
     React.useEffect(() => {
         const createOptions = function (name, updateState) {
@@ -61,10 +58,25 @@ export default function Filters() {
     const priceOptions = createDropdownOptions(prices, 'price-options');
     const proximityOptions = createDropdownOptions(proximity, 'proximity-options');
 
-    const updateSelectedOptions = (value, updateState, currentState) => {
-        const isValuePresent = currentState.filter((item) => item === value).length > 0;
-        if (!isValuePresent) {
-            updateState([...currentState, value]);
+    const updateSelectedOptions = (value, updateState, currentState, type) => {
+        if (type === 'price') {
+            let currentPrice;
+            if (value === '$') {
+                currentPrice = 1;
+            } else if (value === '$$') {
+                currentPrice = 2;
+            } else if (value === '$$$') {
+                currentPrice = 3;
+            }
+            const isValuePresent = currentState.filter((item) => item === currentPrice).length > 0;
+            if (!isValuePresent) {
+                updateState([...currentState, currentPrice]);
+            }
+        } else {
+            const isValuePresent = currentState.filter((item) => item === value).length > 0;
+            if (!isValuePresent) {
+                updateState([...currentState, value]);
+            }
         }
     };
 
@@ -86,6 +98,35 @@ export default function Filters() {
         setSelectedTypes([]);
         setSelectedPrices([]);
         setSelectedProximity([]);
+        setEateries({ ...initialEateries });
+    };
+
+    const filterEateriesByType = (inputObject, filterValue, filterType) => {
+        const filteredEateries = {};
+        if (filterType === 'price') {
+            let currentPrice;
+            if (filterValue === '$') {
+                currentPrice = 1;
+            } else if (filterValue === '$$') {
+                currentPrice = 2;
+            } else if (filterValue === '$$$') {
+                currentPrice = 3;
+            }
+            for (const key in inputObject) {
+                const eatery = inputObject[key];
+                if (eatery[filterType] === currentPrice) {
+                    filteredEateries[key] = eatery;
+                }
+            }
+        } else {
+            for (const key in inputObject) {
+                const eatery = inputObject[key];
+                if (eatery[filterType] === filterValue) {
+                    filteredEateries[key] = eatery;
+                }
+            }
+        }
+        setEateries(filteredEateries);
     };
 
     return (
@@ -96,11 +137,11 @@ export default function Filters() {
                 <DropdownButton
                     title="Type"
                     className="dropdown-button"
-                    onSelect={(value) =>
-                        updateSelectedOptions(value, setSelectedTypes, selectedTypes)
-                    }
+                    onSelect={(value) => {
+                        updateSelectedOptions(value, setSelectedTypes, selectedTypes);
+                        filterEateriesByType(eateries, value, 'type');
+                    }}
                 >
-                    {' '}
                     {/* eslint-disable prettier/prettier */}
                     {typeOptions}
                 </DropdownButton>
@@ -108,9 +149,10 @@ export default function Filters() {
                 <DropdownButton
                     title="Price"
                     className="dropdown-button"
-                    onSelect={(value) =>
-                        updateSelectedOptions(value, setSelectedPrices, selectedPrices)
-                    }
+                    onSelect={(value) => {
+                        updateSelectedOptions(value, setSelectedPrices, selectedPrices, 'price');
+                        filterEateriesByType(eateries, value, 'price');
+                    }}
                 >
                     {/* eslint-disable prettier/prettier */}
                     {priceOptions}
@@ -119,11 +161,11 @@ export default function Filters() {
                 <DropdownButton
                     title="Proximity"
                     className="dropdown-button"
-                    onSelect={(value) =>
-                        updateSelectedOptions(value, setSelectedProximity, selectedProximity)
-                    }
+                    onSelect={(value) => {
+                        updateSelectedOptions(value, setSelectedProximity, selectedProximity);
+                        filterEateriesByType(eateries, value, 'proximity');
+                    }}
                 >
-                    {' '}
                     {/* eslint-disable prettier/prettier */}
                     {proximityOptions}
                 </DropdownButton>
@@ -137,3 +179,9 @@ export default function Filters() {
         </Container>
     );
 }
+
+Filters.propTypes = {
+    eateries: PropTypes.object.isRequired,
+    setEateries: PropTypes.func.isRequired,
+    initialEateries: PropTypes.object.isRequired
+};
