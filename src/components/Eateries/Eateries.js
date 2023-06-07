@@ -4,7 +4,7 @@ import BTable from 'react-bootstrap/Table';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Filters from '../Filters/Filters';
-import { calculateDollarSign } from '../../helpers/priceFunctions';
+import { calculatePrice } from '../../helpers/priceFunctions';
 import './Eateries.css';
 import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
 
@@ -45,23 +45,15 @@ export default function Eateries() {
                 </thead>
                 <tbody>
                     {Object.keys(eateries).map((position, index) => {
-                        const {
-                            name,
-                            type,
-                            rating,
-                            dollarSign,
-                            address,
-                            zipCode,
-                            proximity,
-                            note
-                        } = eateries[position];
+                        const { name, type, rating, price, address, zipCode, proximity, note } =
+                            eateries[position];
                         return (
                             <tr key={index} className="eateries-table-result">
                                 <td>{index + 1}</td>
                                 <td>{name}</td>
                                 <td>{type}</td>
                                 <td>{rating}</td>
-                                <td>{calculateDollarSign(dollarSign)}</td>
+                                <td>{calculatePrice(price)}</td>
                                 <td>{address}</td>
                                 <td>{zipCode}</td>
                                 <td>{proximity}</td>

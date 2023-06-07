@@ -7,26 +7,20 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
+import { calculatePrice } from '../../helpers/priceFunctions';
 import './Result.css';
 
 export default function Result({
     name,
     type,
     rating,
-    dollarSign,
+    price,
     address,
     zipCode,
     note,
     proximity,
     coordinates
 }) {
-    const calculateDollarSign = (number) => {
-        let result = '';
-        for (let i = 0; i < number; i++) {
-            result += '$';
-        }
-        return result;
-    };
     const showDirections = (lat, long) => {
         window.open(`https://maps.google.com?q=${lat},${long}`);
     };
@@ -54,7 +48,7 @@ export default function Result({
                 <Card.Body className="result-card-text">
                     <ul>Type: {type}</ul>
                     <ul>Rating: {rating}</ul>
-                    <ul>Dollar Sign: {calculateDollarSign(dollarSign)}</ul>
+                    <ul>Price: {calculatePrice(price)}</ul>
                     <ul>Address: {address}</ul>
                     <ul>Zip Code: {zipCode}</ul>
                     {proximity && (
@@ -94,7 +88,7 @@ Result.propTypes = {
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
-    dollarSign: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
     address: PropTypes.string.isRequired,
     zipCode: PropTypes.number.isRequired,
     proximity: PropTypes.string,

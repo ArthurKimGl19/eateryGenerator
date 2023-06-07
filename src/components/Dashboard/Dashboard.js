@@ -33,18 +33,8 @@ export default function Dashboard() {
         }
     };
 
-    const {
-        name,
-        type,
-        rating,
-        dollarSign,
-        address,
-        zipCode,
-        note,
-        proximity,
-        latitude,
-        longitude
-    } = randomEatery;
+    const { name, type, rating, price, address, zipCode, note, proximity, latitude, longitude } =
+        randomEatery;
     const coordinates = { latitude, longitude };
     return (
         <Container>
@@ -77,7 +67,7 @@ export default function Dashboard() {
                 name={name}
                 type={type}
                 rating={rating}
-                dollarSign={dollarSign}
+                price={price}
                 address={address}
                 zipCode={zipCode}
                 note={note}

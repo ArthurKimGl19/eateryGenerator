@@ -14,7 +14,7 @@ const initialRandomEatery = {
     name: '',
     type: '',
     rating: 0,
-    dollarSign: 0,
+    price: 0,
     zipCode: 0,
     address: '',
     latitude: 0,

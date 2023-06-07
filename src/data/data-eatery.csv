@@ -1,4 +1,4 @@
-name,type,rating,dollarSign,address,zipCode,note,coordinates
+name,type,rating,price,address,zipCode,note,coordinates
 lacha somutm,thai,4.6,1,5171 hollywood blvd,90027,isaan sausage,"34.102079999658656, -118.30287954524144"
 taron bakery,armenian,4.5,1,4950 hollywood blvd,90027,armenian bakery,"34.10306436135933, -118.29757968460632"
 chuan chim thai cafe,thai,4.6,1,5644 hollywood blvd,90028,,"34.10168703621626, -118.31304163174993"

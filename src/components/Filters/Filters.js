@@ -6,7 +6,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useSelector } from 'react-redux';
 
-import { calculateDollarSign } from '../../helpers/priceFunctions';
+import { calculatePrice } from '../../helpers/priceFunctions';
 import './Filters.css';
 
 export default function Filters() {
@@ -34,17 +34,17 @@ export default function Filters() {
         };
 
         createOptions('type', setTypes);
-        createOptions('dollarSign', setPrices);
+        createOptions('price', setPrices);
         createOptions('proximity', setProximity);
     }, [eateries]);
 
     const createDropdownOptions = (items, className) => {
         return items.map((item, index) => {
             if (className === 'price-options') {
-                const formattedDollarSign = calculateDollarSign(item);
+                const formattedPrice = calculatePrice(item);
                 return (
-                    <Dropdown.Item key={index} eventKey={formattedDollarSign} className={className}>
-                        {formattedDollarSign}
+                    <Dropdown.Item key={index} eventKey={formattedPrice} className={className}>
+                        {formattedPrice}
                     </Dropdown.Item>
                 );
             } else {

@@ -15,7 +15,7 @@ fs.createReadStream(csvFilePath)
             name: row.name,
             type: row.type,
             rating: parseInt(row.rating),
-            dollarSign: Number(row.dollarSign),
+            price: Number(row.price),
             address: row.address,
             zipCode: Number(row.zipCode),
             note: row.note,
