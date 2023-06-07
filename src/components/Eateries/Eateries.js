@@ -1,11 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
+import Dropdown from 'react-bootstrap/Dropdown';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 import Filters from '../Filters/Filters';
+import Sort from '../Sort/Sort';
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
 import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
@@ -34,8 +36,9 @@ export default function Eateries() {
 
     return (
         <Container className="eateries-container">
-            <Container>
+            <Container className="eateries-container-filters-sort">
                 <Filters eateries={eateries} setEateries={setEateries} initialEateries={data} />
+                <Sort eateries={eateries} setEateries={setEateries} initialEateries={data} />
             </Container>
             <h4>Eateries</h4>
             <BTable striped bordered hover responsive size="sm" className="eateries-table">
