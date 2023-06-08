@@ -82,7 +82,7 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
 
     const createSelectedOptions = (items, type) => {
         return items.map((item, index) => {
-            if (type === "price"){
+            if (type === 'price') {
                 let currentPrice;
                 if (item === 1) {
                     currentPrice = '$';
@@ -92,15 +92,15 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
                     currentPrice = '$$$';
                 }
                 return (
-                  <Badge pill bg="success" key={index} className="selected-option">
-                      {currentPrice}
-                  </Badge>
+                    <Badge pill bg="success" key={index} className="selected-option">
+                        {currentPrice}
+                    </Badge>
                 );
             } else {
                 return (
-                  <Badge pill bg="success" key={index} className="selected-option">
-                      {item}
-                  </Badge>
+                    <Badge pill bg="success" key={index} className="selected-option">
+                        {item}
+                    </Badge>
                 );
             }
         });

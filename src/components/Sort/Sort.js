@@ -12,7 +12,7 @@ export default function Sort({ eateries, setEateries, initialEateries }) {
     const sortValues = ['name', 'type', 'price', 'zip code', 'notes'].flatMap((i) => [i, i]);
 
     const createSortOptions = () => {
-        return sortValues.map((item, index) => {
+        return sortValues.sort().map((item, index) => {
             //alternate up arrow and down arrow for each value
             if (index % 2 === 0) {
                 const eventKey = item + '_' + 'desc;';
@@ -44,7 +44,7 @@ export default function Sort({ eateries, setEateries, initialEateries }) {
 }
 
 Sort.propTypes = {
-    eateries: PropTypes.object.isRequired,
+    eateries: PropTypes.array.isRequired,
     setEateries: PropTypes.func.isRequired,
-    initialEateries: PropTypes.object.isRequired
+    initialEateries: PropTypes.array.isRequired
 };

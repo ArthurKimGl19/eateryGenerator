@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
-import Dropdown from 'react-bootstrap/Dropdown';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -13,14 +12,13 @@ import { showDirections } from '../../helpers/directionFunctions';
 import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
 import './Eateries.css';
 
+const cleanUpData = function (object) {
+    return Object.keys(object).map((id) => object[id]);
+};
 export default function Eateries() {
     const data = useSelector((state) => state.eateries);
-    const [eateries, setEateries] = React.useState({ ...data });
-    const cleanUpData = (object) => {
-        return Object.keys(object).map((id) => object[id]);
-    };
-    const [eateriesN, setEateriesN] = React.useState(cleanUpData(data));
-    const [cleanedData, setCleanedData] = React.useState(cleanUpData(data));
+    const [eateries, setEateries] = React.useState(cleanUpData(data));
+    const [cleanedData] = React.useState(cleanUpData(data));
     const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
     const dispatch = useDispatch();
 
@@ -43,11 +41,11 @@ export default function Eateries() {
         <Container className="eateries-container">
             <Container className="eateries-container-filters-sort">
                 <Filters
-                    eateries={eateriesN}
-                    setEateries={setEateriesN}
+                    eateries={eateries}
+                    setEateries={setEateries}
                     initialEateries={cleanedData}
                 />
-                {/*<Sort eateries={eateries} setEateries={setEateries} initialEateries={data} />*/}
+                <Sort eateries={eateries} setEateries={setEateries} initialEateries={cleanedData} />
             </Container>
             <h4>Eateries</h4>
             <BTable striped bordered hover responsive size="sm" className="eateries-table">
@@ -59,7 +57,7 @@ export default function Eateries() {
                     </tr>
                 </thead>
                 <tbody>
-                    {eateriesN.map((eatery, index) => {
+                    {eateries.map((eatery, index) => {
                         const {
                             name,
                             type,
