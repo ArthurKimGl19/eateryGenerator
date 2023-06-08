@@ -45,7 +45,7 @@ export default function Eateries() {
                     setEateries={setEateries}
                     initialEateries={cleanedData}
                 />
-                <Sort eateries={eateries} setEateries={setEateries} initialEateries={cleanedData} />
+                <Sort eateries={eateries} setEateries={setEateries} />
             </Container>
             <h4>Eateries</h4>
             <BTable striped bordered hover responsive size="sm" className="eateries-table">

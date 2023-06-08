@@ -190,7 +190,6 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
                 <div className="selected-price-options">{selectedPriceOptions}</div>
                 <div className="selected-proximity-options">{selectedProximityOptions}</div>
             </Container>
-            <div>{JSON.stringify(prices, 2, null)}</div>
         </Container>
     );
 }
