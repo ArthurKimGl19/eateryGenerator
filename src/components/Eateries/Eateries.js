@@ -37,6 +37,7 @@ export default function Eateries() {
         dispatch(formatEateriesProximity());
     }, [geolocationFormatted]);
 
+    const eateriesCount = eateries.length;
     return (
         <Container className="eateries-container">
             <Container className="eateries-container-filters-sort">
@@ -47,7 +48,7 @@ export default function Eateries() {
                 />
                 <Sort eateries={eateries} setEateries={setEateries} />
             </Container>
-            <h4>Eateries</h4>
+            <h4>Eateries ({eateriesCount})</h4>
             <BTable striped bordered hover responsive size="sm" className="eateries-table">
                 <thead>
                     <tr className="eateries-table-header">
