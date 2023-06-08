@@ -9,7 +9,7 @@ import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import './Sort.css';
 
 export default function Sort({ eateries, setEateries }) {
-    const sortValues = ['name', 'type', 'price', 'zip code'].flatMap((i) => [i, i]);
+    const sortValues = ['name', 'type', 'rating', 'price', 'zip code'].flatMap((i) => [i, i]);
 
     const createSortOptions = () => {
         return sortValues.sort().map((item, index) => {
@@ -37,7 +37,7 @@ export default function Sort({ eateries, setEateries }) {
     const sortOptionsFunc = (name, direction) => {
         const currentEateries = [...eateries];
         if (name === 'zip code') name = 'zipCode';
-        if (name === 'price' || name === 'zipCode') {
+        if (name === 'price' || name === 'zipCode' || name === 'rating') {
             if (direction === 'asc') {
                 currentEateries.sort((a, b) => b[name] - a[name]);
             } else {
@@ -66,7 +66,6 @@ export default function Sort({ eateries, setEateries }) {
                 }}>
                 {sortOptions}
             </DropdownButton>
-            <div>{console.log('eateries', eateries)}</div>
         </Container>
     );
 }
