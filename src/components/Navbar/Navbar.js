@@ -40,6 +40,9 @@ export default function NavbarComponent() {
                         <Link to="/eateries" className="nav-link">
                             Eateries
                         </Link>
+                        <Link to="/data" className="nav-link">
+                            Data
+                        </Link>
                         <Link to="/favorites" className="nav-link">
                             Favorites
                         </Link>
