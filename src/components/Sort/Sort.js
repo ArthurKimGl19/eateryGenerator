@@ -13,7 +13,7 @@ export default function Sort({ eateries, setEateries, initialEateries }) {
 
     const createSortOptions = () => {
         return sortValues.map((item, index) => {
-            //alternate up arrow and bottom arrow for each value
+            //alternate up arrow and down arrow for each value
             if (index % 2 === 0) {
                 const eventKey = item + '_' + 'desc;';
                 return (

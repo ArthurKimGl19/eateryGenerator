@@ -21,8 +21,8 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
         const createOptions = function (name, updateState) {
             const options = new Set();
 
-            Object.keys(eateries).forEach((id) => {
-                const type = eateries[id][name];
+            eateries.forEach((eatery) => {
+                const type = eatery[name];
                 if (!options.has(type)) {
                     options.add(type);
                 }
@@ -36,7 +36,7 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
     }, [eateries]);
 
     const createDropdownOptions = (items, className) => {
-        return items.map((item, index) => {
+        return items.sort().map((item, index) => {
             if (className === 'price-options') {
                 const formattedPrice = calculatePrice(item);
                 return (
@@ -80,29 +80,45 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
         }
     };
 
-    const createSelectedOptions = (items) => {
+    const createSelectedOptions = (items, type) => {
         return items.map((item, index) => {
-            return (
-                <Badge pill bg="success" key={index} className="selected-option">
-                    {item}
-                </Badge>
-            );
+            if (type === "price"){
+                let currentPrice;
+                if (item === 1) {
+                    currentPrice = '$';
+                } else if (item === 2) {
+                    currentPrice = '$$';
+                } else if (item === 3) {
+                    currentPrice = '$$$';
+                }
+                return (
+                  <Badge pill bg="success" key={index} className="selected-option">
+                      {currentPrice}
+                  </Badge>
+                );
+            } else {
+                return (
+                  <Badge pill bg="success" key={index} className="selected-option">
+                      {item}
+                  </Badge>
+                );
+            }
         });
     };
 
     const selectedTypeOptions = createSelectedOptions(selectedTypes);
-    const selectedPriceOptions = createSelectedOptions(selectedPrices);
+    const selectedPriceOptions = createSelectedOptions(selectedPrices, 'price');
     const selectedProximityOptions = createSelectedOptions(selectedProximity);
 
     const clearSelectedOptions = () => {
         setSelectedTypes([]);
         setSelectedPrices([]);
         setSelectedProximity([]);
-        setEateries({ ...initialEateries });
+        setEateries([...initialEateries]);
     };
 
-    const filterEateriesByType = (inputObject, filterValue, filterType) => {
-        const filteredEateries = {};
+    const filterEateriesByType = (inputArray, filterValue, filterType) => {
+        const filteredEateries = [];
         if (filterType === 'price') {
             let currentPrice;
             if (filterValue === '$') {
@@ -112,19 +128,17 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
             } else if (filterValue === '$$$') {
                 currentPrice = 3;
             }
-            for (const key in inputObject) {
-                const eatery = inputObject[key];
+            inputArray.forEach((eatery) => {
                 if (eatery[filterType] === currentPrice) {
-                    filteredEateries[key] = eatery;
+                    filteredEateries.push(eatery);
                 }
-            }
+            });
         } else {
-            for (const key in inputObject) {
-                const eatery = inputObject[key];
+            inputArray.forEach((eatery) => {
                 if (eatery[filterType] === filterValue) {
-                    filteredEateries[key] = eatery;
+                    filteredEateries.push(eatery);
                 }
-            }
+            });
         }
         setEateries(filteredEateries);
     };
@@ -176,12 +190,13 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
                 <div className="selected-price-options">{selectedPriceOptions}</div>
                 <div className="selected-proximity-options">{selectedProximityOptions}</div>
             </Container>
+            <div>{JSON.stringify(prices, 2, null)}</div>
         </Container>
     );
 }
 
 Filters.propTypes = {
-    eateries: PropTypes.object.isRequired,
+    eateries: PropTypes.array.isRequired,
     setEateries: PropTypes.func.isRequired,
-    initialEateries: PropTypes.object.isRequired
+    initialEateries: PropTypes.array.isRequired
 };

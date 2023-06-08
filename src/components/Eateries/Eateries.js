@@ -16,6 +16,11 @@ import './Eateries.css';
 export default function Eateries() {
     const data = useSelector((state) => state.eateries);
     const [eateries, setEateries] = React.useState({ ...data });
+    const cleanUpData = (object) => {
+        return Object.keys(object).map((id) => object[id]);
+    };
+    const [eateriesN, setEateriesN] = React.useState(cleanUpData(data));
+    const [cleanedData, setCleanedData] = React.useState(cleanUpData(data));
     const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
     const dispatch = useDispatch();
 
@@ -37,8 +42,12 @@ export default function Eateries() {
     return (
         <Container className="eateries-container">
             <Container className="eateries-container-filters-sort">
-                <Filters eateries={eateries} setEateries={setEateries} initialEateries={data} />
-                <Sort eateries={eateries} setEateries={setEateries} initialEateries={data} />
+                <Filters
+                    eateries={eateriesN}
+                    setEateries={setEateriesN}
+                    initialEateries={cleanedData}
+                />
+                {/*<Sort eateries={eateries} setEateries={setEateries} initialEateries={data} />*/}
             </Container>
             <h4>Eateries</h4>
             <BTable striped bordered hover responsive size="sm" className="eateries-table">
@@ -50,7 +59,7 @@ export default function Eateries() {
                     </tr>
                 </thead>
                 <tbody>
-                    {Object.keys(eateries).map((position, index) => {
+                    {eateriesN.map((eatery, index) => {
                         const {
                             name,
                             type,
@@ -62,7 +71,7 @@ export default function Eateries() {
                             note,
                             latitude,
                             longitude
-                        } = eateries[position];
+                        } = eatery;
                         return (
                             <tr key={index} className="eateries-table-result">
                                 <td>{name}</td>
