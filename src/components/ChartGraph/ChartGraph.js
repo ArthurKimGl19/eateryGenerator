@@ -43,8 +43,8 @@ export default function ChartGraph({ category, label }) {
         ]
     };
     return (
-        <Container>
-            <div>Eateries {category} Data</div>
+        <Container className="chart-graph">
+            <h4>Eateries {category} Data</h4>
             <Doughnut data={chartData} />
         </Container>
     );

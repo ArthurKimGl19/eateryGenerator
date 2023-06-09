@@ -24,8 +24,8 @@ export const useChart = function (category, data) {
         categoryArray.forEach((type) => {
             countsArray.push(values[type]);
         });
+        const newCategoryArray = [];
         if (category === 'price') {
-            const newCategoryArray = [];
             categoryArray.forEach((type) => {
                 if (type === '1') {
                     newCategoryArray.push('$');
@@ -37,10 +37,16 @@ export const useChart = function (category, data) {
                     newCategoryArray.push('$$$');
                 }
             });
-            setLabels([...newCategoryArray]);
         } else {
-            setLabels([...categoryArray]);
+            categoryArray.forEach((type) => {
+                const firstLetter = type.charAt(0);
+                const firstLetterCap = firstLetter.toUpperCase();
+                const remainingLetters = type.slice(1);
+                const capitalizedWord = firstLetterCap + remainingLetters;
+                newCategoryArray.push(capitalizedWord);
+            });
         }
+        setLabels([...newCategoryArray]);
         setCounts([...countsArray]);
     }, [values]);
 
