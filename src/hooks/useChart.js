@@ -22,7 +22,6 @@ export const useChart = function (category, data) {
         const categoryArray = Object.keys(values);
         const countsArray = [];
         categoryArray.forEach((type) => {
-            console.log('types', type);
             countsArray.push(values[type]);
         });
         if (category === 'price') {
