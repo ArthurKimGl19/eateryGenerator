@@ -31,6 +31,7 @@
     ]
   },
   "dependencies": {
+    "@cubejs-client/core": "^0.33.12",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
@@ -40,8 +41,10 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
+    "chart.js": "^4.3.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-redux": "^8.0.5",

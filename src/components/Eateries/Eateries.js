@@ -9,12 +9,10 @@ import Filters from '../Filters/Filters';
 import Sort from '../Sort/Sort';
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
+import { cleanUpData } from '../../helpers/dataFunctions';
 import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
 import './Eateries.css';
 
-const cleanUpData = function (object) {
-    return Object.keys(object).map((id) => object[id]);
-};
 export default function Eateries() {
     const data = useSelector((state) => state.eateries);
     const [eateries, setEateries] = React.useState(cleanUpData(data));
