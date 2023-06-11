@@ -2,7 +2,7 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import eateriesReducer from './features/eateries/eateriesSlice';
-import { loadState, saveState } from '../localStorage/localStorageMethods';
+import { loadState, saveState } from '../helpers/localStorageFunctions';
 
 const store = configureStore({
     reducer: eateriesReducer,
