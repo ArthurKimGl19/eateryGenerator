@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import data from '../../../data/data-eatery.json';
+import favoriteData from '../../../data/favorite-eatery.json';
 
 /* eslint-disable prettier/prettier */
-
 const cleanupData = function (data) {
     const output = {};
     data.forEach((eatery, index) => {
@@ -36,6 +36,8 @@ const initialGeolocation = {
 const initialState = {
     initialData: data,
     eateries: cleanupData(data),
+    initialFavoriteData: favoriteData,
+    favorites: cleanupData(favoriteData),
     randomEatery: initialRandomEatery,
     history: [],
     shuffledIndexes: null,
@@ -183,6 +185,21 @@ const eateriesSlice = createSlice({
             });
             state.history = history;
         },
+        formatFavoriteProximity: (state) => {
+            const { latitude, longitude } = state.geolocation.coordinates;
+            const favorites = { ...state.favorites };
+            Object.keys(favorites).forEach((index) => {
+                const eatery = favorites[index];
+                const distance = calculateDistanceInMiles(
+                    eatery.latitude,
+                    eatery.longitude,
+                    latitude,
+                    longitude
+                );
+                eatery['proximity'] = calculateProximity(distance);
+            });
+            state.favorites = favorites;
+        },
         updateGeolocationFormatted: (state) => {
             if (!state.geolocationFormatted) state.geolocationFormatted = true;
         }
@@ -202,6 +219,7 @@ export const {
     formatRandomEateryProximity,
     formatEateriesProximity,
     formatHistoryProximity,
+    formatFavoriteProximity,
     updateGeolocationFormatted
 } = eateriesSlice.actions;
 export default eateriesSlice.reducer;
