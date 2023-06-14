@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import Dashboard from '../Dashboard';
 import { renderWithProviders } from '../../../utils/test-utils';
+import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
 
 const initialRandomEatery = {
     name: '',
@@ -40,14 +41,6 @@ const initialData = [
         zipCode: 9000
     }
 ];
-
-const cleanupData = function (data) {
-    const output = {};
-    data.forEach((eatery, index) => {
-        output[index] = eatery;
-    });
-    return output;
-};
 
 describe('Successfully render homepage component', () => {
     test('Renders the header', () => {
