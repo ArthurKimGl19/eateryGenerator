@@ -18,14 +18,24 @@ export default function Sort({ eateries, setEateries }) {
                 const eventKey = item + '_' + 'desc';
                 return (
                     <Dropdown.Item key={index} eventKey={eventKey} className="sort-asc-option">
-                        {item} <FontAwesomeIcon icon={faArrowUp} className="sort-asc-icon" />
+                        {item}{' '}
+                        <FontAwesomeIcon
+                            icon={faArrowUp}
+                            className="sort-asc-icon"
+                            title="arrow-up-icon"
+                        />
                     </Dropdown.Item>
                 );
             } else {
                 const eventKey = item + '_' + 'asc';
                 return (
                     <Dropdown.Item key={index} eventKey={eventKey} className="sort-desc-option">
-                        {item} <FontAwesomeIcon icon={faArrowDown} className="sort-desc-icon" />
+                        {item}{' '}
+                        <FontAwesomeIcon
+                            icon={faArrowDown}
+                            className="sort-desc-icon"
+                            title="arrow-down-icon"
+                        />
                     </Dropdown.Item>
                 );
             }
@@ -63,8 +73,7 @@ export default function Sort({ eateries, setEateries }) {
                     if (valueArray.length === 2) {
                         sortOptionsFunc(valueArray[0], valueArray[1]);
                     }
-                }}
-            >
+                }}>
                 {sortOptions}
             </DropdownButton>
         </Container>
