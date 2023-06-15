@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 import { renderWithProviders } from '../../../utils/test-utils';
 
 import Filters from '../../Filters/Filters';
-import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
 
 const eateries = [
     {
