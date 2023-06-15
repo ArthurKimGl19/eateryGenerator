@@ -42,7 +42,7 @@ const initialData = [
     }
 ];
 
-describe('Successfully render homepage component', () => {
+describe('Successfully render dashboard component', () => {
     test('Renders the header', () => {
         renderWithProviders(<Dashboard />, {
             preloadedState: {
