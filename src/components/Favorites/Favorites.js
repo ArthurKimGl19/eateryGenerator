@@ -81,6 +81,7 @@ export default function Favorites() {
                                         icon={faLocationDot}
                                         onClick={() => showDirections(latitude, longitude)}
                                         className="map-icon"
+                                        title="directions-icon"
                                     />
                                 </td>
                                 <td>{zipCode}</td>
