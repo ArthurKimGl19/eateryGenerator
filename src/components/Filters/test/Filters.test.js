@@ -81,7 +81,6 @@ describe('Successfully render filters component', () => {
                 initialEateries={initialEateries}
             />
         );
-
         const type = screen.getByRole('button', {
             name: /type/i
         });
@@ -89,6 +88,7 @@ describe('Successfully render filters component', () => {
         await act(async () => {
             userEvent.click(type);
         });
+
         const optionOne = screen.getByRole('button', {
             name: /example type 1/i
         });
@@ -111,7 +111,6 @@ describe('Successfully render filters component', () => {
                 initialEateries={initialEateries}
             />
         );
-
         const price = screen.getByRole('button', {
             name: /price/i
         });
@@ -119,6 +118,7 @@ describe('Successfully render filters component', () => {
         await act(async () => {
             userEvent.click(price);
         });
+
         const optionOne = screen.getByRole('button', {
             name: '$'
         });

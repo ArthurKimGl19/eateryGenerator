@@ -17,6 +17,7 @@ describe('Successfully render sort component', () => {
         await act(async () => {
             userEvent.click(sort);
         });
+
         const names = screen.getAllByRole('button', {
             name: /name/i
         });

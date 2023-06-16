@@ -88,9 +88,9 @@ describe('Successfully render dashboard component', () => {
         await act(async () => {
             userEvent.click(button);
         });
+
         const newButton = await screen.findByRole('button', { name: /directions/i }); // assumes your button has "Click me" as text
         expect(newButton).toBeInTheDocument();
-
         const exampleName = await screen.findByText(/example eatery/i);
         expect(exampleName).toBeInTheDocument();
     });
