@@ -1,7 +1,6 @@
-import { act, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import ResizeObserver from 'resize-observer-polyfill';
 global.ResizeObserver = ResizeObserver;
-import userEvent from '@testing-library/user-event';
 
 import ChartGraph from '../ChartGraph';
 import { renderWithProviders } from '../../../utils/test-utils';
@@ -29,6 +28,7 @@ describe('Successfully renders chart graph component', () => {
                 eateries: cleanupData(initialData)
             }
         });
+
         const header = screen.getByRole('heading', {
             name: /eateries price data/i
         });

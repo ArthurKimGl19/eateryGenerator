@@ -25,6 +25,7 @@ describe('Successfully renders history component', () => {
                 history: initialHistory
             }
         });
+
         const header = screen.getByRole('heading', {
             name: /history/i
         });
@@ -37,6 +38,7 @@ describe('Successfully renders history component', () => {
                 history: initialHistory
             }
         });
+
         const button = screen.getByRole('button', {
             name: /clear history/i
         });
@@ -49,6 +51,7 @@ describe('Successfully renders history component', () => {
                 history: initialHistory
             }
         });
+
         const button = screen.getByRole('button', {
             name: /clear history/i
         });

@@ -66,7 +66,6 @@ describe('Successfully renders app component', () => {
                 geolocation: initialGeolocation
             }
         });
-        screen.debug();
         const header = screen.getByRole('heading', {
             name: /generate a random eatery to eat at/i
         });
@@ -139,7 +138,6 @@ describe('Successfully renders app component', () => {
             name: /eateries price data/i
         });
         expect(priceHeader).toBeInTheDocument();
-        screen.debug();
     });
 
     test('Clicking navbar favorites option renders favorites component', async () => {

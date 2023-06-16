@@ -18,7 +18,6 @@ const initialRandomEatery = {
     index: null,
     proximity: ''
 };
-
 const initialGeolocation = {
     coordinates: {
         latitude: 0,
@@ -27,7 +26,6 @@ const initialGeolocation = {
     loading: true,
     error: null
 };
-
 const initialData = [
     {
         address: 'example address',
@@ -50,6 +48,7 @@ describe('Successfully renders dashboard component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const header = screen.getByRole('heading', {
             name: /generate a random eatery to eat at!/i
         });
@@ -63,6 +62,7 @@ describe('Successfully renders dashboard component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const button = screen.getByRole('button', {
             name: /randomize/i
         });
@@ -82,6 +82,7 @@ describe('Successfully renders dashboard component', () => {
                 noMoreEateries: false
             }
         });
+
         const button = screen.getByRole('button', {
             name: /randomize/i
         });
@@ -91,6 +92,7 @@ describe('Successfully renders dashboard component', () => {
 
         const newButton = await screen.findByRole('button', { name: /directions/i }); // assumes your button has "Click me" as text
         expect(newButton).toBeInTheDocument();
+
         const exampleName = await screen.findByText(/example eatery/i);
         expect(exampleName).toBeInTheDocument();
     });

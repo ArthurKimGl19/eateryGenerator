@@ -12,6 +12,7 @@ describe('Successfully renders randomizer component', () => {
                 noMoreEateries: false
             }
         });
+
         const button = screen.getByRole('button', {
             name: /randomize/i
         });

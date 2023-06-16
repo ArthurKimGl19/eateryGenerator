@@ -13,7 +13,6 @@ const initialGeolocation = {
     loading: true,
     error: null
 };
-
 const initialData = [
     {
         address: 'example address 1',
@@ -48,6 +47,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const header = screen.getByRole('heading', {
             name: /eateries/i
         });
@@ -70,6 +70,7 @@ describe('Successfully renders eateries component', () => {
 
         const eateryOne = await screen.findByText(/example eatery 1/i);
         expect(eateryOne).toBeInTheDocument();
+
         const eateryTwo = await screen.findByText(/example eatery 2/i);
         expect(eateryTwo).toBeInTheDocument();
     });
@@ -82,6 +83,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const type = screen.getByRole('button', {
             name: /type/i
         });
@@ -99,6 +101,7 @@ describe('Successfully renders eateries component', () => {
         const typeOneElements = await screen.findAllByText(/example type 1/i);
         //elements are in drop down menu, selected drop down menu option, rendered eatery
         expect(typeOneElements).toHaveLength(3);
+
         const typeTwoElements = await screen.queryByText(/example type 2/i);
         expect(typeTwoElements).not.toBeInTheDocument();
 
@@ -126,6 +129,7 @@ describe('Successfully renders eateries component', () => {
         const priceTwoElements = await screen.findAllByText('$$');
         //elements are in drop down menu, selected drop down menu option, rendered eatery
         expect(priceTwoElements).toHaveLength(3);
+
         const priceOneElements = await screen.queryByText('$');
         expect(priceOneElements).not.toBeInTheDocument();
     });
@@ -138,6 +142,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -152,6 +157,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -180,6 +186,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -208,6 +215,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -236,6 +244,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -264,6 +273,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -292,6 +302,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -320,6 +331,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -348,6 +360,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -376,6 +389,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });
@@ -404,6 +418,7 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
+
         const sort = screen.getByRole('button', {
             name: /sort/i
         });

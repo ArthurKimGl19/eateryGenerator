@@ -1,8 +1,8 @@
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { renderWithProviders } from '../../../utils/test-utils';
 
 import Filters from '../../Filters/Filters';
+import { renderWithProviders } from '../../../utils/test-utils';
 
 const eateries = [
     {
@@ -39,7 +39,6 @@ const eateries = [
         zipCode: 90003
     }
 ];
-
 const setEateries = () => {};
 const initialEateries = [];
 
@@ -52,10 +51,12 @@ describe('Successfully renders filters component', () => {
                 initialEateries={initialEateries}
             />
         );
+
         const header = screen.getByRole('heading', {
             name: /filters/i
         });
         expect(header).toBeInTheDocument();
+
         const type = screen.getByRole('button', {
             name: /type/i
         });
@@ -64,10 +65,12 @@ describe('Successfully renders filters component', () => {
             name: /price/i
         });
         expect(price).toBeInTheDocument();
+
         const proximity = screen.getByRole('button', {
             name: /proximity/i
         });
         expect(proximity).toBeInTheDocument();
+
         const clear = screen.getByRole('button', {
             name: /clear/i
         });
@@ -81,6 +84,7 @@ describe('Successfully renders filters component', () => {
                 initialEateries={initialEateries}
             />
         );
+
         const type = screen.getByRole('button', {
             name: /type/i
         });
@@ -93,10 +97,12 @@ describe('Successfully renders filters component', () => {
             name: /example type 1/i
         });
         expect(optionOne).toBeInTheDocument();
+
         const optionTwo = screen.getByRole('button', {
             name: /example type 2/i
         });
         expect(optionTwo).toBeInTheDocument();
+
         const optionThree = screen.getByRole('button', {
             name: /example type 3/i
         });
@@ -111,22 +117,25 @@ describe('Successfully renders filters component', () => {
                 initialEateries={initialEateries}
             />
         );
+
         const price = screen.getByRole('button', {
             name: /price/i
         });
         expect(price).toBeInTheDocument();
+
         await act(async () => {
             userEvent.click(price);
         });
-
         const optionOne = screen.getByRole('button', {
             name: '$'
         });
         expect(optionOne).toBeInTheDocument();
+
         const optionTwo = screen.getByRole('button', {
             name: '$$'
         });
         expect(optionTwo).toBeInTheDocument();
+
         const optionThree = screen.getByRole('button', {
             name: '$$$'
         });
