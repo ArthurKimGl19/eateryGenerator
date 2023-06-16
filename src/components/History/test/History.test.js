@@ -18,7 +18,7 @@ const initialHistory = [
     }
 ];
 
-describe('Successfully render history component', () => {
+describe('Successfully renders history component', () => {
     test('Renders the header', () => {
         renderWithProviders(<History />, {
             preloadedState: {

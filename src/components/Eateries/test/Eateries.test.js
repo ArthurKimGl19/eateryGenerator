@@ -39,7 +39,7 @@ const initialData = [
     }
 ];
 
-describe('Successfully render eateries component', () => {
+describe('Successfully renders eateries component', () => {
     test('Renders the header and checks eateries count', () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {

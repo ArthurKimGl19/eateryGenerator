@@ -7,7 +7,7 @@ import Sort from '../../Sort/Sort';
 const eateries = [];
 const setEateries = () => {};
 
-describe('Successfully render sort component', () => {
+describe('Successfully renders sort component', () => {
     test('Renders sort component with correct options', async () => {
         renderWithProviders(<Sort eateries={eateries} setEateries={setEateries} />);
         const sort = screen.getByRole('button', {

@@ -32,14 +32,14 @@ const initialEmptyState = {
     coordinates: { latitude: 0, longitude: 0 }
 };
 
-describe('Successfully render result component', () => {
-    test('Render a result if a result is given', async () => {
+describe('Successfully renders result component', () => {
+    test('Renders a result if a result is given', async () => {
         renderWithProviders(<Result {...initialState} />);
         const eatery = await screen.findByText(/example eatery/i);
         expect(eatery).toBeInTheDocument();
     });
 
-    test('Render no result if data is empty', async () => {
+    test('Renders no result if data is empty', async () => {
         renderWithProviders(<Result {...initialEmptyState} />);
         const type = await screen.queryByText(/type/i);
         expect(type).not.toBeInTheDocument();

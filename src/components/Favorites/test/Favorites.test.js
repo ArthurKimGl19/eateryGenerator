@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import Favorites from '../Favorites';
 import { renderWithProviders } from '../../../utils/test-utils';
 import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
-import Eateries from '../../Eateries/Eateries';
 
 const initialGeolocation = {
     coordinates: {
@@ -40,7 +39,7 @@ const initialData = [
     }
 ];
 
-describe('Successfully render favorites component', () => {
+describe('Successfully renders favorites component', () => {
     test('Renders the header and checks favorites count', () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {

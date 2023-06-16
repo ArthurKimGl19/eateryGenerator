@@ -43,7 +43,7 @@ const eateries = [
 const setEateries = () => {};
 const initialEateries = [];
 
-describe('Successfully render filters component', () => {
+describe('Successfully renders filters component', () => {
     test('Renders filter component, correct button drop downs, and clear button', () => {
         renderWithProviders(
             <Filters
