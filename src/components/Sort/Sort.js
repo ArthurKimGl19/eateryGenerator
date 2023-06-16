@@ -22,7 +22,7 @@ export default function Sort({ eateries, setEateries }) {
                         <FontAwesomeIcon
                             icon={faArrowUp}
                             className="sort-asc-icon"
-                            title="arrow-up-icon"
+                            title={`${item} sort ascending icon`}
                         />
                     </Dropdown.Item>
                 );
@@ -34,7 +34,7 @@ export default function Sort({ eateries, setEateries }) {
                         <FontAwesomeIcon
                             icon={faArrowDown}
                             className="sort-desc-icon"
-                            title="arrow-down-icon"
+                            title={`${item} sort descending icon`}
                         />
                     </Dropdown.Item>
                 );

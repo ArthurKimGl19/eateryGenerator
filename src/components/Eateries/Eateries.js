@@ -81,7 +81,7 @@ export default function Eateries() {
                                         icon={faLocationDot}
                                         onClick={() => showDirections(latitude, longitude)}
                                         className="map-icon"
-                                        title="directions-icon"
+                                        title="directions icon"
                                     />
                                 </td>
                                 <td>{zipCode}</td>
