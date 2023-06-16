@@ -3,7 +3,6 @@ import userEvent from '@testing-library/user-event';
 
 import History from '../History';
 import { renderWithProviders } from '../../../utils/test-utils';
-import Dashboard from '../../Dashboard/Dashboard';
 
 const initialHistory = [
     {

@@ -183,7 +183,6 @@ describe('Successfully render eateries component', () => {
         const eateryOneIndex = tdElements.findIndex((text) => text === 'example eatery 1');
         const eateryTwoIndex = tdElements.findIndex((text) => text === 'example eatery 2');
         expect(eateryOneIndex).toBeLessThan(eateryTwoIndex);
-        screen.debug();
     });
 
     test('Test sort component functionality for name descending', async () => {
