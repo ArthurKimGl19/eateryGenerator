@@ -4,6 +4,11 @@ import userEvent from '@testing-library/user-event';
 import Eateries from '../Eateries';
 import { renderWithProviders } from '../../../utils/test-utils';
 import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
+import { showDirections } from '../../../helpers/directionFunctions';
+
+jest.mock('../../../helpers/directionFunctions', () => ({
+    showDirections: jest.fn()
+}));
 
 const initialGeolocation = {
     coordinates: {
@@ -37,6 +42,7 @@ const initialData = [
         zipCode: 90002
     }
 ];
+const initialOneEntry = [initialData[0]];
 
 describe('Successfully renders eateries component', () => {
     test('Renders the header and checks eateries count', () => {
@@ -73,6 +79,23 @@ describe('Successfully renders eateries component', () => {
 
         const eateryTwo = await screen.findByText(/example eatery 2/i);
         expect(eateryTwo).toBeInTheDocument();
+    });
+
+    test('Clicking the directions icon triggers showDirection', async () => {
+        renderWithProviders(<Eateries />, {
+            preloadedState: {
+                initialData: initialOneEntry,
+                eateries: cleanupData(initialOneEntry),
+                geolocation: initialGeolocation
+            }
+        });
+        screen.debug();
+        const location = screen.getByRole('img', { name: /directions icon/i });
+        expect(location).toBeInTheDocument();
+        await act(async () => {
+            userEvent.click(location);
+        });
+        expect(showDirections).toHaveBeenCalledWith('1', '-1');
     });
 
     test('Test selecting type and price filter options and clear button', async () => {
