@@ -1,7 +1,14 @@
-import { screen } from '@testing-library/react';
+import { act, screen } from '@testing-library/react';
 
 import Result from '../../Result/Result';
 import { renderWithProviders } from '../../../utils/test-utils';
+import { showDirections } from '../../../helpers/directionFunctions';
+import History from '../../History/History';
+import userEvent from '@testing-library/user-event';
+
+jest.mock('../../../helpers/directionFunctions', () => ({
+    showDirections: jest.fn()
+}));
 
 const latitude = '1';
 const longitude = '-1';
@@ -34,6 +41,18 @@ describe('Successfully renders result component', () => {
 
         const eatery = await screen.findByText(/example eatery/i);
         expect(eatery).toBeInTheDocument();
+    });
+
+    test('If result is present, clicking the directions button triggers showDirection', async () => {
+        renderWithProviders(<Result {...initialState} />);
+
+        const button = screen.getByRole('button', { name: /directions/i });
+        expect(button).toBeInTheDocument();
+
+        await act(async () => {
+            userEvent.click(button);
+        });
+        expect(showDirections).toHaveBeenCalledWith('1', '-1');
     });
 
     test('Renders no result if data is empty', async () => {

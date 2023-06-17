@@ -4,6 +4,12 @@ import userEvent from '@testing-library/user-event';
 import Favorites from '../Favorites';
 import { renderWithProviders } from '../../../utils/test-utils';
 import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
+import { showDirections } from '../../../helpers/directionFunctions';
+import Eateries from '../../Eateries/Eateries';
+
+jest.mock('../../../helpers/directionFunctions', () => ({
+    showDirections: jest.fn()
+}));
 
 const initialGeolocation = {
     coordinates: {
@@ -437,5 +443,23 @@ describe('Successfully renders favorites component', () => {
         const eateryTwoIndex = tdElements.findIndex((text) => text === '90002');
         const eateryOneIndex = tdElements.findIndex((text) => text === '90001');
         expect(eateryTwoIndex).toBeLessThan(eateryOneIndex);
+    });
+
+    test('Clicking the directions icon triggers showDirection', async () => {
+        renderWithProviders(<Favorites />, {
+            preloadedState: {
+                initialData: [initialData[0]],
+                favorites: cleanupData([initialData[0]]),
+                geolocation: initialGeolocation
+            }
+        });
+
+        const location = screen.getByRole('img', { name: /directions icon/i });
+        expect(location).toBeInTheDocument();
+
+        await act(async () => {
+            userEvent.click(location);
+        });
+        expect(showDirections).toHaveBeenCalledWith('1', '-1');
     });
 });

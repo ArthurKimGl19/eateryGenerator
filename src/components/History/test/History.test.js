@@ -3,6 +3,11 @@ import userEvent from '@testing-library/user-event';
 
 import History from '../History';
 import { renderWithProviders } from '../../../utils/test-utils';
+import { showDirections } from '../../../helpers/directionFunctions';
+
+jest.mock('../../../helpers/directionFunctions', () => ({
+    showDirections: jest.fn()
+}));
 
 const initialHistory = [
     {
@@ -62,5 +67,21 @@ describe('Successfully renders history component', () => {
             userEvent.click(button);
         });
         expect(exampleName).not.toBeInTheDocument();
+    });
+
+    test('Clicking the directions icon triggers showDirection', async () => {
+        renderWithProviders(<History />, {
+            preloadedState: {
+                history: initialHistory
+            }
+        });
+
+        const location = screen.getByRole('img', { name: /directions icon/i });
+        expect(location).toBeInTheDocument();
+
+        await act(async () => {
+            userEvent.click(location);
+        });
+        expect(showDirections).toHaveBeenCalledWith('1', '-1');
     });
 });
