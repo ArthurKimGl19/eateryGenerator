@@ -17,20 +17,27 @@ The application uses the data-eatery.json file to create a hashtable of possible
 When a user clicks on the randomize button, an eatery is selected from the hashtable and it is displayed as a card as well as added to the history table.
 Clicking the clear history button, will clear all previous choices.
 Data used within this app is stored in redux and persisted using localStorage.
-The main purpose of using redux was to showcase that I was able to use it.
-I initially created a customHook for usingLocalStorage within the Dashboard component and it would have sufficed for the purposes of this app to persist the data.
+
+Navbar options:
+1. Home - Able to randomize an eatery and randomized eatery is displayed
+2. History - Displays the history of randomized eateries
+3. Eateries - Displays all eateries within the data-eatery.json file
+4. Data - Generates charts for type and price for all eateries data
+5. Favorites - Displays all eateries within favorite-eatery.json file
+
+Currently, there are unit and integration tests for this application.
 
 ### Next steps:
 
-1. Add in unit and integration testing
-2. Create a script to automatically convert the csv to json
+1. Create a script to automatically convert the csv to json
    a. Use Google sheets api to convert google sheet to csv
    b. Create file to convert csv to json
    c. Create package.json script
-3. Add in distance data to (could be tiers) from current location
-4. Create another button that will find eateries based on choice of distance
-5. Look to incorporate Github actions into repo
-6. Host via s3 bucket to use the application in real time
+2. Look to incorporate Github actions into repo
+3. Finish unit and integration tests
+4. Host via s3 bucket to use the application in real time
+5. Add ability to add new favorites, update favorites
+6. Put backend on AWS - api gateway, lambdas
 
 ### Extra
 
