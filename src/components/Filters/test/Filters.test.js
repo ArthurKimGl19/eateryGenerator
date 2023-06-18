@@ -18,25 +18,47 @@ const eateries = [
     },
     {
         address: 'example address 2',
-        latitude: '1',
-        longitude: '-1',
+        latitude: '2',
+        longitude: '-2',
         name: 'example eatery 2',
         note: 'example note 2',
         price: 2,
-        rating: 3,
+        rating: 2,
         type: 'example type 2',
         zipCode: 90002
     },
     {
         address: 'example address 3',
-        latitude: '1',
-        longitude: '-1',
+        latitude: '3',
+        longitude: '-3',
         name: 'example eatery 3',
         note: 'example note 3',
         price: 3,
         rating: 3,
         type: 'example type 3',
         zipCode: 90003
+    },
+    {
+        address: 'example address 4',
+        latitude: '4',
+        longitude: '-4',
+        name: 'example eatery 4',
+        note: 'example note 4',
+        price: 4,
+        rating: 4,
+        type: 'example type 4',
+        zipCode: 90004
+    },
+    {
+        address: 'example address 5',
+        latitude: '5',
+        longitude: '-5',
+        name: 'example eatery 5',
+        note: 'example note 5',
+        price: 4,
+        rating: 5,
+        type: 'example type 4',
+        zipCode: 90005
     }
 ];
 const setEateries = () => {};
@@ -76,6 +98,7 @@ describe('Successfully renders filters component', () => {
         });
         expect(clear).toBeInTheDocument();
     });
+
     test('Renders correct options for type drop down', async () => {
         renderWithProviders(
             <Filters
@@ -107,6 +130,11 @@ describe('Successfully renders filters component', () => {
             name: /example type 3/i
         });
         expect(optionThree).toBeInTheDocument();
+
+        const optionFour = screen.getByRole('button', {
+            name: /example type 4/i
+        });
+        expect(optionFour).toBeInTheDocument();
     });
 
     test('Renders correct options for price drop down', async () => {
@@ -140,5 +168,44 @@ describe('Successfully renders filters component', () => {
             name: '$$$'
         });
         expect(optionThree).toBeInTheDocument();
+
+        const optionFour = screen.getByRole('button', {
+            name: '$$$$'
+        });
+        expect(optionFour).toBeInTheDocument();
     });
+
+    // test('Renders correct options for proximity drop down', async () => {
+    //     renderWithProviders(
+    //         <Filters
+    //             eateries={eateries}
+    //             setEateries={setEateries}
+    //             initialEateries={initialEateries}
+    //         />
+    //     );
+    //
+    //     const proximity = screen.getByRole('button', {
+    //         name: /proximity/i
+    //     });
+    //     expect(proximity).toBeInTheDocument();
+    //
+    //     await act(async () => {
+    //         userEvent.click(proximity);
+    //     });
+    //     // const optionOne = screen.getByRole('button', {
+    //     //     name: '$'
+    //     // });
+    //     // expect(optionOne).toBeInTheDocument();
+    //     //
+    //     // const optionTwo = screen.getByRole('button', {
+    //     //     name: '$$'
+    //     // });
+    //     // expect(optionTwo).toBeInTheDocument();
+    //     //
+    //     // const optionThree = screen.getByRole('button', {
+    //     //     name: '$$$'
+    //     // });
+    //     // expect(optionThree).toBeInTheDocument();
+    //     screen.debug();
+    // });
 });

@@ -40,6 +40,39 @@ const initialData = [
         rating: 2,
         type: 'example type 2',
         zipCode: 90002
+    },
+    {
+        address: 'example address 3',
+        latitude: '3',
+        longitude: '-3',
+        name: 'example eatery 3',
+        note: 'example note 3',
+        price: 3,
+        rating: 3,
+        type: 'example type 3',
+        zipCode: 90003
+    },
+    {
+        address: 'example address 4',
+        latitude: '4',
+        longitude: '-4',
+        name: 'example eatery 4',
+        note: 'example note 4',
+        price: 4,
+        rating: 4,
+        type: 'example type 4',
+        zipCode: 90004
+    },
+    {
+        address: 'example address 5',
+        latitude: '5',
+        longitude: '-5',
+        name: 'example eatery 5',
+        note: 'example note 5',
+        price: 4,
+        rating: 5,
+        type: 'example type 4',
+        zipCode: 90005
     }
 ];
 const initialOneEntry = [initialData[0]];
@@ -60,7 +93,7 @@ describe('Successfully renders eateries component', () => {
         expect(header).toBeInTheDocument();
 
         const count = screen.getByRole('heading', {
-            name: /(2)/i
+            name: /(5)/i
         });
         expect(count).toBeInTheDocument();
     });
@@ -156,6 +189,56 @@ describe('Successfully renders eateries component', () => {
 
         const priceOneElements = await screen.queryByText('$');
         expect(priceOneElements).not.toBeInTheDocument();
+    });
+
+    test('Price filters work properly after price options are selected', async () => {
+        renderWithProviders(<Eateries />, {
+            preloadedState: {
+                initialData: initialData,
+                eateries: cleanupData(initialData),
+                geolocation: initialGeolocation
+            }
+        });
+
+        //click price options and press clear to check if they are working correctly
+        const price = screen.getByRole('button', {
+            name: /price/i
+        });
+        await act(async () => {
+            userEvent.click(price);
+        });
+        const priceOptionOne = screen.getByRole('button', {
+            name: '$'
+        });
+        await act(async () => {
+            userEvent.click(priceOptionOne);
+        });
+        const priceOneElements = await screen.findAllByText('$');
+        //elements are in drop down menu, selected drop down menu option, rendered eatery
+        expect(priceOneElements).toHaveLength(3);
+
+        const clear = screen.getByRole('button', {
+            name: /clear/i
+        });
+        await act(async () => {
+            userEvent.click(clear);
+        });
+
+        await act(async () => {
+            userEvent.click(price);
+        });
+        const priceOptionThree = screen.getByRole('button', {
+            name: '$$$'
+        });
+        await act(async () => {
+            userEvent.click(priceOptionThree);
+        });
+        const priceThreeElements = await screen.findAllByText('$$$');
+        //elements are in drop down menu, selected drop down menu option, rendered eatery
+        expect(priceThreeElements).toHaveLength(3);
+        await act(async () => {
+            userEvent.click(clear);
+        });
     });
 
     test('Renders sort component', () => {
