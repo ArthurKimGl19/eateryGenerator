@@ -34,7 +34,7 @@ export const useChart = function (category, data) {
                 } else if (type === '3') {
                     newCategoryArray.push('$$$');
                 } else if (type === '4') {
-                    newCategoryArray.push('$$$');
+                    newCategoryArray.push('$$$$');
                 }
             });
         } else {
