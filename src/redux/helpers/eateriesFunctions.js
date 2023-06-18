@@ -39,9 +39,9 @@ export const calculateDistanceInMiles = function (lat1, lon1, lat2, lon2) {
 export const calculateProximity = function (distance) {
     if (distance <= 5) {
         return 'close';
-    } else if (distance <= 5 || distance >= 8) {
+    } else if (distance > 5 && distance <= 8) {
         return 'moderately close';
-    } else if (distance > 8 || distance < 15) {
+    } else if (distance > 8 && distance < 15) {
         return 'far';
     } else {
         return 'very far';

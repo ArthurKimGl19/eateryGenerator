@@ -84,10 +84,6 @@ const eateriesSlice = createSlice({
         clearRandomEatery: (state) => {
             state.randomEatery = initialRandomEatery;
         },
-        removeFromEateries: (state, action) => {
-            const index = action.payload;
-            delete state.eateries[index];
-        },
         updateGeolocationCoordinates: (state, action) => {
             state.geolocation.coordinates = action.payload;
         },
