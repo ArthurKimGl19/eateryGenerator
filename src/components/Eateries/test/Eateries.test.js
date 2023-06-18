@@ -89,9 +89,10 @@ describe('Successfully renders eateries component', () => {
                 geolocation: initialGeolocation
             }
         });
-        screen.debug();
+
         const location = screen.getByRole('img', { name: /directions icon/i });
         expect(location).toBeInTheDocument();
+
         await act(async () => {
             userEvent.click(location);
         });

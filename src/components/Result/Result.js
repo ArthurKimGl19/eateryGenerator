@@ -61,7 +61,7 @@ export default function Result({
                             >
                                 {/* eslint-disable prettier/prettier */}
                                 <Button variant="link" className="tooltip-button">
-                                    <FontAwesomeIcon icon={faCircleInfo} title="distance tooltip"/>
+                                    <FontAwesomeIcon icon={faCircleInfo} title="distance tooltip" />
                                 </Button>
                             </OverlayTrigger>
                         </ul>
