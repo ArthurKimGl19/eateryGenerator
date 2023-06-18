@@ -4,10 +4,7 @@ import Location from '../Location';
 import { renderWithProviders } from '../../../utils/test-utils';
 
 const initialGeolocation = {
-    coordinates: {
-        latitude: 0,
-        longitude: 0
-    },
+    coordinates: { latitude: 0, longitude: 0 },
     loading: true,
     error: null
 };
@@ -20,7 +17,7 @@ describe('Successfully renders location component', () => {
             }
         });
 
-        const initialText = await screen.findByText(/finding location/i);
+        const initialText = screen.getByText(/finding location/i);
         expect(initialText).toBeInTheDocument();
     });
 });
