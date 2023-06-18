@@ -1,9 +1,15 @@
 import { loadState, saveState } from '../localStorageFunctions';
 
 describe('Test localStorageFunctions', () => {
+    let getItemSpy;
     beforeEach(() => {
         // Clear localStorage before each test
         localStorage.clear();
+        getItemSpy = jest.spyOn(Storage.prototype, 'getItem');
+    });
+
+    afterEach(() => {
+        getItemSpy.mockRestore();
     });
 
     test('LoadState returns undefined when localStorage is empty', () => {
@@ -18,6 +24,15 @@ describe('Test localStorageFunctions', () => {
         localStorage.setItem('appState', JSON.stringify(mockState));
         const state = loadState();
         expect(state).toEqual(mockState);
+    });
+
+    it('LoadState returns undefined if an error is thrown', () => {
+        getItemSpy.mockImplementation(() => {
+            throw new Error();
+        });
+
+        expect(loadState()).toBeUndefined();
+        expect(getItemSpy).toHaveBeenCalledWith('appState');
     });
 
     test('SaveState saves state to localStorage', () => {

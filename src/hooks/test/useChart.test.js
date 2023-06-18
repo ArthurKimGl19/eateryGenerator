@@ -45,6 +45,17 @@ const initialData = [
         rating: 4,
         type: 'example type 4',
         zipCode: 90004
+    },
+    {
+        address: 'example address 5',
+        latitude: '5',
+        longitude: '-5',
+        name: 'example eatery 5',
+        note: 'example note 5',
+        price: 4,
+        rating: 4,
+        type: 'example type 4',
+        zipCode: 90005
     }
 ];
 
@@ -58,13 +69,13 @@ describe('Test useChart hook', () => {
             'Example type 3',
             'Example type 4'
         ]);
-        expect(counts).toEqual([1, 1, 1, 1]);
+        expect(counts).toEqual([1, 1, 1, 2]);
     });
 
     test('Return correct labels and counts for price', () => {
         const { result } = renderHook(() => useChart('price', initialData));
         const { labels, counts } = result.current;
         expect(labels).toEqual(['$', '$$', '$$$', '$$$$']);
-        expect(counts).toEqual([1, 1, 1, 1]);
+        expect(counts).toEqual([1, 1, 1, 2]);
     });
 });

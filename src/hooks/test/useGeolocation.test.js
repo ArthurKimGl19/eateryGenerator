@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { useGeolocation } from '../useGeolocation';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
