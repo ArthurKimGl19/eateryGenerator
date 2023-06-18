@@ -11,18 +11,19 @@ export const useGeolocation = function () {
     const getUserLocation = () => {
         if (!navigator.geolocation) {
             dispatch(updateGeolocationError('Geolocation is not supported by your browser'));
+        } else {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    dispatch(updateGeolocationCoordinates({ latitude, longitude }));
+                    dispatch(updateGeolocationLoading(false));
+                },
+                () => {
+                    dispatch(updateGeolocationError('Unable to retrieve your location'));
+                }
+            );
         }
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                dispatch(updateGeolocationCoordinates({ latitude, longitude }));
-                dispatch(updateGeolocationLoading(false));
-            },
-            () => {
-                dispatch(updateGeolocationError('Unable to retrieve your location'));
-            }
-        );
     };
 
     React.useEffect(() => {
