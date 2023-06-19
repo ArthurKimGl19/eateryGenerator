@@ -46,7 +46,6 @@ describe('Successfully renders result component', () => {
         const button = screen.getByRole('button', { name: /directions/i });
         expect(button).toBeInTheDocument();
 
-        screen.debug();
         await act(async () => {
             userEvent.click(button);
         });

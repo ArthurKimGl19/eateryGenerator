@@ -22,7 +22,7 @@
     margin: 0;
     padding: 3px 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .filters-container .selected-options-container .selected-type-options,
