@@ -2,13 +2,10 @@ import { act, screen } from '@testing-library/react';
 
 import Result from '../../Result/Result';
 import { renderWithProviders } from '../../../utils/test-utils';
-import { showDirections } from '../../../helpers/directionFunctions';
-import History from '../../History/History';
 import userEvent from '@testing-library/user-event';
 
-jest.mock('../../../helpers/directionFunctions', () => ({
-    showDirections: jest.fn()
-}));
+global.window = Object.create(window);
+Object.defineProperty(window, 'open', { value: jest.fn() });
 
 const latitude = '1';
 const longitude = '-1';
@@ -49,10 +46,14 @@ describe('Successfully renders result component', () => {
         const button = screen.getByRole('button', { name: /directions/i });
         expect(button).toBeInTheDocument();
 
+        screen.debug();
         await act(async () => {
             userEvent.click(button);
         });
-        expect(showDirections).toHaveBeenCalledWith('1', '-1');
+        const { latitude, longitude } = initialState.coordinates;
+        expect(global.window.open).toHaveBeenCalledWith(
+            `https://maps.google.com?q=${latitude},${longitude}`
+        );
     });
 
     test('Renders no result if data is empty', async () => {
