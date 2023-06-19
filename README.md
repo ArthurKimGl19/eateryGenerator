@@ -38,7 +38,7 @@ npm test
 If you want to view the detailed test coverage report, use:
 
 ```
-npm test-coverage
+npm run test-coverage
 ```
 
 
@@ -79,7 +79,7 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm test-coverage`
+### `npm run test-coverage`
 
 Creates a coverage test coverage report. Viewable via the /coverage/lcov-report/index.html file. If you drag this file into a web browser, you will be able to see the test coverage report in your browser.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
