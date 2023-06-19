@@ -15,7 +15,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test-check": "npm run test -- --showConfig",
     "test-coverage": "npm run test -- --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",

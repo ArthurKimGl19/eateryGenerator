@@ -25,19 +25,33 @@ Navbar options:
 4. Data - Generates charts for type and price for all eateries data
 5. Favorites - Displays all eateries within favorite-eatery.json file
 
-Currently, there are unit and integration tests for this application.
+## Testing
 
-### Next steps:
+Currently, the application has unit and integration tests with a test coverage of over 95%.
+
+To run the test suite, you can use the following command:
+
+```
+npm test
+```
+
+If you want to view the detailed test coverage report, use:
+
+```
+npm test-coverage
+```
+
+
+## Next steps:
 
 1. Create a script to automatically convert the csv to json
    a. Use Google sheets api to convert google sheet to csv
    b. Create file to convert csv to json
    c. Create package.json script
 2. Look to incorporate Github actions into repo
-3. Finish unit and integration tests
-4. Host via s3 bucket to use the application in real time
-5. Add ability to add new favorites, update favorites
-6. Put backend on AWS - api gateway, lambdas
+3. Host via s3 bucket to use the application in real time
+4. Add ability to add new favorites, update favorites
+5. Put backend on AWS - api gateway, lambdas
 
 ### Extra
 
@@ -63,6 +77,11 @@ You may also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm test-coverage`
+
+Creates a coverage test coverage report. Viewable via the /coverage/lcov-report/index.html file. If you drag this file into a web browser, you will be able to see the test coverage report in your browser.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
@@ -94,6 +113,10 @@ Run these two commands to run eslint on files. They will attempt to fix all prob
 ### `npm run format`
 
 Run this to format relevant files with prettier.
+
+### `npm run convert`
+
+Run this to create the data-eatery.json and favorite-eatery.json files based on their respective csv files. These json files are used to render the eateries and favorites components.
 
 ## Learn More
 
