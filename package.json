@@ -7,7 +7,8 @@
       "node_modules",
       "<rootDir>/src/index.js",
       "reportWebVitals.js",
-      "test-utils.js"
+      "test-utils.js",
+      "<rootDir>/src/data/index.js"
     ]
   },
   "scripts": {
@@ -20,7 +21,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md}' --config ./.prettierrc",
-    "convert": "node ./src/data/convertCsvToJson.js"
+    "convert": "node ./src/data/index.js"
   },
   "eslintConfig": {
     "extends": [

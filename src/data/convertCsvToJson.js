@@ -1,16 +1,15 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 const path = require('path');
-
-const eateryData = path.join(__dirname, 'data-eatery.csv');
-const favoriteData = path.join(__dirname, 'favorite-eatery.csv');
-
-const createFile = (fileName, data) => {
+const createFile = function (
+    fileName = 'data-eatery',
+    data = path.resolve(__dirname, './data-eatery.csv')
+) {
     const jsonData = [];
 
     fs.createReadStream(data)
         .pipe(csv())
-        .on('data', (row) => {
+        .on('data', async (row) => {
             const [latitude, longitude] = row.coordinates
                 .split(',')
                 .map((coord) => parseFloat(coord.trim()));
@@ -34,5 +33,4 @@ const createFile = (fileName, data) => {
         });
 };
 
-createFile('data-eatery', eateryData);
-createFile('favorite-eatery', favoriteData);
+module.exports = createFile;
