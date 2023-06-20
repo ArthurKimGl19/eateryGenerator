@@ -4,6 +4,7 @@ import BTable from 'react-bootstrap/Table';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { v4 as uuidv4 } from 'uuid';
 
 import Filters from '../Filters/Filters';
 import Sort from '../Sort/Sort';
@@ -56,7 +57,7 @@ export default function Favorites() {
                     </tr>
                 </thead>
                 <tbody>
-                    {favorites.map((eatery, index) => {
+                    {favorites.map((eatery) => {
                         const {
                             name,
                             type,
@@ -70,7 +71,7 @@ export default function Favorites() {
                             longitude
                         } = eatery;
                         return (
-                            <tr key={index} className="eateries-table-result">
+                            <tr key={uuidv4()} className="eateries-table-result">
                                 <td>{name}</td>
                                 <td>{type}</td>
                                 <td>{rating}</td>

@@ -6,6 +6,7 @@ import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/e
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { v4 as uuidv4 } from 'uuid';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
@@ -59,7 +60,7 @@ export default function History() {
                             longitude
                         } = eatery;
                         return (
-                            <tr key={index} className="history-table-result">
+                            <tr key={uuidv4()} className="history-table-result">
                                 <td>{index + 1}</td>
                                 <td>{name}</td>
                                 <td>{type}</td>
