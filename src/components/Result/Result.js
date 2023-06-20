@@ -49,7 +49,6 @@ export default function Result() {
                                 trigger="click"
                                 placement="right"
                                 overlay={tooltip}
-                                defaultShow
                             >
                                 {/* eslint-disable prettier/prettier */}
                                 <Button variant="link" className="tooltip-button">
