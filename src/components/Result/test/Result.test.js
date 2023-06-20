@@ -4,7 +4,7 @@ import Result from '../../Result/Result';
 import { renderWithProviders } from '../../../utils/test-utils';
 import userEvent from '@testing-library/user-event';
 
-global.window = Object.create(window);
+global.window ??= Object.create(window);
 Object.defineProperty(window, 'open', { value: jest.fn() });
 
 const initialState = {
