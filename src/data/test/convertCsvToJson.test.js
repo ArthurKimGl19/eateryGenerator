@@ -41,6 +41,7 @@ describe('Test convertCsvToJson function', () => {
                 return this;
             })
         };
+        jest.spyOn(console, 'log').mockImplementation();
         fs.createReadStream.mockReturnValueOnce(mReadStream);
         const fileName = 'test-file-name';
         createFile(fileName);
