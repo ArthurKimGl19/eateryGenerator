@@ -7,17 +7,17 @@ import userEvent from '@testing-library/user-event';
 global.window = Object.create(window);
 Object.defineProperty(window, 'open', { value: jest.fn() });
 
-const latitude = '1';
-const longitude = '-1';
 const initialState = {
-    address: 'example address',
-    name: 'example eatery',
-    note: 'example note',
-    price: 1,
+    name: 'example eatery 1',
+    type: 'eatery type 1',
     rating: 1,
-    type: 'example type',
-    zipCode: 90001,
-    coordinates: { latitude, longitude }
+    price: 1,
+    zipCode: 1,
+    address: 'example address 1',
+    note: 'example note 1',
+    proximity: 'close',
+    latitude: '1',
+    longitude: '-1'
 };
 const initialEmptyState = {
     name: '',
@@ -34,14 +34,22 @@ const initialEmptyState = {
 
 describe('Successfully renders result component', () => {
     test('Renders a result if a result is given', async () => {
-        renderWithProviders(<Result {...initialState} />);
+        renderWithProviders(<Result />, {
+            preloadedState: {
+                randomEatery: initialState
+            }
+        });
 
         const eatery = await screen.findByText(/example eatery/i);
         expect(eatery).toBeInTheDocument();
     });
 
     test('If result is present, clicking the directions button triggers showDirection', async () => {
-        renderWithProviders(<Result {...initialState} />);
+        renderWithProviders(<Result />, {
+            preloadedState: {
+                randomEatery: initialState
+            }
+        });
 
         const button = screen.getByRole('button', { name: /directions/i });
         expect(button).toBeInTheDocument();
@@ -49,14 +57,18 @@ describe('Successfully renders result component', () => {
         await act(async () => {
             userEvent.click(button);
         });
-        const { latitude, longitude } = initialState.coordinates;
+        const { latitude, longitude } = initialState;
         expect(global.window.open).toHaveBeenCalledWith(
             `https://maps.google.com?q=${latitude},${longitude}`
         );
     });
 
     test('Renders no result if data is empty', async () => {
-        renderWithProviders(<Result {...initialEmptyState} />);
+        renderWithProviders(<Result />, {
+            preloadedState: {
+                randomEatery: initialEmptyState
+            }
+        });
 
         const type = await screen.queryByText(/type/i);
         expect(type).not.toBeInTheDocument();

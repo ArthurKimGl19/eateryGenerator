@@ -1,28 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
 import './Result.css';
 
-export default function Result({
-    name,
-    type,
-    rating,
-    price,
-    address,
-    zipCode,
-    note,
-    proximity,
-    coordinates
-}) {
-    const { latitude, longitude } = coordinates;
+export default function Result() {
+    const randomEatery = useSelector((state) => state.randomEatery);
+    const { name, type, rating, price, address, zipCode, note, proximity, latitude, longitude } =
+        randomEatery;
     const tooltip = (
         <Tooltip id="tooltip-right">
             <div>
@@ -81,15 +73,3 @@ export default function Result({
     }
     return null;
 }
-
-Result.propTypes = {
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    address: PropTypes.string.isRequired,
-    zipCode: PropTypes.number.isRequired,
-    proximity: PropTypes.string,
-    coordinates: PropTypes.object.isRequired,
-    note: PropTypes.any.isRequired
-};

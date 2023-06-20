@@ -1,41 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux';
 
 import Randomizer from '../Randomizer/Randomizer';
 import Result from '../Result/Result';
 import Location from '../Location/Location';
-import {
-    createRandomEatery,
-    updateHistory,
-    checkIfEateriesAvailable,
-    formatRandomEateryProximity,
-    formatEateriesProximity,
-    formatHistoryProximity,
-    updateGeolocationFormatted
-} from '../../redux/features/eateries/eateriesSlice';
 import './Dashboard.css';
 
 export default function Dashboard() {
-    const randomEatery = useSelector((state) => state.randomEatery);
-    const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
-    const dispatch = useDispatch();
-    const eateryRandomizer = function () {
-        dispatch(checkIfEateriesAvailable());
-        dispatch(createRandomEatery());
-        dispatch(updateHistory());
-
-        if (!geolocationFormatted) {
-            dispatch(formatRandomEateryProximity());
-            dispatch(formatEateriesProximity());
-            dispatch(formatHistoryProximity());
-            dispatch(updateGeolocationFormatted());
-        }
-    };
-
-    const { name, type, rating, price, address, zipCode, note, proximity, latitude, longitude } =
-        randomEatery;
-    const coordinates = { latitude, longitude };
     return (
         <Container>
             <Container className="hero-component">
@@ -58,22 +29,12 @@ export default function Dashboard() {
                     </Row>
                     <Row>
                         <Col>
-                            <Randomizer randomizeEatery={eateryRandomizer} />
+                            <Randomizer />
                         </Col>
                     </Row>
                 </Container>
             </Container>
-            <Result
-                name={name}
-                type={type}
-                rating={rating}
-                price={price}
-                address={address}
-                zipCode={zipCode}
-                note={note}
-                proximity={proximity}
-                coordinates={coordinates}
-            />
+            <Result />
         </Container>
     );
 }
