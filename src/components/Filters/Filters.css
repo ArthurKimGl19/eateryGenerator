@@ -38,3 +38,30 @@
 .filters-container .selected-options-container .selected-proximity-options .selected-option {
     margin: 5px;
 }
+
+/* mobile css */
+@media only screen and (max-width: 480px) {
+    .eateries-container-filters-sort .filters-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .eateries-container-filters-sort .filters-container .filters-options-container h6 {
+        display: none;
+    }
+
+    .eateries-container-filters-sort .filters-container .filters-options-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .eateries-container-filters-sort .sort-container {
+        display: block;
+        width: 25%;
+    }
+
+    .filters-container .dropdown-button,
+    .filters-container .filters-options-container .filters-options-clear {
+        margin: 5px 5px;
+    }
+}

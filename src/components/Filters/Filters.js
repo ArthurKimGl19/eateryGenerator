@@ -183,7 +183,7 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
                     {/* eslint-disable prettier/prettier */}
                     {proximityOptions}
                 </DropdownButton>
-                <Button onClick={clearSelectedOptions}>Clear</Button>
+                <Button className="filters-options-clear" onClick={clearSelectedOptions}>Clear</Button>
             </Container>
             <Container className="selected-options-container">
                 <div className="selected-type-options">{selectedTypeOptions}</div>
