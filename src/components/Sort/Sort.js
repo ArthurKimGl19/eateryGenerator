@@ -73,8 +73,7 @@ export default function Sort({ eateries, setEateries }) {
                     if (valueArray.length === 2) {
                         sortOptionsFunc(valueArray[0], valueArray[1]);
                     }
-                }}
-            >
+                }}>
                 {sortOptions}
             </DropdownButton>
         </Container>

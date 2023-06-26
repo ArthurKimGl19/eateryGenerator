@@ -15,8 +15,7 @@ export default function NavbarComponent() {
             bg="dark"
             variant="dark"
             sticky="top"
-            className="nav-component"
-        >
+            className="nav-component">
             <Container>
                 <Navbar.Brand className="nav-brand">
                     <img
