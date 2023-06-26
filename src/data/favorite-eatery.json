@@ -713,5 +713,27 @@
     "note": "all you can eat lunch",
     "latitude": 34.062314506166636,
     "longitude": -118.3479332774721
+  },
+  {
+    "name": "dinahs chicken",
+    "type": "chicken",
+    "rating": 4,
+    "price": 2,
+    "address": "4106 san fernando rd ste a",
+    "zipCode": 91204,
+    "note": "fried chicken, gizzards, and pot pie were super good! flaky and homey",
+    "latitude": 34.12955062579033,
+    "longitude": -118.2598831220908
+  },
+  {
+    "name": "oakobing",
+    "type": "dessert",
+    "rating": 4,
+    "price": 2,
+    "address": "3300 w 6th st",
+    "zipCode": 90020,
+    "note": "korean shaved ice",
+    "latitude": 34.06368001069772,
+    "longitude": -118.29452402209073
   }
 ]
