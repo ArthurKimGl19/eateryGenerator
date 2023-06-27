@@ -59,17 +59,30 @@ const initialHistory = [
 ];
 
 describe('Successfully renders app component', () => {
-    test('Renders app', () => {
+    test('Renders the fallback loading component', async () => {
         renderWithProviders(<App />, {
             preloadedState: {
                 randomEatery: initialRandomEatery,
                 geolocation: initialGeolocation
             }
         });
-        const header = screen.getByRole('heading', {
-            name: /generate a random eatery to eat at/i
+        const loading = await screen.findByText(/loading/i);
+        expect(loading).toBeInTheDocument();
+    });
+
+    test('Renders app', async () => {
+        renderWithProviders(<App />, {
+            preloadedState: {
+                randomEatery: initialRandomEatery,
+                geolocation: initialGeolocation
+            }
         });
-        expect(header).toBeInTheDocument();
+        await act(async () => {
+            const header = screen.getByRole('heading', {
+                name: /generate a random eatery to eat at/i
+            });
+            expect(header).toBeInTheDocument();
+        });
     });
 
     test('Clicking navbar history option renders history component', async () => {
