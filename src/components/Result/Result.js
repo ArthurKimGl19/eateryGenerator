@@ -3,8 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { FaCircleInfo } from 'react-icons/fa6';
 import { useSelector } from 'react-redux';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
@@ -52,7 +51,7 @@ export default function Result() {
                             >
                                 {/* eslint-disable prettier/prettier */}
                                 <Button variant="link" className="tooltip-button">
-                                    <FontAwesomeIcon icon={faCircleInfo} title="distance tooltip" />
+                                    <FaCircleInfo title="distance tooltip" />
                                 </Button>
                             </OverlayTrigger>
                         </ul>

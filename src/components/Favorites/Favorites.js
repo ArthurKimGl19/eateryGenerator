@@ -2,8 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
 import { useSelector, useDispatch } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FaLocationDot } from 'react-icons/fa6';
 import { v4 as uuidv4 } from 'uuid';
 
 import Filters from '../Filters/Filters';
@@ -78,8 +77,7 @@ export default function Favorites() {
                                 <td>{calculatePrice(price)}</td>
                                 <td>
                                     {address}
-                                    <FontAwesomeIcon
-                                        icon={faLocationDot}
+                                    <FaLocationDot
                                         onClick={() => showDirections(latitude, longitude)}
                                         className="map-icon"
                                         title="directions icon"
