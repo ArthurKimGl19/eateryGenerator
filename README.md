@@ -25,22 +25,29 @@ Navbar options:
 4. Data - Generates charts for type and price for all eateries data
 5. Favorites - Displays all eateries within favorite-eatery.json file
 
-## Testing
+## Test Coverage and Performance Metrics
 
-Currently, the application has unit and integration tests with a test coverage of over 95%.
+### Test Coverage
 
-To run the test suite, you can use the following command:
+Currently, the application has unit and integration tests using Jest and React Testing Library. 
+Test coverage for this application is currently over 95%.
 
-```
-npm test
-```
+### Performance Metrics
 
-If you want to view the detailed test coverage report, use:
+Currently, these are the lighthouse scores for this application on desktop and mobile:
 
-```
-npm run test-coverage
-```
+![lighthouse_desktop.png](readme_images%2Flighthouse_desktop.png)
 
+![lighthouse_mobile.png](readme_images%2Flighthouse_mobile.png)
+
+Steps done to improve application performance:
+1. Lazy load components
+2. Analyze package size using [Link](https://bundlephobia.com/) and remove unnecessary packages
+3. Use smaller icon image package
+4. Host application using S3 and add caching through metadata (cache-control)
+5. Create cloudfront distribution and compress objects automatically to compress files
+
+Used [Link](https://pagespeed.web.dev/) to analyze application.
 
 ## Next steps:
 
@@ -48,19 +55,18 @@ npm run test-coverage
    a. Use Google sheets api to convert google sheet to csv
    b. Create file to convert csv to json
    c. Create package.json script
-2. Look to incorporate Github actions into repo
-3. Host via s3 bucket to use the application in real time
-4. Add ability to add new favorites, update favorites
-5. Put backend on AWS - api gateway, lambdas
+2. Add ability to add new favorites, update favorites
+3. Put backend on AWS - api gateway, lambdas
 
 ### Extra
 
-1. Create separate repo and refactor app to use Typescript
+1. Refactor app to use Typescript
 2. Update tests to support Typescript
 3. Create a separate repo and refactor to use Next.js
 4. Host using netlify
 5. Look into creating a Dockerized app and figure out how to host containers
 6. Look into using Kubernetes
+7. Add E2E tests once final version of app is created
 
 ## Available Scripts
 
@@ -93,6 +99,10 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run s3-upload`
+
+After you run the npm run build command above, run this command to deploy the contents of the build folder to the s3 bucket currently used to host this application.
 
 ### `npm run eject`
 

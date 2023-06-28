@@ -3,8 +3,7 @@ import { Container } from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import PropTypes from 'prop-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa6';
 
 import './Sort.css';
 
@@ -19,8 +18,7 @@ export default function Sort({ eateries, setEateries }) {
                 return (
                     <Dropdown.Item key={index} eventKey={eventKey} className="sort-asc-option">
                         {item}{' '}
-                        <FontAwesomeIcon
-                            icon={faArrowUp}
+                        <FaArrowUp
                             className="sort-asc-icon"
                             title={`${item} sort ascending icon`}
                         />
@@ -31,8 +29,7 @@ export default function Sort({ eateries, setEateries }) {
                 return (
                     <Dropdown.Item key={index} eventKey={eventKey} className="sort-desc-option">
                         {item}{' '}
-                        <FontAwesomeIcon
-                            icon={faArrowDown}
+                        <FaArrowDown
                             className="sort-desc-icon"
                             title={`${item} sort descending icon`}
                         />

@@ -4,8 +4,7 @@ import BTable from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FaLocationDot } from 'react-icons/fa6';
 import { v4 as uuidv4 } from 'uuid';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
@@ -68,8 +67,7 @@ export default function History() {
                                 <td>{calculatePrice(price)}</td>
                                 <td>
                                     {address}{' '}
-                                    <FontAwesomeIcon
-                                        icon={faLocationDot}
+                                    <FaLocationDot
                                         onClick={() => showDirections(latitude, longitude)}
                                         className="map-icon"
                                         title="directions icon"

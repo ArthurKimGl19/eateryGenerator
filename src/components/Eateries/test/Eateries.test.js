@@ -123,7 +123,7 @@ describe('Successfully renders eateries component', () => {
             }
         });
 
-        const location = screen.getByRole('img', { name: /directions icon/i });
+        const location = screen.getByTitle(/directions icon/i);
         expect(location).toBeInTheDocument();
 
         await act(async () => {
