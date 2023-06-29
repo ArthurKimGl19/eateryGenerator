@@ -56,17 +56,19 @@ Used [Link](https://pagespeed.web.dev/) to analyze application.
    b. Create file to convert csv to json
    c. Create package.json script
 2. Add ability to add new favorites, update favorites
-3. Put backend on AWS - api gateway, lambdas
+3. Put backend on AWS - api gateway, lambdas, postgresql or dynamodb
+4. Add in relevant tests
+5. Refactor app to use Typescript
+6. Update tests to support Typescript
 
 ### Extra
 
-1. Refactor app to use Typescript
-2. Update tests to support Typescript
-3. Create a separate repo and refactor to use Next.js
-4. Host using netlify
-5. Look into creating a Dockerized app and figure out how to host containers
-6. Look into using Kubernetes
-7. Add E2E tests once final version of app is created
+1. Refactor lambdas to use Python
+2. Create a separate repo and refactor to use Next.js
+3. Host using netlify
+4. Look into creating a Dockerized app and figure out how to host containers
+5. Look into using Kubernetes
+6. Add E2E tests once final version of app is created
 
 ## Available Scripts
 
