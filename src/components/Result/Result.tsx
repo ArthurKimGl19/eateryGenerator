@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
