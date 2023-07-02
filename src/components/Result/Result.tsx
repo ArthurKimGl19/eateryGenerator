@@ -8,23 +8,11 @@ import { useSelector } from 'react-redux';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
+import { Eatery } from '../../shared/types/Eatery';
 import './Result.css';
 
-interface RandomEatery {
-    name: string;
-    type: string;
-    rating: number;
-    price: number;
-    address: string;
-    zipCode: number;
-    note?: string;
-    proximity?: string;
-    latitude: number;
-    longitude: number;
-}
-
 export default function Result() {
-    const randomEatery = useSelector((state: { randomEatery: RandomEatery }) => state.randomEatery);
+    const randomEatery = useSelector((state: { randomEatery: Eatery }) => state.randomEatery);
     const { name, type, rating, price, address, zipCode, note, proximity, latitude, longitude } =
         randomEatery;
     const tooltip = (
