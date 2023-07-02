@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { ReactElement } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -11,7 +11,7 @@ import { showDirections } from '../../helpers/directionFunctions';
 import { Eatery } from '../../shared/types/Eatery';
 import './Result.css';
 
-export default function Result() {
+export default function Result(): ReactElement | null {
     const randomEatery = useSelector((state: { randomEatery: Eatery }) => state.randomEatery);
     const { name, type, rating, price, address, zipCode, note, proximity, latitude, longitude } =
         randomEatery;
@@ -45,7 +45,7 @@ export default function Result() {
                         <ul>
                             Proximity: {proximity}
                             {/* eslint-disable prettier/prettier */}
-                            <OverlayTrigger trigger="click" placement="right" overlay={tooltip}>
+                            <OverlayTrigger trigger="click" placement="right" overlay={tooltip} defaultShow={false} delay={10} flip={false}>
                                 {/* eslint-disable prettier/prettier */}
                                 <Button variant="link" className="tooltip-button">
                                     <FaCircleInfo title="distance tooltip" />
