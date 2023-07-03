@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
 })
 export function setupStore(preloadedState?: PreloadedState<RootState>) {
   const store = configureStore({
-    reducer: eateriesReducer,
+    reducer: rootReducer,
     preloadedState: loadState()
   });
   // Can still subscribe to the store

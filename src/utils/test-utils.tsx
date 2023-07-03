@@ -21,7 +21,7 @@ export function renderWithProviders(
     {
         preloadedState = {},
         // Automatically create a store instance if no store was passed in
-        store = configureStore({ reducer: eateriesReducer, preloadedState }),
+        store = configureStore({ reducer: { eateries: eateriesReducer }, preloadedState }),
         ...renderOptions
     }: ExtendedRenderOptions = {}
 ) {
