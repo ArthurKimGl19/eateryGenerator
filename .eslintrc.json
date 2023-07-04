@@ -24,7 +24,7 @@
   "rules": {
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
-    "prettier/prettier": ["warn",  {"endOfLine": "off"}]
+    "prettier/prettier": ["warn",  {"endOfLine": "auto"}]
 
   }
 }
