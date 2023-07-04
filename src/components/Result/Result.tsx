@@ -4,15 +4,14 @@ import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { FaCircleInfo } from 'react-icons/fa6';
-import { useSelector } from 'react-redux';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
-import { Eatery } from '../../shared/types/Eatery';
+import { useAppSelector } from '../../redux/hooks';
 import './Result.css';
 
 export default function Result(): ReactElement | null {
-    const randomEatery = useSelector((state: { randomEatery: Eatery }) => state.randomEatery);
+    const randomEatery = useAppSelector((state) => state.eateries.randomEatery);
     const { name, type, rating, price, address, zipCode, note, proximity, latitude, longitude } =
         randomEatery;
     const tooltip = (
@@ -44,12 +43,19 @@ export default function Result(): ReactElement | null {
                     {proximity && (
                         <ul>
                             Proximity: {proximity}
-                            {/* eslint-disable prettier/prettier */}
-                            <OverlayTrigger trigger="click" placement="right" overlay={tooltip} defaultShow={false} delay={10} flip={false}>
-                                {/* eslint-disable prettier/prettier */}
-                                <Button variant="link" className="tooltip-button">
-                                    <FaCircleInfo title="distance tooltip" />
-                                </Button>
+                            <OverlayTrigger
+                                trigger="click"
+                                placement="right"
+                                overlay={tooltip}
+                                defaultShow={false}
+                                delay={10}
+                                flip={false}
+                            >
+                                <div>
+                                    <Button variant="link" className="tooltip-button">
+                                        <FaCircleInfo title="distance tooltip" />
+                                    </Button>
+                                </div>
                             </OverlayTrigger>
                         </ul>
                     )}

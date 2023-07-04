@@ -1,15 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import Button from 'react-bootstrap/Button';
 import Loading from '../Loading/Loading';
-import { useDispatch } from 'react-redux';
 
+import { useAppDispatch } from '../../redux/hooks';
 import { clearGeolocation } from '../../redux/features/eateries/eateriesSlice';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import './Location.css';
 
 export default function Location() {
     const { coordinates, loading, error } = useGeolocation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const { latitude, longitude } = coordinates;
     const handleClearGeolocation = () => {

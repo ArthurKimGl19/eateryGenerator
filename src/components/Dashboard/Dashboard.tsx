@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import Randomizer from '../Randomizer/Randomizer';
@@ -6,7 +6,7 @@ import Result from '../Result/Result';
 import Location from '../Location/Location';
 import './Dashboard.css';
 
-export default function Dashboard() {
+export default function Dashboard(): ReactElement | null {
     return (
         <Container>
             <Container className="hero-component">

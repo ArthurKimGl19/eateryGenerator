@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Button from 'react-bootstrap/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 
 import './Randomizer.css';
 import {
@@ -13,11 +13,11 @@ import {
     updateHistory
 } from '../../redux/features/eateries/eateriesSlice';
 
-export default function Randomizer() {
-    const noMoreEateries = useSelector((state) => state.noMoreEateries);
-    const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
+export default function Randomizer(): ReactElement | null {
+    const noMoreEateries = useAppSelector((state) => state.eateries.noMoreEateries);
+    const geolocationFormatted = useAppSelector((state) => state.eateries.geolocationFormatted);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const randomizeEatery = function () {
         dispatch(checkIfEateriesAvailable());
         dispatch(createRandomEatery());
