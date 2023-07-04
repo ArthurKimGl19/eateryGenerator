@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
@@ -7,18 +7,28 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import PropTypes from 'prop-types';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
+import { EateryInterface } from '../../shared/interfaces/eatery.interface';
 import './Filters.css';
 
-export default function Filters({ eateries, setEateries, initialEateries }) {
-    const [types, setTypes] = React.useState([]);
-    const [prices, setPrices] = React.useState([]);
-    const [proximity, setProximity] = React.useState([]);
-    const [selectedTypes, setSelectedTypes] = React.useState([]);
-    const [selectedPrices, setSelectedPrices] = React.useState([]);
-    const [selectedProximity, setSelectedProximity] = React.useState([]);
+export default function Filters({
+    eateries,
+    setEateries,
+    initialEateries
+}: {
+    eateries: EateryInterface[];
+    setEateries: Function;
+    initialEateries: EateryInterface[];
+}): ReactElement | null {
+    const [types, setTypes] = React.useState<string[]>([]);
+    const [prices, setPrices] = React.useState<number[]>([]);
+    const [proximity, setProximity] = React.useState<string[]>([]);
+    const [selectedTypes, setSelectedTypes] = React.useState<string[]>([]);
+    const [selectedPrices, setSelectedPrices] = React.useState<number[]>([]);
+    const [selectedProximity, setSelectedProximity] = React.useState<string[]>([]);
+    type EateryKeys = 'type' | 'price' | 'proximity';
 
     React.useEffect(() => {
-        const createOptions = function (name, updateState) {
+        const createOptions = function (name: EateryKeys, updateState: Function) {
             const options = new Set();
 
             eateries.forEach((eatery) => {
@@ -35,9 +45,9 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
         createOptions('proximity', setProximity);
     }, [eateries]);
 
-    const createDropdownOptions = (items, className) => {
+    const createDropdownOptions = (items: string[] | number[], className: string) => {
         return items.sort().map((item, index) => {
-            if (className === 'price-options') {
+            if (className === 'price-options' && typeof item === 'number') {
                 const formattedPrice = calculatePrice(item);
                 return (
                     <Dropdown.Item key={index} eventKey={formattedPrice} className={className}>
@@ -58,9 +68,14 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
     const priceOptions = createDropdownOptions(prices, 'price-options');
     const proximityOptions = createDropdownOptions(proximity, 'proximity-options');
 
-    const updateSelectedOptions = (value, updateState, currentState, type) => {
+    const updateSelectedOptions = (
+        value: string | null,
+        updateState: Function,
+        currentState: (number | string)[],
+        type?: string
+    ) => {
         if (type === 'price') {
-            let currentPrice;
+            let currentPrice: undefined | number;
             if (value === '$') {
                 currentPrice = 1;
             } else if (value === '$$') {
@@ -80,7 +95,7 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
         }
     };
 
-    const createSelectedOptions = (items, type) => {
+    const createSelectedOptions = (items: string[] | number[], type?: string | undefined) => {
         return items.map((item, index) => {
             if (type === 'price') {
                 let currentPrice;
@@ -117,10 +132,14 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
         setEateries([...initialEateries]);
     };
 
-    const filterEateriesByType = (inputArray, filterValue, filterType) => {
-        const filteredEateries = [];
+    const filterEateriesByType = (
+        inputArray: EateryInterface[],
+        filterValue: string | null,
+        filterType: EateryKeys
+    ) => {
+        const filteredEateries: EateryInterface[] = [];
         if (filterType === 'price') {
-            let currentPrice;
+            let currentPrice: undefined | number;
             if (filterValue === '$') {
                 currentPrice = 1;
             } else if (filterValue === '$$') {
@@ -183,7 +202,9 @@ export default function Filters({ eateries, setEateries, initialEateries }) {
                     {/* eslint-disable prettier/prettier */}
                     {proximityOptions}
                 </DropdownButton>
-                <Button className="filters-options-clear" onClick={clearSelectedOptions}>Clear</Button>
+                <Button className="filters-options-clear" onClick={clearSelectedOptions}>
+                    Clear
+                </Button>
             </Container>
             <Container className="selected-options-container">
                 <div className="selected-type-options">{selectedTypeOptions}</div>
