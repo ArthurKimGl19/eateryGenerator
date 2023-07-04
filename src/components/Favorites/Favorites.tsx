@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
-import { useSelector, useDispatch } from 'react-redux';
 import { FaLocationDot } from 'react-icons/fa6';
 import { v4 as uuidv4 } from 'uuid';
 
 import Filters from '../Filters/Filters';
 import Sort from '../Sort/Sort';
+import { EateryInterface } from '../../shared/interfaces/eatery.interface';
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
 import { cleanUpData } from '../../helpers/dataFunctions';
 import { formatFavoriteProximity } from '../../redux/features/eateries/eateriesSlice';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import './Favorites.css';
 
-export default function Favorites() {
-    const data = useSelector((state) => state.favorites);
-    const [favorites, setFavorites] = React.useState(cleanUpData(data));
-    const [cleanedData] = React.useState(cleanUpData(data));
-    const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
-    const dispatch = useDispatch();
+export default function Favorites(): ReactElement | null {
+    const data = useAppSelector((state) => state.eateries.favorites);
+    const [favorites, setFavorites] = React.useState<EateryInterface[]>(cleanUpData(data));
+    const [cleanedData] = React.useState<EateryInterface[]>(cleanUpData(data));
+    const geolocationFormatted = useAppSelector((state) => state.eateries.geolocationFormatted);
+    const dispatch = useAppDispatch();
 
     const tableHeader = [
         'name',
