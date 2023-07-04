@@ -1,15 +1,15 @@
 import React, { ReactElement } from 'react';
-import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
+import { Container } from 'react-bootstrap';
 import { FaLocationDot } from 'react-icons/fa6';
 import { v4 as uuidv4 } from 'uuid';
 
-import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { calculatePrice } from '../../helpers/priceFunctions';
-import { showDirections } from '../../helpers/directionFunctions';
+import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
 import { EateryInterface } from '../../shared/interfaces/eatery.interface';
+import { showDirections } from '../../helpers/directionFunctions';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import './History.css';
 
 export default function History(): ReactElement | null {
@@ -30,7 +30,6 @@ export default function History(): ReactElement | null {
         'proximity',
         'notes'
     ];
-    console.log('history ', history);
     return (
         <Container className="history-container">
             <h4>History</h4>
