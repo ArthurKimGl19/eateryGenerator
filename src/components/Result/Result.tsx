@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react';
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { FaCircleInfo } from 'react-icons/fa6';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import { FaCircleInfo } from 'react-icons/fa6';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
@@ -60,14 +60,12 @@ export default function Result(): ReactElement | null {
                         </ul>
                     )}
                     {note && <ul>Notes: {note}</ul>}
-                    {/* eslint-disable prettier/prettier */}
                     <Button
                         onClick={() => showDirections(latitude, longitude)}
                         className="directions-button"
                     >
                         Directions
                     </Button>
-                    {/* eslint-disable prettier/prettier */}
                 </Card.Body>
             </Card>
         );

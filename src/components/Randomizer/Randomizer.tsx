@@ -16,13 +16,11 @@ import {
 export default function Randomizer(): ReactElement | null {
     const noMoreEateries = useAppSelector((state) => state.eateries.noMoreEateries);
     const geolocationFormatted = useAppSelector((state) => state.eateries.geolocationFormatted);
-
     const dispatch = useAppDispatch();
     const randomizeEatery = function () {
         dispatch(checkIfEateriesAvailable());
         dispatch(createRandomEatery());
         dispatch(updateHistory());
-
         if (!geolocationFormatted) {
             dispatch(formatRandomEateryProximity());
             dispatch(formatEateriesProximity());
