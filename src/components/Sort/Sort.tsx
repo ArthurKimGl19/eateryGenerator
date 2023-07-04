@@ -2,8 +2,8 @@ import React, { ReactElement } from 'react';
 import { Container } from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import PropTypes from 'prop-types';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa6';
+import PropTypes from 'prop-types';
 
 import { EateryInterface } from '../../shared/interfaces/eatery.interface';
 import './Sort.css';
@@ -46,9 +46,7 @@ export default function Sort({
             }
         });
     };
-
     const sortOptions = createSortOptions();
-
     const sortOptionsFunc = (name: SortKeys, direction: string) => {
         const currentEateries = [...eateries];
         if (name === 'zip code') name = 'zipCode';
@@ -82,7 +80,8 @@ export default function Sort({
                             sortOptionsFunc(valueArray[0] as SortKeys, valueArray[1]);
                         }
                     }
-                }}>
+                }}
+            >
                 {sortOptions}
             </DropdownButton>
         </Container>

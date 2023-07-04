@@ -1,25 +1,25 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
+import React, { ReactElement } from 'react';
 import BTable from 'react-bootstrap/Table';
-import { useSelector, useDispatch } from 'react-redux';
+import { Container } from 'react-bootstrap';
 import { FaLocationDot } from 'react-icons/fa6';
 import { v4 as uuidv4 } from 'uuid';
 
+import { calculatePrice } from '../../helpers/priceFunctions';
+import { cleanUpData } from '../../helpers/dataFunctions';
+import { EateryInterface } from '../../shared/interfaces/eatery.interface';
+import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
+import { showDirections } from '../../helpers/directionFunctions';
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import Filters from '../Filters/Filters';
 import Sort from '../Sort/Sort';
-import { calculatePrice } from '../../helpers/priceFunctions';
-import { showDirections } from '../../helpers/directionFunctions';
-import { cleanUpData } from '../../helpers/dataFunctions';
-import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
 import './Eateries.css';
 
-export default function Eateries() {
-    const data = useSelector((state) => state.eateries);
-    const [eateries, setEateries] = React.useState(cleanUpData(data));
-    const [cleanedData] = React.useState(cleanUpData(data));
-    const geolocationFormatted = useSelector((state) => state.geolocationFormatted);
-    const dispatch = useDispatch();
-
+export default function Eateries(): ReactElement | null {
+    const data = useAppSelector((state) => state.eateries.eateries);
+    const [eateries, setEateries] = React.useState<EateryInterface[]>(cleanUpData(data));
+    const [cleanedData] = React.useState<EateryInterface[]>(cleanUpData(data));
+    const geolocationFormatted = useAppSelector((state) => state.eateries.geolocationFormatted);
+    const dispatch = useAppDispatch();
     const tableHeader = [
         'name',
         'type',

@@ -63,11 +63,9 @@ export default function Filters({
             }
         });
     };
-
     const typeOptions = createDropdownOptions(types, 'type-options');
     const priceOptions = createDropdownOptions(prices, 'price-options');
     const proximityOptions = createDropdownOptions(proximity, 'proximity-options');
-
     const updateSelectedOptions = (
         value: string | null,
         updateState: Function,
@@ -94,7 +92,6 @@ export default function Filters({
             }
         }
     };
-
     const createSelectedOptions = (items: string[] | number[], type?: string | undefined) => {
         return items.map((item, index) => {
             if (type === 'price') {
@@ -124,14 +121,12 @@ export default function Filters({
     const selectedTypeOptions = createSelectedOptions(selectedTypes);
     const selectedPriceOptions = createSelectedOptions(selectedPrices, 'price');
     const selectedProximityOptions = createSelectedOptions(selectedProximity);
-
     const clearSelectedOptions = () => {
         setSelectedTypes([]);
         setSelectedPrices([]);
         setSelectedProximity([]);
         setEateries([...initialEateries]);
     };
-
     const filterEateriesByType = (
         inputArray: EateryInterface[],
         filterValue: string | null,
@@ -166,7 +161,6 @@ export default function Filters({
         <Container className="filters-container">
             <Container className="filters-options-container">
                 <h6>Filters</h6>
-                {/* eslint-disable prettier/prettier */}
                 <DropdownButton
                     title="Type"
                     className="dropdown-button"
@@ -175,10 +169,8 @@ export default function Filters({
                         filterEateriesByType(eateries, value, 'type');
                     }}
                 >
-                    {/* eslint-disable prettier/prettier */}
                     {typeOptions}
                 </DropdownButton>
-                {/* eslint-disable prettier/prettier */}
                 <DropdownButton
                     title="Price"
                     className="dropdown-button"
@@ -187,10 +179,8 @@ export default function Filters({
                         filterEateriesByType(eateries, value, 'price');
                     }}
                 >
-                    {/* eslint-disable prettier/prettier */}
                     {priceOptions}
                 </DropdownButton>
-                {/* eslint-disable prettier/prettier */}
                 <DropdownButton
                     title="Proximity"
                     className="dropdown-button"
@@ -199,7 +189,6 @@ export default function Filters({
                         filterEateriesByType(eateries, value, 'proximity');
                     }}
                 >
-                    {/* eslint-disable prettier/prettier */}
                     {proximityOptions}
                 </DropdownButton>
                 <Button className="filters-options-clear" onClick={clearSelectedOptions}>
