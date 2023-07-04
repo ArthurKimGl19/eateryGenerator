@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Container } from 'react-bootstrap';
 import BTable from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
-import { useDispatch, useSelector } from 'react-redux';
 import { FaLocationDot } from 'react-icons/fa6';
 import { v4 as uuidv4 } from 'uuid';
 
+import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { showDirections } from '../../helpers/directionFunctions';
+import { EateryInterface } from '../../shared/interfaces/eatery.interface';
 import './History.css';
 
-export default function History() {
-    const history = useSelector((state) => state.history);
-    const dispatch = useDispatch();
+export default function History(): ReactElement | null {
+    const history = useAppSelector((state) => state.eateries.history);
+    const dispatch = useAppDispatch();
     const clearHistoryFunctions = function () {
         dispatch(clearHistory());
         dispatch(clearRandomEatery());
@@ -29,7 +30,7 @@ export default function History() {
         'proximity',
         'notes'
     ];
-
+    console.log('history ', history);
     return (
         <Container className="history-container">
             <h4>History</h4>
@@ -45,7 +46,7 @@ export default function History() {
                     </tr>
                 </thead>
                 <tbody>
-                    {history.map((eatery, index) => {
+                    {history.map((eatery: EateryInterface, index: number) => {
                         const {
                             name,
                             type,
