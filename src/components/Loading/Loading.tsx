@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 export default function Loading({ text = 'Loading', speed = 300 }) {
     const [content, setContent] = React.useState(text);
 
