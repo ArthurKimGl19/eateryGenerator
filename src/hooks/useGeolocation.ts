@@ -1,13 +1,14 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import * as React from 'react';
+import { useAppSelector, useAppDispatch } from '../redux/hooks';
+
 import {
     updateGeolocationCoordinates,
     updateGeolocationLoading,
     updateGeolocationError
 } from '../redux/features/eateries/eateriesSlice';
 export const useGeolocation = function () {
-    const dispatch = useDispatch();
-    const { coordinates, loading, error } = useSelector((state) => state.geolocation);
+    const dispatch = useAppDispatch();
+    const { coordinates, loading, error } = useAppSelector((state) => state.eateries.geolocation);
     const getUserLocation = () => {
         if (!navigator.geolocation) {
             dispatch(updateGeolocationError('Geolocation is not supported by your browser'));
