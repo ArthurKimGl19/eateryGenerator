@@ -1,16 +1,18 @@
+import React from 'react';
 import { screen } from '@testing-library/react';
 import ResizeObserver from 'resize-observer-polyfill';
 global.ResizeObserver = ResizeObserver;
 
 import ChartGraph from '../ChartGraph';
-import { renderWithProviders } from '../../../utils/test-utils';
 import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
+import { renderWithProviders } from '../../../utils/test-utils';
 
 const initialData = [
     {
         address: 'example address',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery',
         note: 'example note',
         price: 1,
@@ -24,8 +26,11 @@ describe('Successfully renders chart graph component', () => {
     test('Renders chart graph', () => {
         renderWithProviders(<ChartGraph label={'Eateries Price'} category={'price'} />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData)
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData)
+                }
             }
         });
 
