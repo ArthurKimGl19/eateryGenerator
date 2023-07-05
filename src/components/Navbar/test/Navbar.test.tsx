@@ -1,3 +1,4 @@
+import React from 'react';
 import { screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ import { renderWithProviders } from '../../../utils/test-utils';
 describe('Successfully renders navbar component', () => {
     test('Renders navbar', () => {
         renderWithProviders(
-            <MemoryRouter initialEateries={['/']} initialIndex={0}>
+            <MemoryRouter initialEntries={['/']} initialIndex={0}>
                 <Navbar />
             </MemoryRouter>
         );

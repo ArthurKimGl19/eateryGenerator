@@ -1,9 +1,10 @@
+import React from 'react';
 import { screen, act } from '@testing-library/react';
 
 import Loading from '../Loading';
 import { renderWithProviders } from '../../../utils/test-utils';
 
-const advanceTimers = (time) => {
+const advanceTimers = (time: number) => {
     act(() => {
         jest.advanceTimersByTime(time);
     });
