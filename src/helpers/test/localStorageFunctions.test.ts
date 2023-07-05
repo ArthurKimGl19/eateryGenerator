@@ -1,7 +1,7 @@
 import { loadState, saveState } from '../localStorageFunctions';
 
 describe('Test localStorageFunctions', () => {
-    let getItemSpy;
+    let getItemSpy: jest.SpyInstance;
     beforeEach(() => {
         // Clear localStorage before each test
         localStorage.clear();
@@ -40,13 +40,13 @@ describe('Test localStorageFunctions', () => {
             eateries: []
         };
         saveState(mockState);
-        const storedState = localStorage.getItem('appState');
+        const storedState = localStorage.getItem('appState') || '{}';
         expect(JSON.parse(storedState)).toEqual(mockState);
     });
 
     test('SaveState logs an error if an exception occurs', () => {
         console.error = jest.fn();
-        const mockState = { circularReference: {} };
+        const mockState: any = { circularReference: {} };
         mockState.circularReference.self = mockState.circularReference;
         saveState(mockState);
         expect(console.error).toHaveBeenCalled();
