@@ -1,36 +1,17 @@
+import React from 'react';
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
 import Dashboard from '../Dashboard';
 import { renderWithProviders } from '../../../utils/test-utils';
-import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
 
-const initialRandomEatery = {
-    name: '',
-    type: '',
-    rating: 0,
-    price: 0,
-    zipCode: 0,
-    address: '',
-    latitude: 0,
-    longitude: 0,
-    note: '',
-    index: null,
-    proximity: ''
-};
-const initialGeolocation = {
-    coordinates: {
-        latitude: 0,
-        longitude: 0
-    },
-    loading: true,
-    error: null
-};
 const initialData = [
     {
         address: 'example address',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery',
         note: 'example note',
         price: 1,
@@ -44,8 +25,9 @@ describe('Successfully renders dashboard component', () => {
     test('Renders the header', () => {
         renderWithProviders(<Dashboard />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState
+                }
             }
         });
 
@@ -58,8 +40,9 @@ describe('Successfully renders dashboard component', () => {
     test('Renders the randomize button', () => {
         renderWithProviders(<Dashboard />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState
+                }
             }
         });
 
@@ -72,14 +55,10 @@ describe('Successfully renders dashboard component', () => {
     test('Clicking randomize button generates a random eatery', async () => {
         renderWithProviders(<Dashboard />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation,
-                geolocationFormatted: false,
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                history: [],
-                shuffledIndexes: null,
-                noMoreEateries: false
+                eateries: {
+                    ...initialState,
+                    eateries: cleanupData(initialData)
+                }
             }
         });
 

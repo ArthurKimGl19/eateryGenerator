@@ -1,15 +1,18 @@
+import React from 'react';
 import { screen } from '@testing-library/react';
 
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
 import Randomizer from '../Randomizer';
 import { renderWithProviders } from '../../../utils/test-utils';
 
-const randomizeEatery = () => {};
-
 describe('Successfully renders randomizer component', () => {
     test('Renders the randomizer component', async () => {
-        renderWithProviders(<Randomizer randomizeEatery={randomizeEatery} />, {
+        renderWithProviders(<Randomizer />, {
             preloadedState: {
-                noMoreEateries: false
+                eateries: {
+                    ...initialState,
+                    noMoreEateries: false
+                }
             }
         });
 

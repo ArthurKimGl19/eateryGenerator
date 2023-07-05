@@ -1,45 +1,15 @@
 import React from 'react';
 import { act, screen } from '@testing-library/react';
-
-import Result from '../../Result/Result';
-import { renderWithProviders } from '../../../utils/test-utils';
 import userEvent from '@testing-library/user-event';
 
-// if (!(global as any).window) {
-//     (global as any).window = Object.create(window);
-// }
-global.window ??= Object.create(window);
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
+import Result from '../../Result/Result';
+import { renderWithProviders } from '../../../utils/test-utils';
+
+global ??= Object.create(window);
 Object.defineProperty(window, 'open', { value: jest.fn() });
 
-// interface InitialState {
-//     name: string;
-//     type: string;
-//     rating: number;
-//     price: number;
-//     address: string;
-//     zipCode: number;
-//     note?: string;
-//     proximity?: string;
-//     latitude: number;
-//     longitude: number;
-// }
-//
-// interface InitialEmptyState {
-//     name: string;
-//     type: string;
-//     rating: number;
-//     price: number;
-//     address: string;
-//     zipCode: number;
-//     note?: string;
-//     proximity?: string;
-//     coordinates: {
-//         latitude: number;
-//         longitude: number;
-//     };
-// }
-
-const initialState = {
+const initialRandomEatery = {
     name: 'example eatery 1',
     type: 'eatery type 1',
     rating: 1,
@@ -51,24 +21,14 @@ const initialState = {
     latitude: 1,
     longitude: -1
 };
-const initialEmptyState = {
-    name: '',
-    type: '',
-    rating: 0,
-    price: 0,
-    address: '',
-    zipCode: 0,
-    note: '',
-    proximity: '',
-    coordinates: { latitude: 0, longitude: 0 }
-};
 
 describe('Successfully renders result component', () => {
     test('Renders a result if a result is given', async () => {
         renderWithProviders(<Result />, {
             preloadedState: {
                 eateries: {
-                    randomEatery: initialState
+                    ...initialState,
+                    randomEatery: initialRandomEatery
                 }
             }
         });
@@ -81,8 +41,10 @@ describe('Successfully renders result component', () => {
         renderWithProviders(<Result />, {
             preloadedState: {
                 eateries: {
-                    randomEatery: initialState
-                }            }
+                    ...initialState,
+                    randomEatery: initialRandomEatery
+                }
+            }
         });
 
         const button = screen.getByRole('button', { name: /directions/i });
@@ -91,7 +53,7 @@ describe('Successfully renders result component', () => {
         await act(async () => {
             userEvent.click(button);
         });
-        const { latitude, longitude } = initialState;
+        const { latitude, longitude } = initialRandomEatery;
         expect(global.window.open).toHaveBeenCalledWith(
             `https://maps.google.com?q=${latitude},${longitude}`
         );
@@ -101,7 +63,7 @@ describe('Successfully renders result component', () => {
         renderWithProviders(<Result />, {
             preloadedState: {
                 eateries: {
-                    randomEatery: initialEmptyState
+                    ...initialState
                 }
             }
         });

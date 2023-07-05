@@ -1,17 +1,13 @@
+import React from 'react';
 import { act, screen, render } from '@testing-library/react';
-
-import Location from '../Location';
-import { renderWithProviders } from '../../../utils/test-utils';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import { clearGeolocation } from '../../../redux/features/eateries/eateriesSlice';
 import userEvent from '@testing-library/user-event';
 
-const initialGeolocation = {
-    coordinates: { latitude: 0, longitude: 0 },
-    loading: true,
-    error: null
-};
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
+import { clearGeolocation } from '../../../redux/features/eateries/eateriesSlice';
+import Location from '../Location';
+import { renderWithProviders } from '../../../utils/test-utils';
 
 jest.mock('../../../hooks/useGeolocation', () => ({
     useGeolocation: () => ({
@@ -30,7 +26,9 @@ describe('Successfully renders location data for location component', () => {
     test('Renders location for location component', async () => {
         renderWithProviders(<Location />, {
             preloadedState: {
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState
+                }
             }
         });
 
