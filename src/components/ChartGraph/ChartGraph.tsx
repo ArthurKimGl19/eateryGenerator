@@ -1,17 +1,17 @@
 import React, { ReactElement } from 'react';
-import PropTypes from 'prop-types';
-import { Container } from 'react-bootstrap';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Container } from 'react-bootstrap';
 import { Doughnut } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
-
+import { CategoryType } from '../../shared/types/props.types';
 import { cleanUpData } from '../../helpers/dataFunctions';
 import { EateryInterface } from '../../shared/interfaces/eatery.interface';
-import { CategoryType } from '../../shared/types/props.types';
-import { useChart } from '../../hooks/useChart';
 import { useAppSelector } from '../../redux/hooks';
+import { useChart } from '../../hooks/useChart';
 import './ChartGraph.css';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function ChartGraph({
     category,
@@ -23,7 +23,6 @@ export default function ChartGraph({
     const data = useAppSelector((state) => state.eateries.eateries);
     const [eateries] = React.useState<EateryInterface[]>(cleanUpData(data));
     const { labels, counts } = useChart(category, eateries);
-
     const chartData = {
         labels: labels,
         datasets: [
