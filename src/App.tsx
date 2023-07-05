@@ -20,7 +20,8 @@ export default function App(): ReactElement | null {
                     <div className="fallback-loading">
                         <Loading />
                     </div>
-                }>
+                }
+            >
                 <div className="App">
                     <NavbarComponent />
                     <Routes>
