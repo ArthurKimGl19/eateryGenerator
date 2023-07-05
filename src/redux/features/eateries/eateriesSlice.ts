@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-import data from '../../../data/data-eatery.json';
-import favoriteData from '../../../data/favorite-eatery.json';
+
 import {
     cleanupData,
     shuffleEateries,
     calculateDistanceInMiles,
     calculateProximity
 } from '../../helpers/eateriesFunctions';
-/* eslint-disable prettier/prettier */
+import data from '../../../data/data-eatery.json';
+import { EateryInterface, EateriesInterface } from '../../../shared/interfaces/eatery.interface';
+import favoriteData from '../../../data/favorite-eatery.json';
+import { GeolocationInterface } from '../../../shared/interfaces/geolocation.interface';
+
 const initialRandomEatery = {
     name: '',
     type: '',
@@ -21,7 +24,6 @@ const initialRandomEatery = {
     index: null,
     proximity: ''
 };
-
 const initialGeolocation = {
     coordinates: {
         latitude: 0,
@@ -30,8 +32,19 @@ const initialGeolocation = {
     loading: true,
     error: null
 };
-
-const initialState = {
+export interface EateriesState {
+    initialData: EateryInterface[];
+    eateries: { [index: number]: EateryInterface };
+    initialFavoriteData: EateryInterface[];
+    favorites: { [index: number]: EateryInterface };
+    randomEatery: EateryInterface;
+    history: EateryInterface[];
+    shuffledIndexes: null | string[];
+    noMoreEateries: boolean;
+    geolocation: GeolocationInterface;
+    geolocationFormatted: boolean;
+}
+const initialState: EateriesState = {
     initialData: data,
     eateries: cleanupData(data),
     initialFavoriteData: favoriteData,
@@ -54,8 +67,9 @@ const eateriesSlice = createSlice({
                 shuffledIndexes = shuffleEateries(Object.keys(state.eateries));
             }
             if (shuffledIndexes.length > 0) {
-                const randomIndex = shuffledIndexes.pop();
-                const randomEatery = state.eateries[randomIndex];
+                const randomIndex = shuffledIndexes.pop()!;
+                const eateries: EateriesInterface = { ...state.eateries };
+                const randomEatery = eateries[randomIndex];
                 randomEatery.index = randomIndex;
                 state.randomEatery = randomEatery;
                 state.shuffledIndexes = [...shuffledIndexes];
@@ -110,7 +124,10 @@ const eateriesSlice = createSlice({
         },
         formatEateriesProximity: (state) => {
             const { latitude, longitude } = state.geolocation.coordinates;
-            const eateries = { ...state.eateries };
+            interface EateriesInterface {
+                [key: string]: EateryInterface;
+            }
+            const eateries: EateriesInterface = { ...state.eateries };
             Object.keys(eateries).forEach((index) => {
                 const eatery = eateries[index];
                 const distance = calculateDistanceInMiles(
@@ -139,7 +156,10 @@ const eateriesSlice = createSlice({
         },
         formatFavoriteProximity: (state) => {
             const { latitude, longitude } = state.geolocation.coordinates;
-            const favorites = { ...state.favorites };
+            interface FavoritesInterface {
+                [key: string]: EateryInterface;
+            }
+            const favorites: FavoritesInterface = { ...state.favorites };
             Object.keys(favorites).forEach((index) => {
                 const eatery = favorites[index];
                 const distance = calculateDistanceInMiles(
@@ -175,4 +195,3 @@ export const {
     updateGeolocationFormatted
 } = eateriesSlice.actions;
 export default eateriesSlice.reducer;
-/* eslint-disable prettier/prettier */

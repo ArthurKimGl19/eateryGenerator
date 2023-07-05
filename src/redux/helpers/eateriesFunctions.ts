@@ -1,12 +1,15 @@
-export const cleanupData = function (data) {
-    const output = {};
+import { EateryInterface } from '../../shared/interfaces/eatery.interface';
+export const cleanupData = function (data: EateryInterface[]): {
+    [index: number]: EateryInterface;
+} {
+    const output: { [index: number]: EateryInterface } = {};
     data.forEach((eatery, index) => {
         output[index] = eatery;
     });
     return output;
 };
 
-export const shuffleEateries = function (array) {
+export const shuffleEateries = function (array: string[]): string[] {
     // Fisher-Yates shuffle algo
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -15,11 +18,16 @@ export const shuffleEateries = function (array) {
     return array;
 };
 
-const toRadians = function (degrees) {
+const toRadians = function (degrees: number): number {
     return degrees * (Math.PI / 180);
 };
 
-export const calculateDistanceInMiles = function (lat1, lon1, lat2, lon2) {
+export const calculateDistanceInMiles = function (
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number
+): number {
     // Radius of the Earth in miles
     const earthRadiusInMiles = 3958.8;
     const dLat = toRadians(lat2 - lat1);
@@ -36,7 +44,7 @@ export const calculateDistanceInMiles = function (lat1, lon1, lat2, lon2) {
     return earthRadiusInMiles * c;
 };
 
-export const calculateProximity = function (distance) {
+export const calculateProximity = function (distance: number): string {
     if (distance <= 5) {
         return 'close';
     } else if (distance > 5 && distance <= 8) {
