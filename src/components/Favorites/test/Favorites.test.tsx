@@ -1,29 +1,22 @@
+import React from 'react';
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Favorites from '../Favorites';
-import { renderWithProviders } from '../../../utils/test-utils';
 import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
+import Favorites from '../Favorites';
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
+import { renderWithProviders } from '../../../utils/test-utils';
 import { showDirections } from '../../../helpers/directionFunctions';
-import Eateries from '../../Eateries/Eateries';
 
 jest.mock('../../../helpers/directionFunctions', () => ({
     showDirections: jest.fn()
 }));
 
-const initialGeolocation = {
-    coordinates: {
-        latitude: 0,
-        longitude: 0
-    },
-    loading: true,
-    error: null
-};
 const initialData = [
     {
         address: 'example address 1',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery 1',
         note: 'example note 1',
         price: 1,
@@ -33,8 +26,8 @@ const initialData = [
     },
     {
         address: 'example address 2',
-        latitude: '2',
-        longitude: '-2',
+        latitude: 2,
+        longitude: -2,
         name: 'example eatery 2',
         note: 'example note 2',
         price: 2,
@@ -48,9 +41,11 @@ describe('Successfully renders favorites component', () => {
     test('Renders the header and checks favorites count', () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -68,9 +63,11 @@ describe('Successfully renders favorites component', () => {
     test('Check to see that favorites data renders', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -84,9 +81,11 @@ describe('Successfully renders favorites component', () => {
     test('Test selecting type and price filter options and clear button', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -143,9 +142,11 @@ describe('Successfully renders favorites component', () => {
     test('Renders sort component', () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -158,9 +159,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for name ascending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -187,9 +190,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for name descending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -216,9 +221,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for price ascending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -245,9 +252,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for price descending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -274,9 +283,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for rating ascending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -303,9 +314,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for rating descending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -332,9 +345,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for type ascending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -361,9 +376,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for type descending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -390,9 +407,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for zip code ascending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -419,9 +438,11 @@ describe('Successfully renders favorites component', () => {
     test('Test sort component functionality for zip code descending', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: initialData,
-                favorites: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    favorites: cleanupData(initialData),
+                }
             }
         });
 
@@ -448,9 +469,11 @@ describe('Successfully renders favorites component', () => {
     test('Clicking the directions icon triggers showDirection', async () => {
         renderWithProviders(<Favorites />, {
             preloadedState: {
-                initialData: [initialData[0]],
-                favorites: cleanupData([initialData[0]]),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: [initialData[0]],
+                    favorites: cleanupData([initialData[0]]),
+                }
             }
         });
         const location = screen.getByTitle(/directions icon/i);
@@ -459,6 +482,6 @@ describe('Successfully renders favorites component', () => {
         await act(async () => {
             userEvent.click(location);
         });
-        expect(showDirections).toHaveBeenCalledWith('1', '-1');
+        expect(showDirections).toHaveBeenCalledWith(1, -1);
     });
 });
