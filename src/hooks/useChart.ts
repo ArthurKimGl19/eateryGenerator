@@ -1,13 +1,19 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
-export const useChart = function (category, data) {
-    const [values, setValues] = React.useState({});
-    const [labels, setLabels] = React.useState([]);
-    const [counts, setCounts] = React.useState([]);
+import { EateryInterface } from '../shared/interfaces/eatery.interface';
+import { CategoryType } from '../shared/types/props.types';
+
+export const useChart = function (category: CategoryType, data: EateryInterface[]) {
+    type ValueType = {
+        [key in number | string]: number;
+    };
+    const [values, setValues] = React.useState<ValueType>({});
+    const [labels, setLabels] = React.useState<string[]>([]);
+    const [counts, setCounts] = React.useState<number[]>([]);
 
     React.useEffect(() => {
-        const storage = {};
+        const storage: Record<string | number, number> = {};
         data.forEach((eatery) => {
             if (!storage[eatery[category]]) {
                 storage[eatery[category]] = 1;
@@ -20,11 +26,11 @@ export const useChart = function (category, data) {
 
     React.useEffect(() => {
         const categoryArray = Object.keys(values);
-        const countsArray = [];
+        const countsArray: number[] = [];
         categoryArray.forEach((type) => {
             countsArray.push(values[type]);
         });
-        const newCategoryArray = [];
+        const newCategoryArray: string[] = [];
         if (category === 'price') {
             categoryArray.forEach((type) => {
                 if (type === '1') {

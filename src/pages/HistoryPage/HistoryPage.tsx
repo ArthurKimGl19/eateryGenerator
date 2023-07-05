@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
 import History from '../../components/History/History';
 
-export default function HistoryPage() {
+export default function HistoryPage(): ReactElement | null {
     return <History />;
 }
