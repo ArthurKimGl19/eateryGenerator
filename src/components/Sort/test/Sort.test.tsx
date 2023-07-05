@@ -1,10 +1,12 @@
+import React from 'react';
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import Sort from '../../Sort/Sort';
+import { EateryInterface } from '../../../shared/interfaces/eatery.interface';
 import { renderWithProviders } from '../../../utils/test-utils';
+import Sort from '../../Sort/Sort';
 
-const eateries = [];
+const eateries: EateryInterface[] = [];
 const setEateries = () => {};
 
 describe('Successfully renders sort component', () => {

@@ -1,28 +1,22 @@
+import React from 'react';
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
+import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
 import Eateries from '../Eateries';
 import { renderWithProviders } from '../../../utils/test-utils';
-import { cleanupData } from '../../../redux/helpers/eateriesFunctions';
 import { showDirections } from '../../../helpers/directionFunctions';
 
 jest.mock('../../../helpers/directionFunctions', () => ({
     showDirections: jest.fn()
 }));
 
-const initialGeolocation = {
-    coordinates: {
-        latitude: 0,
-        longitude: 0
-    },
-    loading: true,
-    error: null
-};
 const initialData = [
     {
         address: 'example address 1',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery 1',
         note: 'example note 1',
         price: 1,
@@ -32,8 +26,8 @@ const initialData = [
     },
     {
         address: 'example address 2',
-        latitude: '2',
-        longitude: '-2',
+        latitude: 2,
+        longitude: -2,
         name: 'example eatery 2',
         note: 'example note 2',
         price: 2,
@@ -43,8 +37,8 @@ const initialData = [
     },
     {
         address: 'example address 3',
-        latitude: '3',
-        longitude: '-3',
+        latitude: 3,
+        longitude: -3,
         name: 'example eatery 3',
         note: 'example note 3',
         price: 3,
@@ -54,8 +48,8 @@ const initialData = [
     },
     {
         address: 'example address 4',
-        latitude: '4',
-        longitude: '-4',
+        latitude: 4,
+        longitude: -4,
         name: 'example eatery 4',
         note: 'example note 4',
         price: 4,
@@ -65,8 +59,8 @@ const initialData = [
     },
     {
         address: 'example address 5',
-        latitude: '5',
-        longitude: '-5',
+        latitude: 5,
+        longitude: -5,
         name: 'example eatery 5',
         note: 'example note 5',
         price: 4,
@@ -81,9 +75,11 @@ describe('Successfully renders eateries component', () => {
     test('Renders the header and checks eateries count', () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -101,9 +97,11 @@ describe('Successfully renders eateries component', () => {
     test('Check to see that eateries data renders', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -117,9 +115,11 @@ describe('Successfully renders eateries component', () => {
     test('Clicking the directions icon triggers showDirection', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialOneEntry,
-                eateries: cleanupData(initialOneEntry),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialOneEntry),
+                }
             }
         });
 
@@ -129,15 +129,17 @@ describe('Successfully renders eateries component', () => {
         await act(async () => {
             userEvent.click(location);
         });
-        expect(showDirections).toHaveBeenCalledWith('1', '-1');
+        expect(showDirections).toHaveBeenCalledWith(1, -1);
     });
 
     test('Test selecting type and price filter options and clear button', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -194,9 +196,11 @@ describe('Successfully renders eateries component', () => {
     test('Price filters work properly after price options are selected', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -244,9 +248,11 @@ describe('Successfully renders eateries component', () => {
     test('Renders sort component', () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -259,9 +265,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for name ascending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -288,9 +296,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for name descending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -317,9 +327,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for price ascending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -346,9 +358,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for price descending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -375,9 +389,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for rating ascending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -404,9 +420,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for rating descending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -433,9 +451,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for type ascending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -462,9 +482,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for type descending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -491,9 +513,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for zip code ascending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 
@@ -520,9 +544,11 @@ describe('Successfully renders eateries component', () => {
     test('Test sort component functionality for zip code descending', async () => {
         renderWithProviders(<Eateries />, {
             preloadedState: {
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                }
             }
         });
 

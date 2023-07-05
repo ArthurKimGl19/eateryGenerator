@@ -1,14 +1,16 @@
+import React from 'react';
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { EateryInterface } from '../../../shared/interfaces/eatery.interface';
 import Filters from '../../Filters/Filters';
 import { renderWithProviders } from '../../../utils/test-utils';
 
-const eateries = [
+const eateries : EateryInterface[] = [
     {
         address: 'example address 1',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery 1',
         note: 'example note 1',
         price: 1,
@@ -18,8 +20,8 @@ const eateries = [
     },
     {
         address: 'example address 2',
-        latitude: '2',
-        longitude: '-2',
+        latitude: 2,
+        longitude: -2,
         name: 'example eatery 2',
         note: 'example note 2',
         price: 2,
@@ -29,8 +31,8 @@ const eateries = [
     },
     {
         address: 'example address 3',
-        latitude: '3',
-        longitude: '-3',
+        latitude: 3,
+        longitude: -3,
         name: 'example eatery 3',
         note: 'example note 3',
         price: 3,
@@ -40,8 +42,8 @@ const eateries = [
     },
     {
         address: 'example address 4',
-        latitude: '4',
-        longitude: '-4',
+        latitude: 4,
+        longitude: -4,
         name: 'example eatery 4',
         note: 'example note 4',
         price: 4,
@@ -51,8 +53,8 @@ const eateries = [
     },
     {
         address: 'example address 5',
-        latitude: '5',
-        longitude: '-5',
+        latitude: 5,
+        longitude: -5,
         name: 'example eatery 5',
         note: 'example note 5',
         price: 4,
@@ -62,7 +64,7 @@ const eateries = [
     }
 ];
 const setEateries = () => {};
-const initialEateries = [];
+const initialEateries : EateryInterface[]= [];
 
 describe('Successfully renders filters component', () => {
     test('Renders filter component, correct button drop downs, and clear button', () => {
@@ -174,38 +176,4 @@ describe('Successfully renders filters component', () => {
         });
         expect(optionFour).toBeInTheDocument();
     });
-
-    // test('Renders correct options for proximity drop down', async () => {
-    //     renderWithProviders(
-    //         <Filters
-    //             eateries={eateries}
-    //             setEateries={setEateries}
-    //             initialEateries={initialEateries}
-    //         />
-    //     );
-    //
-    //     const proximity = screen.getByRole('button', {
-    //         name: /proximity/i
-    //     });
-    //     expect(proximity).toBeInTheDocument();
-    //
-    //     await act(async () => {
-    //         userEvent.click(proximity);
-    //     });
-    //     // const optionOne = screen.getByRole('button', {
-    //     //     name: '$'
-    //     // });
-    //     // expect(optionOne).toBeInTheDocument();
-    //     //
-    //     // const optionTwo = screen.getByRole('button', {
-    //     //     name: '$$'
-    //     // });
-    //     // expect(optionTwo).toBeInTheDocument();
-    //     //
-    //     // const optionThree = screen.getByRole('button', {
-    //     //     name: '$$$'
-    //     // });
-    //     // expect(optionThree).toBeInTheDocument();
-    //     screen.debug();
-    // });
 });

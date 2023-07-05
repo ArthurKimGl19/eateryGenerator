@@ -75,7 +75,6 @@ export default function Sort({
                 onSelect={(value) => {
                     if (typeof value === 'string') {
                         const valueArray = value.split('_');
-                        console.log('value Array', valueArray);
                         if (valueArray.length === 2) {
                             sortOptionsFunc(valueArray[0] as SortKeys, valueArray[1]);
                         }
