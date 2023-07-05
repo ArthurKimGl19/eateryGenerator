@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, ReactElement } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loading from './components/Loading/Loading';
 
@@ -12,7 +12,7 @@ const FavoritesPage = lazy(() => import('./pages/FavoritesPage/FavoritesPage'));
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function App() {
+export default function App(): ReactElement | null {
     return (
         <BrowserRouter>
             <Suspense
