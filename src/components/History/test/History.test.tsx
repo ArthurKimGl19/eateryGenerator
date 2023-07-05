@@ -1,6 +1,8 @@
+import React from 'react';
 import { act, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { initialState } from '../../../shared/reduxState/reduxState.eateries';
 import History from '../History';
 import { renderWithProviders } from '../../../utils/test-utils';
 import { showDirections } from '../../../helpers/directionFunctions';
@@ -12,8 +14,8 @@ jest.mock('../../../helpers/directionFunctions', () => ({
 const initialHistory = [
     {
         address: 'example address',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery',
         note: 'example note',
         price: 1,
@@ -27,7 +29,10 @@ describe('Successfully renders history component', () => {
     test('Renders the header', () => {
         renderWithProviders(<History />, {
             preloadedState: {
-                history: initialHistory
+                eateries: {
+                    ...initialState,
+                    history: initialHistory
+                }
             }
         });
 
@@ -40,7 +45,10 @@ describe('Successfully renders history component', () => {
     test('Renders the clear history button', () => {
         renderWithProviders(<History />, {
             preloadedState: {
-                history: initialHistory
+                eateries: {
+                    ...initialState,
+                    history: initialHistory
+                }
             }
         });
 
@@ -53,7 +61,10 @@ describe('Successfully renders history component', () => {
     test('Clicking clear history button clears current history', async () => {
         renderWithProviders(<History />, {
             preloadedState: {
-                history: initialHistory
+                eateries: {
+                    ...initialState,
+                    history: initialHistory
+                }
             }
         });
 
@@ -72,7 +83,10 @@ describe('Successfully renders history component', () => {
     test('Clicking the directions icon triggers showDirection', async () => {
         renderWithProviders(<History />, {
             preloadedState: {
-                history: initialHistory
+                eateries: {
+                    ...initialState,
+                    history: initialHistory
+                }
             }
         });
 
@@ -82,6 +96,6 @@ describe('Successfully renders history component', () => {
         await act(async () => {
             userEvent.click(location);
         });
-        expect(showDirections).toHaveBeenCalledWith('1', '-1');
+        expect(showDirections).toHaveBeenCalledWith(1, -1);
     });
 });

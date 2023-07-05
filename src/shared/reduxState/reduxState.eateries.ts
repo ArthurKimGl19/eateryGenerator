@@ -48,3 +48,4 @@ export const initialState = {
     geolocation: initialGeolocation,
     geolocationFormatted: false
 };
+
