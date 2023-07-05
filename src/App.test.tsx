@@ -1,40 +1,19 @@
+import React from 'react';
 import { act, screen } from '@testing-library/react';
 import ResizeObserver from 'resize-observer-polyfill';
-global.ResizeObserver = ResizeObserver;
 import userEvent from '@testing-library/user-event';
 
 import App from './App';
-import { renderWithProviders } from './utils/test-utils';
 import { cleanupData } from './redux/helpers/eateriesFunctions';
+import { initialState } from './shared/reduxState/reduxState.eateries';
+import { renderWithProviders } from './utils/test-utils';
 
-const initialRandomEatery = {
-    name: '',
-    type: '',
-    rating: 0,
-    price: 0,
-    zipCode: 0,
-    address: '',
-    latitude: 0,
-    longitude: 0,
-    note: '',
-    index: null,
-    proximity: ''
-};
-
-const initialGeolocation = {
-    coordinates: {
-        latitude: 0,
-        longitude: 0
-    },
-    loading: true,
-    error: null
-};
-
+global.ResizeObserver = ResizeObserver;
 const initialData = [
     {
         address: 'example address',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery',
         note: 'example note',
         price: 1,
@@ -43,12 +22,11 @@ const initialData = [
         zipCode: 9000
     }
 ];
-
 const initialHistory = [
     {
         address: 'example address',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery',
         note: 'example note',
         price: 1,
@@ -62,8 +40,9 @@ describe('Successfully renders app component', () => {
     test('Renders the fallback loading component', async () => {
         renderWithProviders(<App />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState
+                }
             }
         });
         const loading = await screen.findByText(/loading/i);
@@ -73,8 +52,9 @@ describe('Successfully renders app component', () => {
     test('Renders app', async () => {
         renderWithProviders(<App />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation
+                eateries: {
+                    ...initialState
+                }
             }
         });
         await act(async () => {
@@ -88,9 +68,10 @@ describe('Successfully renders app component', () => {
     test('Clicking navbar history option renders history component', async () => {
         renderWithProviders(<App />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation,
-                history: initialHistory
+                eateries: {
+                    ...initialState,
+                    history: initialHistory
+                }
             }
         });
         const history = screen.getByRole('link', { name: /history/i });
@@ -108,11 +89,12 @@ describe('Successfully renders app component', () => {
     test('Clicking navbar eateries option renders eateries component', async () => {
         renderWithProviders(<App />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation,
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                history: initialHistory
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                    history: initialHistory
+                }
             }
         });
         const eateries = screen.getByRole('link', { name: /eateries/i });
@@ -130,11 +112,12 @@ describe('Successfully renders app component', () => {
     test('Clicking navbar data option renders data component', async () => {
         renderWithProviders(<App />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation,
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                history: initialHistory
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                    history: initialHistory
+                }
             }
         });
         const data = screen.getByRole('link', { name: /data/i });
@@ -156,12 +139,12 @@ describe('Successfully renders app component', () => {
     test('Clicking navbar favorites option renders favorites component', async () => {
         renderWithProviders(<App />, {
             preloadedState: {
-                randomEatery: initialRandomEatery,
-                geolocation: initialGeolocation,
-                initialData: initialData,
-                eateries: cleanupData(initialData),
-                history: initialHistory,
-                favorites: cleanupData(initialData)
+                eateries: {
+                    ...initialState,
+                    initialData: initialData,
+                    eateries: cleanupData(initialData),
+                    history: initialHistory
+                }
             }
         });
         const favorites = screen.getByRole('link', { name: /favorites/i });
