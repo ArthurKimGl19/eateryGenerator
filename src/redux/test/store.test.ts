@@ -1,5 +1,5 @@
-import store from '../store';
 import { saveState } from '../../helpers/localStorageFunctions';
+import { setupStore } from '../store';
 import { updateGeolocationError } from '../features/eateries/eateriesSlice';
 
 const initialRandomEatery = {
@@ -15,7 +15,6 @@ const initialRandomEatery = {
     index: null,
     proximity: ''
 };
-
 const initialGeolocation = {
     coordinates: {
         latitude: 0,
@@ -25,7 +24,7 @@ const initialGeolocation = {
     error: null
 };
 
-jest.spyOn(console, 'log').mockImplementation();
+jest.spyOn(console, 'log').mockImplementation(() => {});
 jest.mock('../../helpers/localStorageFunctions', () => ({
     saveState: jest.fn(),
     loadState: jest.fn()
@@ -34,21 +33,23 @@ jest.mock('../../helpers/localStorageFunctions', () => ({
 describe('Test redux store', () => {
     beforeEach(() => {
         // Clear any previous calls to console.log and saveState
-        console.log.mockClear();
-        saveState.mockClear();
+        (console.log as jest.Mock).mockClear();
+        (saveState as jest.Mock).mockClear();
     });
     test('Redux store is created with initial state', () => {
+        const store = setupStore();
         expect(store).toBeDefined();
 
         const initialState = store.getState();
-        expect(initialState.randomEatery).toEqual(initialRandomEatery);
-        expect(initialState.geolocation).toEqual(initialGeolocation);
-        expect(initialState.shuffledIndexes).toEqual(null);
-        expect(initialState.noMoreEateries).toEqual(false);
-        expect(initialState.geolocationFormatted).toEqual(false);
+        expect(initialState.eateries.randomEatery).toEqual(initialRandomEatery);
+        expect(initialState.eateries.geolocation).toEqual(initialGeolocation);
+        expect(initialState.eateries.shuffledIndexes).toEqual(null);
+        expect(initialState.eateries.noMoreEateries).toEqual(false);
+        expect(initialState.eateries.geolocationFormatted).toEqual(false);
     });
 
     test('Updating state calls console.log and saveState', () => {
+        const store = setupStore();
         store.dispatch(updateGeolocationError('Mock error'));
         expect(console.log).toHaveBeenCalledWith('redux store data', store.getState());
         expect(saveState).toHaveBeenCalledWith(store.getState());

@@ -2,7 +2,7 @@ import { shuffleEateries, calculateProximity } from '../helpers/eateriesFunction
 
 describe('Test eateries helper functions: shuffledEateries', () => {
     test('Test shuffleEateries and see if it shuffles array correctly', () => {
-        const array = [1, 2, 3, 4, 5];
+        const array = ['1', '2', '3', '4', '5'];
         const shuffledArray = shuffleEateries(array);
         expect(shuffledArray.length).toBe(array.length);
         //Check if shuffledArray contains all the elements from array
