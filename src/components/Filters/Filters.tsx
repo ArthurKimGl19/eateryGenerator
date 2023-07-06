@@ -16,25 +16,30 @@ export default function Filters({
     initialEateries
 }: {
     eateries: EateryInterface[];
-    setEateries: Function;
+    setEateries: (eateries: EateryInterface[]) => void;
     initialEateries: EateryInterface[];
 }): ReactElement | null {
-    const [types, setTypes] = React.useState<string[]>([]);
-    const [prices, setPrices] = React.useState<number[]>([]);
-    const [proximity, setProximity] = React.useState<string[]>([]);
-    const [selectedTypes, setSelectedTypes] = React.useState<string[]>([]);
-    const [selectedPrices, setSelectedPrices] = React.useState<number[]>([]);
-    const [selectedProximity, setSelectedProximity] = React.useState<string[]>([]);
+    const [types, setTypes] = React.useState<(number | string)[]>([]);
+    const [prices, setPrices] = React.useState<(number | string)[]>([]);
+    const [proximity, setProximity] = React.useState<(number | string)[]>([]);
+    const [selectedTypes, setSelectedTypes] = React.useState<(number | string)[]>([]);
+    const [selectedPrices, setSelectedPrices] = React.useState<(number | string)[]>([]);
+    const [selectedProximity, setSelectedProximity] = React.useState<(number | string)[]>([]);
     type EateryKeys = 'type' | 'price' | 'proximity';
 
     React.useEffect(() => {
-        const createOptions = function (name: EateryKeys, updateState: Function) {
-            const options = new Set();
+        const createOptions = function (
+            name: EateryKeys,
+            updateState: (array: (string | number)[]) => void
+        ) {
+            const options: Set<string | number> = new Set();
 
             eateries.forEach((eatery) => {
                 const type = eatery[name];
-                if (!options.has(type)) {
-                    options.add(type);
+                if (typeof type === 'string' || typeof type === 'number') {
+                    if (!options.has(type)) {
+                        options.add(type);
+                    }
                 }
             });
             updateState([...options]);
@@ -45,7 +50,7 @@ export default function Filters({
         createOptions('proximity', setProximity);
     }, [eateries]);
 
-    const createDropdownOptions = (items: string[] | number[], className: string) => {
+    const createDropdownOptions = (items: (string | number)[], className: string) => {
         return items.sort().map((item, index) => {
             if (className === 'price-options' && typeof item === 'number') {
                 const formattedPrice = calculatePrice(item);
@@ -67,32 +72,34 @@ export default function Filters({
     const priceOptions = createDropdownOptions(prices, 'price-options');
     const proximityOptions = createDropdownOptions(proximity, 'proximity-options');
     const updateSelectedOptions = (
-        value: string | null,
-        updateState: Function,
+        value: number | string | null,
+        updateState: (array: (number | string)[]) => void,
         currentState: (number | string)[],
         type?: string
     ) => {
-        if (type === 'price') {
-            let currentPrice: undefined | number;
-            if (value === '$') {
-                currentPrice = 1;
-            } else if (value === '$$') {
-                currentPrice = 2;
-            } else if (value === '$$$') {
-                currentPrice = 3;
-            }
-            const isValuePresent = currentState.filter((item) => item === currentPrice).length > 0;
-            if (!isValuePresent) {
-                updateState([...currentState, currentPrice]);
-            }
-        } else {
-            const isValuePresent = currentState.filter((item) => item === value).length > 0;
-            if (!isValuePresent) {
-                updateState([...currentState, value]);
+        if (value !== null){
+            if (type === 'price') {
+                let currentPrice: number = 0;
+                if (value === '$') {
+                    currentPrice = 1;
+                } else if (value === '$$') {
+                    currentPrice = 2;
+                } else if (value === '$$$') {
+                    currentPrice = 3;
+                }
+                const isValuePresent = currentState.filter((item) => item === currentPrice).length > 0;
+                if (!isValuePresent) {
+                    updateState([...currentState, currentPrice]);
+                }
+            } else {
+                const isValuePresent = currentState.filter((item) => item === value).length > 0;
+                if (!isValuePresent) {
+                    updateState([...currentState, value]);
+                }
             }
         }
     };
-    const createSelectedOptions = (items: string[] | number[], type?: string | undefined) => {
+    const createSelectedOptions = (items: (number | string)[], type?: string | undefined) => {
         return items.map((item, index) => {
             if (type === 'price') {
                 let currentPrice;

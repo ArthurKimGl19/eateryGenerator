@@ -6,7 +6,7 @@ import { EateryInterface } from '../../../shared/interfaces/eatery.interface';
 import Filters from '../../Filters/Filters';
 import { renderWithProviders } from '../../../utils/test-utils';
 
-const eateries : EateryInterface[] = [
+const eateries: EateryInterface[] = [
     {
         address: 'example address 1',
         latitude: 1,
@@ -64,7 +64,7 @@ const eateries : EateryInterface[] = [
     }
 ];
 const setEateries = () => {};
-const initialEateries : EateryInterface[]= [];
+const initialEateries: EateryInterface[] = [];
 
 describe('Successfully renders filters component', () => {
     test('Renders filter component, correct button drop downs, and clear button', () => {
