@@ -34,9 +34,7 @@ export function renderWithProviders(
     return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
 
-export function renderHookWithProviders<
-    Result,
-    Props>(
+export function renderHookWithProviders<Result, Props>(
     render: (initialProps: Props) => Result,
     {
         preloadedState = {},
@@ -46,8 +44,8 @@ export function renderHookWithProviders<
     }: ExtendedRenderOptions = {}
 ) {
     function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-        return <Provider store={store}>{children}</Provider>
+        return <Provider store={store}>{children}</Provider>;
     }
 
-    return { store, ...renderHook(render, { wrapper: Wrapper, ...renderOptions }) }
+    return { store, ...renderHook(render, { wrapper: Wrapper, ...renderOptions }) };
 }

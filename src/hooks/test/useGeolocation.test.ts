@@ -61,17 +61,16 @@ describe('Test useGeolocation hook', () => {
         };
         const store = mockStore(preloadedState);
 
-        mockGeolocation.getCurrentPosition = jest.fn()
-            .mockImplementationOnce((success) =>
-                Promise.resolve(
-                    success({
-                        coords: {
-                            latitude: 1,
-                            longitude: -1
-                        }
-                    })
-                )
-            );
+        mockGeolocation.getCurrentPosition = jest.fn().mockImplementationOnce((success) =>
+            Promise.resolve(
+                success({
+                    coords: {
+                        latitude: 1,
+                        longitude: -1
+                    }
+                })
+            )
+        );
         renderHookWithProviders(() => useGeolocation(), {
             wrapper: ({ children }) =>
                 React.createElement(Provider, { store: store, children: children })
@@ -99,10 +98,11 @@ describe('Test useGeolocation hook', () => {
         };
         const store = mockStore(preloadedState);
 
-        mockGeolocation.getCurrentPosition = jest.fn()
+        mockGeolocation.getCurrentPosition = jest
+            .fn()
             .mockImplementationOnce((successCallback, errorCallback) => {
-                    errorCallback();
-                })
+                errorCallback();
+            });
 
         renderHookWithProviders(() => useGeolocation(), {
             wrapper: ({ children }) =>
