@@ -4,8 +4,8 @@ import { useChart } from '../useChart';
 const initialData = [
     {
         address: 'example address 1',
-        latitude: '1',
-        longitude: '-1',
+        latitude: 1,
+        longitude: -1,
         name: 'example eatery 1',
         note: 'example note 1',
         price: 1,
@@ -15,8 +15,8 @@ const initialData = [
     },
     {
         address: 'example address 2',
-        latitude: '2',
-        longitude: '-2',
+        latitude: 2,
+        longitude: -2,
         name: 'example eatery 2',
         note: 'example note 2',
         price: 2,
@@ -26,8 +26,8 @@ const initialData = [
     },
     {
         address: 'example address 3',
-        latitude: '3',
-        longitude: '-3',
+        latitude: 3,
+        longitude: -3,
         name: 'example eatery 3',
         note: 'example note 3',
         price: 3,
@@ -37,8 +37,8 @@ const initialData = [
     },
     {
         address: 'example address 4',
-        latitude: '4',
-        longitude: '-4',
+        latitude: 4,
+        longitude: -4,
         name: 'example eatery 4',
         note: 'example note 4',
         price: 4,
@@ -48,8 +48,8 @@ const initialData = [
     },
     {
         address: 'example address 5',
-        latitude: '5',
-        longitude: '-5',
+        latitude: 5,
+        longitude: -5,
         name: 'example eatery 5',
         note: 'example note 5',
         price: 4,
