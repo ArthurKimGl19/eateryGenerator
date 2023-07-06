@@ -4,6 +4,7 @@ import type { RenderOptions } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
 import type { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import { renderHook } from '@testing-library/react';
 
 import type { AppStore, RootState } from '../redux/store';
 // As a basic setup, import your same slice reducers
@@ -31,4 +32,22 @@ export function renderWithProviders(
 
     // Return an object with the store and all of RTL's query functions
     return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+}
+
+export function renderHookWithProviders<
+    Result,
+    Props>(
+    render: (initialProps: Props) => Result,
+    {
+        preloadedState = {},
+        // Automatically create a store instance if no store was passed in
+        store = configureStore({ reducer: { eateries: eateriesReducer }, preloadedState }),
+        ...renderOptions
+    }: ExtendedRenderOptions = {}
+) {
+    function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
+        return <Provider store={store}>{children}</Provider>
+    }
+
+    return { store, ...renderHook(render, { wrapper: Wrapper, ...renderOptions }) }
 }

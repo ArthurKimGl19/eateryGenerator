@@ -1,30 +1,43 @@
-import { renderHook } from '@testing-library/react';
-import { useGeolocation } from '../useGeolocation';
-import { Provider } from 'react-redux';
+import React from 'react';
 import configureMockStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+import { useGeolocation } from '../useGeolocation';
+
 import {
     updateGeolocationCoordinates,
     updateGeolocationLoading,
     updateGeolocationError
 } from '../../redux/features/eateries/eateriesSlice';
+import { renderHookWithProviders } from '../../utils/test-utils';
 
 const mockStore = configureMockStore();
+const mockGeolocation = {
+    getCurrentPosition: jest.fn(),
+    watchPosition: jest.fn()
+};
+
+beforeEach(() => {
+    (global as any).navigator.geolocation = mockGeolocation;
+});
 
 describe('Test useGeolocation hook', () => {
     test('Handle when navigator geolocation is not present', () => {
         jest.useFakeTimers();
         const preloadedState = {
-            geolocation: {
-                coordinates: null,
-                loading: true,
-                error: null
+            eateries: {
+                geolocation: {
+                    coordinates: null,
+                    loading: true,
+                    error: null
+                }
             }
         };
         const store = mockStore(preloadedState);
 
-        global.navigator.geolocation = null;
-        renderHook(() => useGeolocation(), {
-            wrapper: ({ children }) => <Provider store={store}>{children}</Provider>
+        (global as any).navigator.geolocation = null;
+        renderHookWithProviders(() => useGeolocation(), {
+            wrapper: ({ children }) =>
+                React.createElement(Provider, { store: store, children: children })
         });
 
         jest.advanceTimersByTime(2000);
@@ -38,16 +51,18 @@ describe('Test useGeolocation hook', () => {
     test('Handle when coordinates are received', () => {
         jest.useFakeTimers();
         const preloadedState = {
-            geolocation: {
-                coordinates: null,
-                loading: true,
-                error: null
+            eateries: {
+                geolocation: {
+                    coordinates: null,
+                    loading: true,
+                    error: null
+                }
             }
         };
         const store = mockStore(preloadedState);
 
-        global.navigator.geolocation = {
-            getCurrentPosition: jest.fn().mockImplementationOnce((success) =>
+        mockGeolocation.getCurrentPosition = jest.fn()
+            .mockImplementationOnce((success) =>
                 Promise.resolve(
                     success({
                         coords: {
@@ -56,10 +71,10 @@ describe('Test useGeolocation hook', () => {
                         }
                     })
                 )
-            )
-        };
-        renderHook(() => useGeolocation(), {
-            wrapper: ({ children }) => <Provider store={store}>{children}</Provider>
+            );
+        renderHookWithProviders(() => useGeolocation(), {
+            wrapper: ({ children }) =>
+                React.createElement(Provider, { store: store, children: children })
         });
 
         jest.advanceTimersByTime(2000);
@@ -74,23 +89,24 @@ describe('Test useGeolocation hook', () => {
     test('Handle when coordinates are not received', () => {
         jest.useFakeTimers();
         const preloadedState = {
-            geolocation: {
-                coordinates: null,
-                loading: true,
-                error: null
+            eateries: {
+                geolocation: {
+                    coordinates: null,
+                    loading: true,
+                    error: null
+                }
             }
         };
         const store = mockStore(preloadedState);
 
-        global.navigator.geolocation = {
-            getCurrentPosition: jest
-                .fn()
-                .mockImplementationOnce((successCallback, errorCallback) => {
+        mockGeolocation.getCurrentPosition = jest.fn()
+            .mockImplementationOnce((successCallback, errorCallback) => {
                     errorCallback();
                 })
-        };
-        renderHook(() => useGeolocation(), {
-            wrapper: ({ children }) => <Provider store={store}>{children}</Provider>
+
+        renderHookWithProviders(() => useGeolocation(), {
+            wrapper: ({ children }) =>
+                React.createElement(Provider, { store: store, children: children })
         });
 
         jest.advanceTimersByTime(2000);
