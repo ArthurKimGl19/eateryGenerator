@@ -19,6 +19,7 @@ Clicking the clear history button, will clear all previous choices.
 Data used within this app is stored in redux and persisted using localStorage.
 
 Navbar options:
+
 1. Home - Able to randomize an eatery and randomized eatery is displayed
 2. History - Displays the history of randomized eateries
 3. Eateries - Displays all eateries within the data-eatery.json file
@@ -29,7 +30,7 @@ Navbar options:
 
 ### Test Coverage
 
-Currently, the application has unit and integration tests using Jest and React Testing Library. 
+Currently, the application has unit and integration tests using Jest and React Testing Library.
 Test coverage for this application is currently over 95%.
 
 ### Performance Metrics
@@ -41,6 +42,7 @@ Currently, these are the lighthouse scores for this application on desktop and m
 ![lighthouse_mobile.png](readme_images%2Flighthouse_mobile.png)
 
 Steps done to improve application performance:
+
 1. Lazy load components
 2. Analyze package size using [Link](https://bundlephobia.com/) and remove unnecessary packages
 3. Use smaller icon image package
@@ -58,8 +60,6 @@ Used [Link](https://pagespeed.web.dev/) to analyze application.
 2. Add ability to add new favorites, update favorites
 3. Put backend on AWS - api gateway, lambdas, postgresql or dynamodb
 4. Add in relevant tests
-5. Refactor app to use Typescript
-6. Update tests to support Typescript
 
 ### Extra
 
