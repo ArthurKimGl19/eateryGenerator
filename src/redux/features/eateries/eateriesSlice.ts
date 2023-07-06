@@ -67,12 +67,14 @@ const eateriesSlice = createSlice({
                 shuffledIndexes = shuffleEateries(Object.keys(state.eateries));
             }
             if (shuffledIndexes.length > 0) {
-                const randomIndex = shuffledIndexes.pop()!;
+                const randomIndex = shuffledIndexes.pop();
                 const eateries: EateriesInterface = { ...state.eateries };
-                const randomEatery = eateries[randomIndex];
-                randomEatery.index = randomIndex;
-                state.randomEatery = randomEatery;
-                state.shuffledIndexes = [...shuffledIndexes];
+                if (typeof randomIndex === 'string') {
+                    const randomEatery = eateries[randomIndex];
+                    randomEatery.index = randomIndex;
+                    state.randomEatery = randomEatery;
+                    state.shuffledIndexes = [...shuffledIndexes];
+                }
             } else {
                 state.randomEatery = initialRandomEatery;
             }
