@@ -78,7 +78,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -100,7 +100,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -118,7 +118,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialOneEntry),
+                    eateries: cleanupData(initialOneEntry)
                 }
             }
         });
@@ -138,7 +138,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -199,7 +199,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -251,7 +251,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -268,7 +268,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -299,7 +299,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -330,7 +330,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -361,7 +361,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -392,7 +392,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -423,7 +423,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -454,7 +454,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -485,7 +485,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -516,7 +516,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });
@@ -547,7 +547,7 @@ describe('Successfully renders eateries component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    eateries: cleanupData(initialData),
+                    eateries: cleanupData(initialData)
                 }
             }
         });

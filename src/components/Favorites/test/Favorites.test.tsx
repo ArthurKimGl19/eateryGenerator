@@ -44,7 +44,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -66,7 +66,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -84,7 +84,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -145,7 +145,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -162,7 +162,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -193,7 +193,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -224,7 +224,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -255,7 +255,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -286,7 +286,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -317,7 +317,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -348,7 +348,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -379,7 +379,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -410,7 +410,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -441,7 +441,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: initialData,
-                    favorites: cleanupData(initialData),
+                    favorites: cleanupData(initialData)
                 }
             }
         });
@@ -472,7 +472,7 @@ describe('Successfully renders favorites component', () => {
                 eateries: {
                     ...initialState,
                     initialData: [initialData[0]],
-                    favorites: cleanupData([initialData[0]]),
+                    favorites: cleanupData([initialData[0]])
                 }
             }
         });

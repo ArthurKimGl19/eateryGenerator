@@ -13,7 +13,7 @@ export default function Sort({
     setEateries
 }: {
     eateries: EateryInterface[];
-    setEateries: Function;
+    setEateries: (eateries: EateryInterface[]) => void;
 }): ReactElement | null {
     const sortValues = ['name', 'type', 'rating', 'price', 'zip code'].flatMap((i) => [i, i]);
     type SortKeys = 'name' | 'price' | 'rating' | 'type' | 'zipCode' | 'zip code';
