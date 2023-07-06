@@ -5,10 +5,11 @@
   "jest": {
     "coveragePathIgnorePatterns": [
       "node_modules",
-      "<rootDir>/src/index.js",
-      "reportWebVitals.js",
-      "test-utils.js",
-      "<rootDir>/src/data/index.js"
+      "<rootDir>/src/index.tsx",
+      "reportWebVitals.ts",
+      "test-utils.ts",
+      "<rootDir>/src/data/index.js",
+      "<rootDir>/src/shared"
     ]
   },
   "scripts": {
@@ -64,8 +65,17 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.3.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/react-redux": "^7.1.25",
+    "@types/redux-mock-store": "^1.0.3",
+    "@types/uuid": "^9.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
     "csv-parser": "^3.0.0",
-    "eslint": "^8.38.0",
+    "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "fs": "^0.0.1-security",
@@ -74,6 +84,7 @@
     "prettier": "^2.8.7",
     "prop-types": "^15.8.1",
     "redux-mock-store": "^1.5.4",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "typescript": "^4.9.5"
   }
 }

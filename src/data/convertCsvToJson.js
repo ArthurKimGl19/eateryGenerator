@@ -12,7 +12,7 @@ const createFile = function (
         .on('data', async (row) => {
             const [latitude, longitude] = row.coordinates
                 .split(',')
-                .map((coord) => parseFloat(coord.trim()));
+                .map((coordinates) => parseFloat(coordinates.trim()));
             const jsonRow = {
                 name: row.name,
                 type: row.type,
