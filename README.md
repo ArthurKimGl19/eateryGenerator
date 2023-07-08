@@ -13,7 +13,7 @@ Also, the only relevant data present is Location Data, which has business name a
 I found a potential solution: [Link](https://medium.com/codex/how-i-web-scraped-my-custom-google-maps-list-into-a-csv-file-eb1172a85bf4), which uses Selenium and Beautiful Soup, but it looked to be more time intensive than manually inputting data into a Google Sheet file and converting it into a json file.
 Considering how the list of places I want to try is not updated frequently, I decided to manually input the relevant data and convert it into a json file.
 
-The application uses the data-eatery.json file to create a hashtable of possible eatery choices.
+The application uses the data-eatery.json and the favorite-eatery.json files to create hash tables of possible eatery choices and favorite eatery choices.
 When a user clicks on the randomize button, an eatery is selected from the hashtable and it is displayed as a card as well as added to the history table.
 Clicking the clear history button, will clear all previous choices.
 Data used within this app is stored in redux and persisted using localStorage.
@@ -53,22 +53,17 @@ Used [Link](https://pagespeed.web.dev/) to analyze application.
 
 ## Next steps:
 
-1. Create a script to automatically convert the csv to json
-   a. Use Google sheets api to convert google sheet to csv
-   b. Create file to convert csv to json
-   c. Create package.json script
-2. Add ability to add new favorites, update favorites
-3. Put backend on AWS - api gateway, lambdas, postgresql or dynamodb
-4. Add in relevant tests
+1. Create a Github action to automatically convert the csv to json. Initial eatery data is stored in a Google sheet files.
+2. Add ability to add new favorites, update favorites and add in relevant unit and integration tests
+3. Put backend on AWS - Api gateway, Lambdas, Postgresql
+4. Dockerize application
 
 ### Extra
 
 1. Refactor lambdas to use Python
-2. Create a separate repo and refactor to use Next.js
-3. Host using netlify
-4. Look into creating a Dockerized app and figure out how to host containers
-5. Look into using Kubernetes
-6. Add E2E tests once final version of app is created
+2. Create a separate repo and refactor to use Next.js. Host on netlify.
+3. Look into using Kubernetes
+4. Add E2E tests (Playwright) once final version of app is created
 
 ## Available Scripts
 
@@ -104,7 +99,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run s3-upload`
 
-After you run the npm run build command above, run this command to deploy the contents of the build folder to the s3 bucket currently used to host this application.
+After you run the npm run build command above, run this command to deploy the contents of the build folder to the s3 bucket currently used to host this application. Make sure to update the package.json file to have the correct s3 bucket name for where you want to host your application.
 
 ### `npm run eject`
 
