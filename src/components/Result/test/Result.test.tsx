@@ -51,7 +51,7 @@ describe('Successfully renders result component', () => {
         expect(button).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(button);
+            await userEvent.click(button);
         });
         const { latitude, longitude } = initialRandomEatery;
         expect(global.window.open).toHaveBeenCalledWith(

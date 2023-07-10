@@ -78,7 +78,7 @@ describe('Successfully renders app component', () => {
         expect(history).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(history);
+            await userEvent.click(history);
         });
         const header = screen.getByRole('heading', {
             name: /history/i
@@ -101,7 +101,7 @@ describe('Successfully renders app component', () => {
         expect(eateries).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(eateries);
+            await userEvent.click(eateries);
         });
         const header = screen.getByRole('heading', {
             name: /eateries/i
@@ -124,7 +124,7 @@ describe('Successfully renders app component', () => {
         expect(data).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(data);
+            await userEvent.click(data);
         });
         const typeHeader = screen.getByRole('heading', {
             name: /eateries type data/i
@@ -151,7 +151,7 @@ describe('Successfully renders app component', () => {
         expect(favorites).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(favorites);
+            await userEvent.click(favorites);
         });
         const header = screen.getByRole('heading', {
             name: /favorites/i

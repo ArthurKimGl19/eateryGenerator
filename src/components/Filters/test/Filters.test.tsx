@@ -115,7 +115,7 @@ describe('Successfully renders filters component', () => {
         });
         expect(type).toBeInTheDocument();
         await act(async () => {
-            userEvent.click(type);
+            await userEvent.click(type);
         });
 
         const optionOne = screen.getByRole('button', {
@@ -154,7 +154,7 @@ describe('Successfully renders filters component', () => {
         expect(price).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(price);
+            await userEvent.click(price);
         });
         const optionOne = screen.getByRole('button', {
             name: '$'

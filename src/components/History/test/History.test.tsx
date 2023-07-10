@@ -75,7 +75,7 @@ describe('Successfully renders history component', () => {
         expect(exampleName).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(button);
+            await userEvent.click(button);
         });
         expect(exampleName).not.toBeInTheDocument();
     });
@@ -94,7 +94,7 @@ describe('Successfully renders history component', () => {
         expect(location).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(location);
+            await userEvent.click(location);
         });
         expect(showDirections).toHaveBeenCalledWith(1, -1);
     });

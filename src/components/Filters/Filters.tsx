@@ -175,7 +175,8 @@ export default function Filters({
                     onSelect={(value) => {
                         updateSelectedOptions(value, setSelectedTypes, selectedTypes);
                         filterEateriesByType(eateries, value, 'type');
-                    }}>
+                    }}
+                >
                     {typeOptions}
                 </DropdownButton>
                 <DropdownButton
@@ -184,7 +185,8 @@ export default function Filters({
                     onSelect={(value) => {
                         updateSelectedOptions(value, setSelectedPrices, selectedPrices, 'price');
                         filterEateriesByType(eateries, value, 'price');
-                    }}>
+                    }}
+                >
                     {priceOptions}
                 </DropdownButton>
                 <DropdownButton
@@ -193,7 +195,8 @@ export default function Filters({
                     onSelect={(value) => {
                         updateSelectedOptions(value, setSelectedProximity, selectedProximity);
                         filterEateriesByType(eateries, value, 'proximity');
-                    }}>
+                    }}
+                >
                     {proximityOptions}
                 </DropdownButton>
                 <Button className="filters-options-clear" onClick={clearSelectedOptions}>
