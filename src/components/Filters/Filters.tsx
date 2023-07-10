@@ -77,9 +77,9 @@ export default function Filters({
         currentState: (number | string)[],
         type?: string
     ) => {
-        if (value !== null){
+        if (value !== null) {
             if (type === 'price') {
-                let currentPrice: number = 0;
+                let currentPrice = 0;
                 if (value === '$') {
                     currentPrice = 1;
                 } else if (value === '$$') {
@@ -87,7 +87,8 @@ export default function Filters({
                 } else if (value === '$$$') {
                     currentPrice = 3;
                 }
-                const isValuePresent = currentState.filter((item) => item === currentPrice).length > 0;
+                const isValuePresent =
+                    currentState.filter((item) => item === currentPrice).length > 0;
                 if (!isValuePresent) {
                     updateState([...currentState, currentPrice]);
                 }
@@ -174,8 +175,7 @@ export default function Filters({
                     onSelect={(value) => {
                         updateSelectedOptions(value, setSelectedTypes, selectedTypes);
                         filterEateriesByType(eateries, value, 'type');
-                    }}
-                >
+                    }}>
                     {typeOptions}
                 </DropdownButton>
                 <DropdownButton
@@ -184,8 +184,7 @@ export default function Filters({
                     onSelect={(value) => {
                         updateSelectedOptions(value, setSelectedPrices, selectedPrices, 'price');
                         filterEateriesByType(eateries, value, 'price');
-                    }}
-                >
+                    }}>
                     {priceOptions}
                 </DropdownButton>
                 <DropdownButton
@@ -194,8 +193,7 @@ export default function Filters({
                     onSelect={(value) => {
                         updateSelectedOptions(value, setSelectedProximity, selectedProximity);
                         filterEateriesByType(eateries, value, 'proximity');
-                    }}
-                >
+                    }}>
                     {proximityOptions}
                 </DropdownButton>
                 <Button className="filters-options-clear" onClick={clearSelectedOptions}>
