@@ -125,6 +125,10 @@ Run this to format relevant files with prettier.
 
 Run this to create the data-eatery.json and favorite-eatery.json files based on their respective csv files. These json files are used to render the eateries and favorites components.
 
+### `npm-upgrade`
+
+Run this to upgrade packages. Before using this command, install the npm-upgrade package globally. Instructions [here](https://www.npmjs.com/package/npm-upgrade)
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
