@@ -66,7 +66,7 @@ describe('Successfully renders dashboard component', () => {
             name: /randomize/i
         });
         await act(async () => {
-            userEvent.click(button);
+            await userEvent.click(button);
         });
 
         const newButton = await screen.findByRole('button', { name: /directions/i }); // assumes your button has "Click me" as text

@@ -19,7 +19,7 @@ describe('Successfully renders sort component', () => {
         expect(sort).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
         const names = screen.getAllByRole('button', {
             name: /name/i

@@ -93,14 +93,14 @@ describe('Successfully renders favorites component', () => {
             name: /type/i
         });
         await act(async () => {
-            userEvent.click(type);
+            await userEvent.click(type);
         });
 
         const typeOptionsOne = screen.getByRole('button', {
             name: /example type 1/i
         });
         await act(async () => {
-            userEvent.click(typeOptionsOne);
+            await userEvent.click(typeOptionsOne);
         });
 
         const typeOneElements = await screen.findAllByText(/example type 1/i);
@@ -114,21 +114,21 @@ describe('Successfully renders favorites component', () => {
             name: /clear/i
         });
         await act(async () => {
-            userEvent.click(clear);
+            await userEvent.click(clear);
         });
 
         const price = screen.getByRole('button', {
             name: /price/i
         });
         await act(async () => {
-            userEvent.click(price);
+            await userEvent.click(price);
         });
 
         const priceOptionTwo = screen.getByRole('button', {
             name: '$$'
         });
         await act(async () => {
-            userEvent.click(priceOptionTwo);
+            await userEvent.click(priceOptionTwo);
         });
 
         const priceTwoElements = await screen.findAllByText('$$');
@@ -171,14 +171,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const nameAscending = screen.getByRole('button', {
             name: /name sort ascending icon/i
         });
         await act(async () => {
-            userEvent.click(nameAscending);
+            await userEvent.click(nameAscending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -202,14 +202,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const nameDescending = screen.getByRole('button', {
             name: /name sort descending icon/i
         });
         await act(async () => {
-            userEvent.click(nameDescending);
+            await userEvent.click(nameDescending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -233,14 +233,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const priceAscending = screen.getByRole('button', {
             name: /price sort ascending icon/i
         });
         await act(async () => {
-            userEvent.click(priceAscending);
+            await userEvent.click(priceAscending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -264,14 +264,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const priceDescending = screen.getByRole('button', {
             name: /price sort descending icon/i
         });
         await act(async () => {
-            userEvent.click(priceDescending);
+            await userEvent.click(priceDescending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -295,14 +295,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const ratingAscending = screen.getByRole('button', {
             name: /rating sort ascending icon/i
         });
         await act(async () => {
-            userEvent.click(ratingAscending);
+            await userEvent.click(ratingAscending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -326,14 +326,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const ratingDescending = screen.getByRole('button', {
             name: /rating sort descending icon/i
         });
         await act(async () => {
-            userEvent.click(ratingDescending);
+            await userEvent.click(ratingDescending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -357,14 +357,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const typeAscending = screen.getByRole('button', {
             name: /type sort ascending icon/i
         });
         await act(async () => {
-            userEvent.click(typeAscending);
+            await userEvent.click(typeAscending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -388,14 +388,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const typeDescending = screen.getByRole('button', {
             name: /type sort descending icon/i
         });
         await act(async () => {
-            userEvent.click(typeDescending);
+            await userEvent.click(typeDescending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -419,14 +419,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const zipCodeAscending = screen.getByRole('button', {
             name: /zip code sort ascending icon/i
         });
         await act(async () => {
-            userEvent.click(zipCodeAscending);
+            await userEvent.click(zipCodeAscending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -450,14 +450,14 @@ describe('Successfully renders favorites component', () => {
             name: /sort/i
         });
         await act(async () => {
-            userEvent.click(sort);
+            await userEvent.click(sort);
         });
 
         const zipCodeDescending = screen.getByRole('button', {
             name: /zip code sort descending icon/i
         });
         await act(async () => {
-            userEvent.click(zipCodeDescending);
+            await userEvent.click(zipCodeDescending);
         });
 
         const tdElements = screen.getAllByRole('cell').map((td) => td.textContent);
@@ -480,7 +480,7 @@ describe('Successfully renders favorites component', () => {
         expect(location).toBeInTheDocument();
 
         await act(async () => {
-            userEvent.click(location);
+            await userEvent.click(location);
         });
         expect(showDirections).toHaveBeenCalledWith(1, -1);
     });

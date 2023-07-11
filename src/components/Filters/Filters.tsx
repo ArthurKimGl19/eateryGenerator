@@ -77,9 +77,9 @@ export default function Filters({
         currentState: (number | string)[],
         type?: string
     ) => {
-        if (value !== null){
+        if (value !== null) {
             if (type === 'price') {
-                let currentPrice: number = 0;
+                let currentPrice = 0;
                 if (value === '$') {
                     currentPrice = 1;
                 } else if (value === '$$') {
@@ -87,7 +87,8 @@ export default function Filters({
                 } else if (value === '$$$') {
                     currentPrice = 3;
                 }
-                const isValuePresent = currentState.filter((item) => item === currentPrice).length > 0;
+                const isValuePresent =
+                    currentState.filter((item) => item === currentPrice).length > 0;
                 if (!isValuePresent) {
                     updateState([...currentState, currentPrice]);
                 }

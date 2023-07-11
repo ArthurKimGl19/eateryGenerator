@@ -56,7 +56,7 @@ describe('Successfully renders location data for location component', () => {
 
         const button = await screen.findByText(/calculate location/i);
         await act(async () => {
-            userEvent.click(button);
+            await userEvent.click(button);
         });
         const actions = store.getActions();
         expect(actions).toContainEqual(clearGeolocation());
