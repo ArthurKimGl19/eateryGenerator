@@ -174,8 +174,11 @@ const eateriesSlice = createSlice({
             });
             state.favorites = favorites;
         },
-        updateGeolocationFormatted: (state) => {
-            if (!state.geolocationFormatted) state.geolocationFormatted = true;
+        updateGeolocationFormatted: (state, action) => {
+            if (action.payload) state.geolocationFormatted = true;
+        },
+        resetGeolocationFormatted: (state) => {
+            state.geolocationFormatted = false;
         }
     }
 });
@@ -194,6 +197,7 @@ export const {
     formatEateriesProximity,
     formatHistoryProximity,
     formatFavoriteProximity,
-    updateGeolocationFormatted
+    updateGeolocationFormatted,
+    resetGeolocationFormatted
 } = eateriesSlice.actions;
 export default eateriesSlice.reducer;

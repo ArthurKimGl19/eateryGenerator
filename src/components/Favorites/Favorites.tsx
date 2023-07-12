@@ -32,13 +32,17 @@ export default function Favorites(): ReactElement | null {
     ];
 
     React.useEffect(() => {
+        setFavorites(cleanUpData(data));
+    }, [data]);
+
+    React.useEffect(() => {
         dispatch(formatFavoriteProximity());
     }, [geolocationFormatted]);
 
     const favoritesCount = favorites.length;
     return (
-        <Container className="eateries-container">
-            <Container className="eateries-container-filters-sort">
+        <Container className="favorites-container">
+            <Container className="favorites-container-filters-sort">
                 <Filters
                     eateries={favorites}
                     setEateries={setFavorites}

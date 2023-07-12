@@ -32,6 +32,10 @@ export default function Eateries(): ReactElement | null {
     ];
 
     React.useEffect(() => {
+        setEateries(cleanUpData(data));
+    }, [data]);
+
+    React.useEffect(() => {
         dispatch(formatEateriesProximity());
     }, [geolocationFormatted]);
 

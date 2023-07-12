@@ -25,7 +25,7 @@ export default function Randomizer(): ReactElement | null {
             dispatch(formatRandomEateryProximity());
             dispatch(formatEateriesProximity());
             dispatch(formatHistoryProximity());
-            dispatch(updateGeolocationFormatted());
+            dispatch(updateGeolocationFormatted(true));
         }
     };
 
