@@ -7,9 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { cleanUpData } from '../../helpers/dataFunctions';
 import { EateryInterface } from '../../shared/interfaces/eatery.interface';
-import {
-    formatFavoriteProximity,
-} from '../../redux/features/eateries/eateriesSlice';
+import { formatFavoriteProximity } from '../../redux/features/eateries/eateriesSlice';
 import { showDirections } from '../../helpers/directionFunctions';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import Filters from '../Filters/Filters';
