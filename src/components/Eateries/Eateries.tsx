@@ -7,7 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { calculatePrice } from '../../helpers/priceFunctions';
 import { cleanUpData } from '../../helpers/dataFunctions';
 import { EateryInterface } from '../../shared/interfaces/eatery.interface';
-import { formatEateriesProximity } from '../../redux/features/eateries/eateriesSlice';
+import {
+    formatEateriesProximity
+} from '../../redux/features/eateries/eateriesSlice';
 import { showDirections } from '../../helpers/directionFunctions';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import Filters from '../Filters/Filters';
@@ -30,6 +32,10 @@ export default function Eateries(): ReactElement | null {
         'proximity',
         'notes'
     ];
+
+    React.useEffect(() => {
+        setEateries(cleanUpData(data));
+    }, [data]);
 
     React.useEffect(() => {
         dispatch(formatEateriesProximity());

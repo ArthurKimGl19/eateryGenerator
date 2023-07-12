@@ -6,7 +6,11 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { v4 as uuidv4 } from 'uuid';
 
 import { calculatePrice } from '../../helpers/priceFunctions';
-import { clearHistory, clearRandomEatery } from '../../redux/features/eateries/eateriesSlice';
+import {
+    clearHistory,
+    clearRandomEatery,
+    formatHistoryProximity
+} from '../../redux/features/eateries/eateriesSlice';
 import { EateryInterface } from '../../shared/interfaces/eatery.interface';
 import { showDirections } from '../../helpers/directionFunctions';
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
@@ -14,7 +18,13 @@ import './History.css';
 
 export default function History(): ReactElement | null {
     const history = useAppSelector((state) => state.eateries.history);
+    const geolocationFormatted = useAppSelector((state) => state.eateries.geolocationFormatted);
     const dispatch = useAppDispatch();
+
+    React.useEffect(() => {
+        dispatch(formatHistoryProximity());
+    }, [geolocationFormatted]);
+
     const clearHistoryFunctions = function () {
         dispatch(clearHistory());
         dispatch(clearRandomEatery());
