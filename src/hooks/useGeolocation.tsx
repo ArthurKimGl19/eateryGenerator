@@ -4,7 +4,8 @@ import { useAppSelector, useAppDispatch } from '../redux/hooks';
 import {
     updateGeolocationCoordinates,
     updateGeolocationLoading,
-    updateGeolocationError
+    updateGeolocationError,
+    updateGeolocationFormatted
 } from '../redux/features/eateries/eateriesSlice';
 export const useGeolocation = function () {
     const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ export const useGeolocation = function () {
                     const latitude = position.coords.latitude;
                     const longitude = position.coords.longitude;
                     dispatch(updateGeolocationCoordinates({ latitude, longitude }));
+                    dispatch(updateGeolocationFormatted(true));
                     dispatch(updateGeolocationLoading(false));
                 },
                 () => {

@@ -2,7 +2,10 @@ import React, { ReactElement } from 'react';
 import Button from 'react-bootstrap/Button';
 import Loading from '../Loading/Loading';
 
-import { clearGeolocation } from '../../redux/features/eateries/eateriesSlice';
+import {
+    clearGeolocation,
+    resetGeolocationFormatted
+} from '../../redux/features/eateries/eateriesSlice';
 import { useAppDispatch } from '../../redux/hooks';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import './Location.css';
@@ -13,6 +16,7 @@ export default function Location(): ReactElement | null {
     const { latitude, longitude } = coordinates;
     const handleClearGeolocation = () => {
         dispatch(clearGeolocation());
+        dispatch(resetGeolocationFormatted());
     };
 
     if (loading) {
