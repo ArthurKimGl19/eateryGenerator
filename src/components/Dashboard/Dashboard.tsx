@@ -27,7 +27,7 @@ export default function Dashboard(): ReactElement | null {
                             <Location />
                         </Col>
                     </Row>
-                    <Row>
+                    <Row className="randomize-button">
                         <Col>
                             <Randomizer />
                         </Col>
