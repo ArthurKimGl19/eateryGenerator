@@ -25,3 +25,15 @@
     max-width: 500px;
     margin: auto;
 }
+
+@media only screen and (max-width: 480px) {
+    .hero-component {
+        height: 100%;
+    }
+
+    .hero-component .randomize-button {
+        margin-top: 10px;
+    }
+}
+
+
