@@ -9,9 +9,6 @@ import './Navbar.css';
 
 export default function NavbarComponent() {
     const [expanded, setExpanded] = React.useState(false);
-    React.useEffect(() => {
-        console.log('expanded updated ', expanded);
-    }, [expanded]);
     const handleClick = () => {
         setTimeout(() => {
             setExpanded(false);
