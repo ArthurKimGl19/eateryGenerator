@@ -1,9 +1,0 @@
-.sort-container {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.sort-container .sort-asc-option,
-.sort-container .sort-desc-option {
-    text-transform: capitalize;
-}
