@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/614.ffe214a3.chunk.css","mappings":"AAAA,gBAEI,eAAgB,CADhB,yBAEJ","sources":["components/ChartGraph/ChartGraph.css"],"sourcesContent":[".chart-graph h4 {\n    text-transform: capitalize;\n    margin-top: 10px;\n}\n"],"names":[],"sourceRoot":""}
